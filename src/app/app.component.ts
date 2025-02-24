@@ -4,6 +4,7 @@ import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.com
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, LeftSidebarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
