@@ -3,9 +3,11 @@
     <!-- playbook-logo section-->
     <div class="flex gap-16 w-full">
       <div class="flex gap-2">
-        <div class="w-[36px] h-[36px] bg-[url('./app/resources/icons/play-book-logo.svg')] rounded-lg">
-        </div>
-        <div class="text-[#2A29DD] font-medium text-2xl font-(family-name:BentonSans)">Playbook</div>
+        <button class="w-[36px] h-[36px] bg-[url('./app/resources/icons/play-book-logo.svg')] rounded-lg" (click)="toggleCollapse()">
+        </button>
+        @if (!isLeftSidebarCollapsed()) {
+          <div class="text-[#2A29DD] font-medium text-2xl font-(family-name:BentonSans)">Playbook</div>
+        }
       </div>
       <!-- close sidebar section-->
       @if (!isLeftSidebarCollapsed()) {
@@ -25,11 +27,12 @@
                 [routerLinkActiveOptions]="{ exact: true }"
                 >
                 <i class="text-xl font-extrabold"  [class]="item.icon"></i>
-                <span class="text-[#000000] font-normal text-sm font-inter">{{ item.label }}</span>
+                  @if (!isLeftSidebarCollapsed()) {
+                    <span class="text-[#000000] font-normal text-sm font-inter">{{ item.label }}</span>
+                  }
                 </a>
             </li>
         </ul>
-      
       }
     </div>
   </div>
@@ -43,14 +46,17 @@
         <div class="border border-[#9D9D9D] rounded-[200px] w-[40px] h-[40px] bg-[url('./app/resources/icons/profile-picture.svg')] ">
         </div>
         <!-- profile name section-->
-        <div class="">
-          <p class="jona text-[#414651] font-semibold text-sm font-Inter">Joanna</p>
-          <p class="magn text-[#535862] text-sm font-normal font-inter w-[115px]">Product Manager</p>
-        </div>
+        @if (!isLeftSidebarCollapsed()) {
+          <div class="">
+            <p class="jona text-[#414651] font-semibold text-sm font-Inter">Joanna</p>
+            <p class="magn text-[#535862] text-sm font-normal font-inter w-[115px]">Product Manager</p>
+          </div>
+        }
       </div>
       <!-- profile right arrow section-->
-      <div class="w-[36px] h-[36px] rounded-[8px] mx-auto bg-[url('./app/resources/icons/right-arrow-icon.svg')]">
-      </div>
+      @if (!isLeftSidebarCollapsed()) {
+        <div class="w-[36px] h-[36px] rounded-[8px] mx-auto bg-[url('./app/resources/icons/right-arrow-icon.svg')]"></div>
+      }
     </div>
   </div>
 </div>
