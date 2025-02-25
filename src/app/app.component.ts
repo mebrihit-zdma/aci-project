@@ -11,10 +11,9 @@ import { MainContentComponent } from './components/main-content/main-content.com
 })
 export class AppComponent{
   title = 'aci';
-  isLeftSidebarCollapsed = signal<boolean>(true);
+  isLeftSidebarCollapsed = signal<boolean>(false);
   
-
-
+  
   changeIsLeftSidebarCollapsed(isLeftSidebarCollapsed: boolean): void {
     this.isLeftSidebarCollapsed.set(isLeftSidebarCollapsed);
   }

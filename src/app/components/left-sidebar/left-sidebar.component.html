@@ -8,8 +8,10 @@
         <div class="text-[#2A29DD] font-medium text-2xl font-(family-name:BentonSans)">Playbook</div>
       </div>
       <!-- close sidebar section-->
-      <div class="w-[24px] h-[24px] mx-auto bg-[url('./app/resources/icons/close-sidebar.svg')]">
-      </div>
+      @if (!isLeftSidebarCollapsed()) {
+        <button class="w-[24px] h-[24px] mx-auto bg-[url('./app/resources/icons/close-sidebar.svg')]" (click)="closeSidenav()">
+        </button>
+      }
     </div>
     <!-- sidebar nav section-->
     <div class="flex flex-col gap-4">

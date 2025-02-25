@@ -37,4 +37,7 @@ export class LeftSidebarComponent {
   closeSidenav(): void {
     this.changeIsLeftSidebarCollapsed.emit(true);
   }
+  openSidenav(): void {
+    this.changeIsLeftSidebarCollapsed.emit(false);
+  }
 }
