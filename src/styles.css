@@ -21,4 +21,8 @@ html, body{
 .active {
   background: rgba(43, 42, 221, 0.1);
 }
+.sidenav-collapsed{
+  /* width: 64px; */
+ background-color: red;
+}
 

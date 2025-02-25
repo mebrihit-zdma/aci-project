@@ -1,4 +1,4 @@
-<div id="side-nav" class=" bg-white p-4 h-full rounded-2xl py-6 flex flex-col justify-between">
+<div id="side-nav" class=" bg-white p-4 h-full rounded-2xl py-6 flex flex-col justify-between" [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''">
   <div class="flex flex-col gap-8 ">
     <!-- playbook-logo section-->
     <div class="flex gap-16 w-full">
@@ -7,7 +7,8 @@
         </div>
         <div class="text-[#2A29DD] font-medium text-2xl font-(family-name:BentonSans)">Playbook</div>
       </div>
-      <div id="close-sidebar" class="w-[24px] h-[24px] mx-auto bg-[url('./app/resources/icons/close-sidebar.svg')]">
+      <!-- close sidebar section-->
+      <div class="w-[24px] h-[24px] mx-auto bg-[url('./app/resources/icons/close-sidebar.svg')]">
       </div>
     </div>
     <!-- sidebar nav section-->
