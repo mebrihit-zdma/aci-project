@@ -1,11 +1,11 @@
 
-<main class="main">
-  <div class="content">
-    <app-left-sidebar/>
-    <h1 class="text-3xl font-bold underline  text-red-400">
-      Hello world!
-    </h1>
+<main>
+  <div class="flex gap-6  p-6 h-screen overflow-auto">
+    <app-left-sidebar 
+      [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+      (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
+    />
+    <app-main-content/>
   </div>
 </main>
 
-<router-outlet />

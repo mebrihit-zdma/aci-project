@@ -3,7 +3,23 @@
 html, body{
     margin: 0;
     padding: 0;
+    
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url("./app/resources/images/aci-bg-image.svg");
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed;
+    
 }
 *{
     outline: none;
 }
+
+.active {
+  background: rgba(43, 42, 221, 0.1);
+}
+

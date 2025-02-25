@@ -9,6 +9,7 @@ module.exports = {
       extend: {
         colors: {
           midnight: "#121063",
+
         },
       },
     },
