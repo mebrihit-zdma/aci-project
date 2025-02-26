@@ -18,11 +18,19 @@ html, body{
 *{
     outline: none;
 }
+
+
 .active {
   background: rgba(43, 42, 221, 0.1);
 }
-.sidenav-collapsed{
-  /* width: 64px; */
- /* background-color: red; */
-}
 
+.tooltip-text{
+  display: none;
+}
+.tooltip-btn:hover .tooltip-text{
+  display: block;
+}
+.tooltip-btn:hover{
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), rgba(43, 42, 221, 0.1);
+  border-radius: 16px;
+}

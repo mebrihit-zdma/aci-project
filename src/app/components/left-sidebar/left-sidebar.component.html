@@ -1,6 +1,6 @@
-<div id="side-nav" class=" bg-white p-4 h-full rounded-2xl py-6 flex flex-col justify-between">
+<div id="side-nav" class=" bg-white p-4 h-full rounded-2xl py-6 flex flex-col justify-between" [ngClass]="isLeftSidebarCollapsed() ? 'w-[78]' : ''">
   <div class="flex flex-col gap-6 ">
-    <!-- playbook-logo section-->
+    <!-- playbook-logo section -->
     <div class="flex gap-16 w-full">
       <div class="flex gap-2">
         <button class="w-[36px] h-[36px] bg-[url('./app/resources/icons/play-book-logo.svg')] rounded-lg" (click)="toggleCollapse()">
@@ -9,26 +9,31 @@
           <div class="text-[#2A29DD] font-medium text-2xl font-(family-name:BentonSans)">Playbook</div>
         }
       </div>
-      <!-- close sidebar section-->
+      <!-- close sidebar section -->
       @if (!isLeftSidebarCollapsed()) {
         <button class="w-[24px] h-[24px] mx-auto bg-[url('./app/resources/icons/close-sidebar.svg')]" (click)="closeSidenav()">
         </button>
       }
     </div>
-    <!-- sidebar nav section-->
+    <!-- sidebar nav section -->
     <div class="flex flex-col gap-2">
       @for (item of items; track $index) {
         <ul class="w-full">
             <li class="w-full">
                 <a
-                class="sidenav-nav-link flex gap-x-2 items-center rounded-xl p-3"
+                class="sidenav-nav-link flex gap-x-2 items-center rounded-2xl p-3 relative"
+                [ngClass]="isLeftSidebarCollapsed() ? 'tooltip-btn' : ''"
                 [routerLink]="item.routeLink"
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true }"
                 >
-                <i class="text-xl font-extrabold"  [class]="item.icon"></i>
+                  <i class="text-xl font-extrabold"  [class]="item.icon"></i>
                   @if (!isLeftSidebarCollapsed()) {
                     <span class="text-[#000000] font-normal text-sm font-inter">{{ item.label }}</span>
+                  }
+                  <!-- text  tooltip section -->
+                  @if (isLeftSidebarCollapsed()) {
+                    <span class="tooltip-text text-[#FFFFFF] bg-[#3D3B3B] rounded-sm py-[4px] px-[8px] font-normal text-sm font-inter absolute  left-[112%]">{{ item.label }}</span>
                   }
                 </a>
             </li>
@@ -37,7 +42,7 @@
     </div>
   </div>
   
-  <!-- user profile section-->
+  <!--user profile section -->
   <div class="flex flex-col gap-4">
     <div class="bg-[#E9EAEB] h-[1px]"></div>
     <div class="flex gap-16 w-full">
