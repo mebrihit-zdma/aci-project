@@ -33,3 +33,17 @@ html, body{
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), rgba(43, 42, 221, 0.1);
   border-radius: 16px;
 }
+/* documentation */
+.documentation{
+ /* Vector */
+
+position: absolute;
+left: 8.33%;
+right: 9.05%;
+top: 9.05%;
+bottom: 8.33%;
+
+border: 2px solid #000000;
+
+ 
+}
