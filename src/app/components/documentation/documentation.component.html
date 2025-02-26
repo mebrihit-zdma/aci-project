@@ -8,15 +8,15 @@
                 <!-- sources dropdown section -->
                 <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
                     <select [(ngModel)]="selectedOption1">
-                        <option value="" disabled selected>Sources</option>
-                        <option *ngFor="let source of sources" [value]="source">{{ source }}</option>
+                        <option class="bg-gray-200 text-black" value="" disabled selected>Sources</option>
+                        <option class="bg-gray-200 text-black" *ngFor="let source of sources" [value]="source">{{ source }}</option>
                     </select>
                 </div>
                 <!-- template dropdown section -->
                 <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
                     <select [(ngModel)]="selectedOption2" class="px-[4px]">
-                        <option value="" disabled selected>Select Template</option>
-                        <option *ngFor="let template of templates" [value]="template">{{ template }}</option>
+                        <option class="bg-gray-200 text-black" value="" disabled selected>Select Template</option>
+                        <option class="bg-gray-200 text-black" *ngFor="let template of templates" [value]="template">{{ template }}</option>
                     </select>
                 </div>
                 
