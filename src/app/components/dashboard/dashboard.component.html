@@ -1,4 +1,4 @@
-<div class="pt-18 flex flex-col gap-6 me-4">
+<div class="pt-18 flex flex-col gap-4 me-4">
     <p class="font-medium text-2xl font-Inter text-[#19213D]">Welcome Joanna!</p>
     <div class="flex gap-4">
         <div class="card bg-white border border-[#D5D7DA] rounded-lg w-[33%] h-[310px]"></div>
@@ -6,7 +6,55 @@
         <div class="card bg-white border border-[#D5D7DA] rounded-lg w-[33%] h-[310px]"></div>
     </div>
     <p class="font-medium text-base font-Inter text-[#19213D]">Release History</p>
-    <div></div>
+    <div class="flex justify-between">
+        <div class="flex gap-[8px]">
+            <!--/* Search */-->
+            <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium w-[273px]">
+                <i class="fas fa-search"></i>
+                Search 
+            </div>
+            <!--/* Filter */-->
+            <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
+                <span class="w-[18.33px] h-[18.33px] bg-[url('./app/resources/icons/filter-icon.svg')]">
+                </span>
+            </div>
+        </div>
+        <div>
+            <button class="text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] py-[10px] rounded-lg border border-[#D5D7DA]">
+                <span class="w-[18.33px] h-[18.33px] bg-[url('./app/resources/icons/white-stars.svg')]">
+                </span>
+                Create Documentation
+            </button>
+        </div>
+    </div>
+    <!-- release history list-->
+    <div class="bg-white border border-[#E9EAEB] rounded-xl text-sm">
+        <div class="grid grid-cols-7 gap-4 border-b-1 border-[#E9EAEB] py-3 px-4">
+            <div class="flex gap-2 justify-start items-center">
+                <span class="w-[20px] h-[20px] bg-[url('./app/resources/icons/checkbox-icon.svg')]">
+                </span>
+                Documentation
+            </div>
+            <div class="">Product</div>
+            <div class="">Type</div>
+            <div class="">Status</div>
+            <div class="">Delivery date</div>
+            <div class="">Executed by</div>
+        </div>
+        <div class="grid grid-cols-7 gap-4 border-b-1 border-[#E9EAEB] py-5 px-4" *ngFor="let item of documentationData">
+            <div class="flex gap-2 justify-start items-center">
+                <span class="w-[20px] h-[20px] bg-[url('./app/resources/icons/checkbox-icon.svg')]">
+                </span>
+                {{ item.documentation }}
+            </div>
+            <div class="">{{ item.product }}</div>
+            <div class="">{{ item.type }}</div>
+            <div class="">{{ item.status }}</div>
+            <div class="">{{ item.deliveryDate }}</div>
+            <div class="">{{ item.executedBy }}</div>
+            <div class="text-[#2726DD] font-semibold">{{ item.view }}</div>
+        </div>
+    </div>
 </div>
 
 
