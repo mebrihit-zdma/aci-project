@@ -14,7 +14,7 @@ html, body{
     background-position: center; 
     background-attachment: fixed;
 
-    /* font-family: 'Inter'; */
+    font-family: 'Inter';
     
 }
 *{
@@ -43,10 +43,5 @@ html, body{
 /* documentation */
 .documentation{
   
-font-family: 'Inter';
-
-
-
-
 
 }
