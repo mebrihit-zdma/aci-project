@@ -37,4 +37,16 @@ export class DashboardComponent {
     },
   ];
 
+  paymentHubUpdates = [
+    { 
+      latestUpdate: "Latest Update", 
+      title: "What’s new in Payment Hub 1.2.3-A", 
+      Updatelist: [
+        "Enhanced transaction security to prevent unauthorized access.",
+        "Improved API response times by 30% for better performance.",
+        "Introduced a new fraud detection feature to minimize risk."
+      ],
+    },
+  ]
+
 }
