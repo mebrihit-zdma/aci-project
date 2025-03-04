@@ -1,0 +1,9 @@
+
+<div class="flex gap-6  p-6 h-screen">
+    <app-left-sidebar 
+        [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+        (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
+    />
+    <app-main-content class="flex-1"/>
+</div>
+
