@@ -43,19 +43,8 @@ html, body{
 /* documentation */
 .documentation{
   
-display: flex;
-/* flex-direction: column; */
-justify-content: center;
-align-items: flex-start;
-padding: 16px 24px;
-gap: 16px;
 
-
-
-/* background: #FFFFFF; */
-border: 1px solid #D5D7DA;
-border-radius: 16px;
-
+font-weight: 500;
 
 
 }

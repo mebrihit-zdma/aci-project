@@ -1,1 +1,147 @@
-<p class="w-[100px] h-[100px] bg-black">on-boarding-page works!</p>
+<div class="w-full h-screen flex justify-center items-center overflow-auto">
+    <div class="p-4 h-full py-6 flex flex-col justify-between w-[50%]">
+        <div class="flex flex-col gap-[10px] w-[660px] justify-center items-center mt-[6%]">
+            <p class="text-[#101828] font-semibold text-[32px] text-center tracking-[-0.02em] ">Confirm your role</p>
+            <p class="text-[#30425C] text-[20px] font-medium text-center">
+                We've identified your role based on your login. If this is incorrect, you can update it below.
+            </p>
+        </div>
+
+
+        <div class="flex flex-col justify-center items-center mb-[10%] gap-[24px]">
+            <!-- role section -->
+            <div class="flex flex-col gap-[32px] w-full">
+                <div class="flex">
+                    <div class="mt-[-4px] w-[36px] h-[36px] scale-[0.7] bg-[url('./app/resources/icons/blue-chat-icon.svg')]"></div>
+                    <p class="bg-white flex py-[10px] px-[12px] w-[68%]  border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg pe-[40px]">I see your role is Product Owner. Does that look right to you?</p>
+                </div>
+                <div class="flex justify-end">
+                    <div class="flex gap-[8px]">
+                        <label class="bg-white flex justify-center items-center py-[8px] px-[16px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[4px]">
+                            <input type="radio" id="yes" name="role" value="yes">
+                            Yes, that’s correct
+                        </label>
+                        <label class="bg-white flex justify-center items-center py-[8px] px-[16px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[4px]">
+                            <input type="radio" id="no" name="role" value="no">
+                            No, I want to change it
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+             <!-- products section -->
+            <div class="flex flex-col gap-[32px] w-full">
+                   <!-- products question section -->
+                <div class="flex">
+                    <div class="mt-[-4px] w-[36px] h-[36px] scale-[0.7] bg-[url('./app/resources/icons/blue-chat-icon.svg')]"></div>
+                    <p class="bg-white flex py-[10px] px-[12px] w-[68%]  border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg pe-[40px]">Next, let’s set up your workspace. Select the products you are actively working on</p>
+                </div>
+                 <!-- products search section -->
+                <div class="flex justify-end">
+                    <div class="flex gap-[8px]">
+                        <div class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[4px]">
+                            <input type="radio" id="Search" name="Search" value="Search">
+                            <label for="html">Search for a product...</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- products radio button section -->
+                <div class="flex justify-end">
+                    <div class="flex gap-[8px]">
+                        <label class="bg-white flex justify-center items-center py-[8px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[32px] relative">
+                            <!--/* label */-->
+                            <div class="flex flex-col gap-[8px] me-[32px] py-[8px]">
+                                <div class="text-base text-[#2A282F] leading-[18px] font-semibold">
+                                    <p>Low Value</p>
+                                    <p class="">Payments</p>
+                                </div>
+                                <div class="text-[#A8A6AC] text-sm leading-[18px]">
+                                    <p class="">UPF</p>
+                                    <p class="">V-1.2.4-A</p>
+                                </div>
+                            </div>
+                            <input type="radio" name="products" value="lowValue" class="absolute top-[8px] right-[8px] ">
+                        </label>
+                        <label class="bg-white flex justify-center items-center py-[8px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[32px] relative">
+                            <div class="flex flex-col gap-[8px] me-[32px] py-[8px]">
+                                <div class="text-base text-[#2A282F] leading-[18px] font-semibold">
+                                    <p>Low Value</p>
+                                    <p class="">Payments</p>
+                                </div>
+                                <div class="text-[#A8A6AC] text-sm leading-[18px]">
+                                    <p class="">UPF</p>
+                                    <p class="">V-1.2.4-A</p>
+                                </div>
+                            </div>
+                            <input type="radio" name="products" value="aci" class="absolute top-[8px] right-[8px] ">
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- personalize your dashboard section -->
+            <div class="flex flex-col gap-[32px] w-full">
+                   <!-- personalize your dashboard question section -->
+                <div class="flex">
+                    <div class="mt-[-4px] w-[36px] h-[36px] scale-[0.7] bg-[url('./app/resources/icons/blue-chat-icon.svg')]"></div>
+                    <p class="bg-white flex py-[10px] px-[12px] w-[68%]  border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg pe-[40px]">Personalize your dashboard by selecting the content you find most valuable. We’ve pre-selected a few options for you.</p>
+                </div>
+                <!-- personalize your dashboard radio button section -->
+                <div class="flex justify-end">
+                    <div class="w-[90%] grid grid-cols-2 gap-[8px] ">
+                        <label class="bg-white flex justify-center items-center py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[16px] relative">
+                            <div class="w-[57px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
+                            <div class="flex flex-col gap-[2px] me-[32px]">
+                                <p class="text-base leading-[150%] font-semibold ">User Engagement Metrics</p>
+                                <p class="leading-[130%] text-[#19213D] text-sm font-medium">Understand Frequently asked questions from a product</p>
+                            </div>
+                            <input type="radio" name="personalize" value="personalize" class="absolute top-[10px] right-[10px] ">
+                        </label>
+                        <label class="bg-white flex justify-center items-center py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[16px] relative">
+                            <div class="w-[57px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
+                            <div class="flex flex-col gap-[2px] me-[32px]">
+                                <p class="text-base leading-[150%] font-semibold ">User Engagement Metrics</p>
+                                <p class="leading-[130%] text-[#19213D] text-sm font-medium">Understand Frequently asked questions from a product</p>
+                            </div>
+                            <input type="radio" name="personalize" value="personalize" class="absolute top-[10px] right-[10px] ">
+                        </label>
+                        <label class="bg-white flex justify-center items-center py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[16px] relative">
+                            <div class="w-[57px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
+                            <div class="flex flex-col gap-[2px] me-[32px]">
+                                <p class="text-base leading-[150%] font-semibold ">User Engagement Metrics</p>
+                                <p class="leading-[130%] text-[#19213D] text-sm font-medium">Understand Frequently asked questions from a product</p>
+                            </div>
+                            <input type="radio" name="personalize" value="personalize" class="absolute top-[10px] right-[10px] ">
+                        </label>
+                        <label class="bg-white flex justify-center items-center py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[16px] relative">
+                            <div class="w-[57px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
+                            <div class="flex flex-col gap-[2px] me-[32px]">
+                                <p class="text-base leading-[150%] font-semibold ">User Engagement Metrics</p>
+                                <p class="leading-[130%] text-[#19213D] text-sm font-medium">Understand Frequently asked questions from a product</p>
+                            </div>
+                            <input type="radio" name="personalize" value="personalize" class="absolute top-[10px] right-[10px] ">
+                        </label>
+                        <label class="bg-white flex justify-center items-center py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[16px] relative">
+                            <div class="w-[57px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
+                            <div class="flex flex-col gap-[2px] me-[32px]">
+                                <p class="text-base leading-[150%] font-semibold ">User Engagement Metrics</p>
+                                <p class="leading-[130%] text-[#19213D] text-sm font-medium">Understand Frequently asked questions from a product</p>
+                            </div>
+                            <input type="radio" name="personalize" value="personalize" class="absolute top-[10px] right-[10px] ">
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!--/* cancel and next button */-->
+            <div class="flex justify-between w-full mb-[10%] mt-[3%]">
+                <button (click)="goToDashboard()" class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm">
+                    Cancel
+                </button>
+                <button (click)="goToDashboard()" class="bg-white flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

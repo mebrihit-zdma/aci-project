@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-on-boarding-page',
@@ -10,5 +11,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './on-boarding-page.component.css'
 })
 export class OnBoardingPageComponent {
+  constructor(private router: Router) {}
 
+  goToDashboard() {
+    this.router.navigate(['/dashboard-page']);
+  }
 }
