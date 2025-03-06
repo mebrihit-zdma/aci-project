@@ -27,15 +27,15 @@ export class OnBoardingPageComponent {
   isPersonalizeDashboardNextButtonActive = false
 
   roleAnswered(){
-    this.isRoleNextButtonActive = !this.isRoleNextButtonActive
+    this.isRoleNextButtonActive = true
   }
 
   productsAnswered(){
-    this.isProductsNextButtonActive = !this.isProductsNextButtonActive
+    this.isProductsNextButtonActive = true
   }
 
   personalizeDashboardAnswered(){
-    this.  isPersonalizeDashboardNextButtonActive = !this.  isPersonalizeDashboardNextButtonActive
+    this.isPersonalizeDashboardNextButtonActive = true
   }
 
   goToPoductsSection() {
@@ -48,11 +48,10 @@ export class OnBoardingPageComponent {
     this.hiddenPersonalizeDashboardSection = !this.hiddenPersonalizeDashboardSection; 
   }
 
-
   goToPervSection() {
     this.router.navigate(['/dashboard-page']);
   }
-
+  
   goToDashboard() {
     this.router.navigate(['/dashboard-page']);
   }
