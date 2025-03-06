@@ -40,11 +40,24 @@ html, body{
   background: rgba(39, 38, 221, 0.1);
 }
 
+.dnone{
+  display: none;
+}
+.dblock{
+  display: block;
+}
+
+button.active {
+  background-color: #2726DD;
+  color: white;
+}
+.disabled{
+  opacity: 0.5;
+  pointer-events: none;
+
+}
+
 /* documentation */
 .documentation{
   
-
-font-weight: 500;
-
-
 }

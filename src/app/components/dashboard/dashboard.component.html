@@ -36,10 +36,8 @@
     </div>
     <!-- release history list-->
     <ul class="bg-white border border-[#E9EAEB] rounded-xl text-sm text-[#535862] text-sm ">
-        <li class="grid grid-cols-7 gap-4 border-b-1 border-[#E9EAEB] py-3 px-4">
+        <li class="grid grid-cols-7 gap-4 border-b-1 border-[#E9EAEB] py-3 px-4 ps-[24px]">
             <div class="flex gap-2 justify-start items-center">
-                <span class="w-[20px] h-[20px] bg-[url('./app/resources/icons/checkbox-icon.svg')]">
-                </span>
                 Documentation
             </div>
             <div class="">Product</div>
@@ -48,10 +46,8 @@
             <div class="">Delivery date</div>
             <div class="">Executed by</div>
         </li>
-        <li class="grid grid-cols-7 gap-4 border-b-1 border-[#E9EAEB] py-5 px-4 last:border-b-0" *ngFor="let item of documentationData">
+        <li class="grid grid-cols-7 gap-4 border-b-1 border-[#E9EAEB] py-5 px-4 ps-[24px] last:border-b-0" *ngFor="let item of documentationData">
             <div class="flex gap-2 justify-start items-center">
-                <span class="w-[20px] h-[20px] bg-[url('./app/resources/icons/checkbox-icon.svg')]">
-                </span>
                 {{ item.documentation }}
             </div>
             <div class="">{{ item.product }}</div>
