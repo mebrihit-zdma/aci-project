@@ -22,14 +22,26 @@ export class OnBoardingPageComponent {
   disableProductsSection = false;
   disablePersonalizeDashboardSection = false;
 
-  goToRoleSection() {
-    
+  isRoleNextButtonActive = false
+  isProductsNextButtonActive = false
+  isPersonalizeDashboardNextButtonActive = false
+
+  roleAnswered(){
+    this.isRoleNextButtonActive = !this.isRoleNextButtonActive
   }
-  isActive = false;
+
+  productsAnswered(){
+    this.isProductsNextButtonActive = !this.isProductsNextButtonActive
+  }
+
+  personalizeDashboardAnswered(){
+    this.  isPersonalizeDashboardNextButtonActive = !this.  isPersonalizeDashboardNextButtonActive
+  }
+
   goToPoductsSection() {
     this.disableRoleSection = !this.disableRoleSection;
     this.hiddenProductsSection = !this.hiddenProductsSection; 
-    // this.isActive = !this.isActive;
+
   }
   goToPersonalizeDashboardSection() {
     this.disableProductsSection = !this.disableProductsSection;
