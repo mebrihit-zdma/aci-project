@@ -1,9 +1,28 @@
 
-<div class="flex gap-6  p-6 h-screen">
+<div class="flex gap-6  p-6 h-screen opacity-[0.6]">
     <app-left-sidebar 
         [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
         (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
     />
     <app-main-content class="flex-1"/>
+</div>
+
+<!--/* model section */-->
+<div class="mmmmtests">
+    <div class="flex flex-col bg-white p-[24px] gap-[16px] w-[400px] h-[400px] items-center rounded-[12px] absolute dashboard-model">
+        <div class="w-[352px] h-[200px] bg-[url('./app/resources/images/dashboard-tooltip-image.svg')] rounded-lg">
+        </div>
+        <p class="font-semibold text-lg text-[#101828] mb-[-10px]">Welcome to your dashboard</p>
+        <p class="text-sm text-center text-[#475467] leading-[20px]">We’re glad to have you onboard. Here are some quick tips to get you up and running.</p>
+        <!-- skip and next button -->
+        <div class="flex justify-between w-full mt-[10px]">
+            <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[170px]">
+                Skip
+            </button>
+            <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[170px]">
+                Next
+            </button>
+        </div>
+    </div>
 </div>
 

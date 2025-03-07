@@ -38,13 +38,18 @@ html, body{
 .paymentHubCard{
   background: rgba(39, 38, 221, 0.1);
 }
+.dashboard-model{
+  left: calc(50% - 400px/2);
+  top: calc(50% - 420px/2);
+  box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+}
+/* on boarding */
 .dnone{
   display: none;
 }
 .dblock{
   display: block;
 }
-
 .disabled{
   opacity: 0.5;
   pointer-events: none;
@@ -79,4 +84,11 @@ input[type='radio']:checked:after {
   content:url('./app/resources/icons/blue-checkmark-icon.svg');
   display: inline-block;
   visibility: visible;
+}
+
+/* test */
+
+
+.testTest{
+ 
 }
