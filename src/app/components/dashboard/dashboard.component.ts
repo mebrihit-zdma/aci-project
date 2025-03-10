@@ -74,16 +74,22 @@ export class DashboardComponent {
   aciPaymentHubTooltip = false;
   createDocTooltip = false;
 
+  dashboardModelDone = false;
+  aciPaymentHubTooltipDone = false;
+  createDocTooltipDone = false;
+
   skipTooltip(){
     this.skipTooltipValue = true;
   }
 
   goToAciPaymentHubTooltip(){
     this.aciPaymentHubTooltip = true;
+    this.dashboardModelDone = true;
   }
 
   goToCreateDocTooltip(){
     this.createDocTooltip = true;
+    this.aciPaymentHubTooltipDone = true;
   }
 
 }
