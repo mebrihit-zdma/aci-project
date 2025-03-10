@@ -85,14 +85,13 @@ input[type='radio']:checked:after {
   display: inline-block;
   visibility: visible;
 }
-
-.tooltip-div {
+.create-documentation-tooltip{
   left: -180%; 
   top: -50%; 
   z-index: 100;
 }
-.tooltip::after,
-.tooltip::before {
+.create-documentation-tooltip::after,
+.create-documentation-tooltip::before {
   content: "";
   position: absolute;
   background-color: white;
