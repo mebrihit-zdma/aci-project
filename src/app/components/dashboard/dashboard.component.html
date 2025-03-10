@@ -4,8 +4,8 @@
         <!-- sources and template dropdown section -->
         <div class="flex relative">
             <div class="flex gap-[16px]" 
-                [ngClass]="!skipTooltipValue? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''" 
-                [ngClass]="aciPaymentHubTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''">
+                [ngClass]="(!aciPaymentHubTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''" 
+                [ngClass]="aciPaymentHubTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''" >
                 <!-- ACI payment hub dropdown section -->
                 <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
                     <select>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <!-- ACI payment hub tooltip -->
-            <div [ngClass]="!skipTooltipValue? 'dblock' : ' dnone'" 
+            <div [ngClass]="(!aciPaymentHubTooltipDone)? 'dblock' : ' dnone'" 
                 [ngClass]="aciPaymentHubTooltip? 'dblock' : ' dnone'" 
                 >
                 <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute aci-payment-hub-tooltip">
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="flex gap-[16px] relative">
-            <div [ngClass]="!skipTooltipValue? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''"
+            <div [ngClass]="!createDocTooltipDone? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''"
                 [ngClass]="createDocTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''">
                 <button class="text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] py-[10px] rounded-lg   border border-[#D5D7DA]">
                     <span class="w-[18.33px] h-[18.33px] bg-[url('./app/resources/icons/white-stars.svg')]">
@@ -71,7 +71,7 @@
                 </button>
             </div>
             <!-- create documentation tooltip -->
-            <div [ngClass]="!skipTooltipValue? 'dblock' : ' dnone'" 
+            <div [ngClass]="!createDocTooltipDone? 'dblock' : ' dnone'" 
                 [ngClass]="createDocTooltip? 'dblock' : ' dnone'">
                 <div class="flex flex-col bg-white p-[18px] gap-[16px] w-[384px] h-[146px] items-center rounded-[12px] absolute create-documentation-tooltip">
                     <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Click this button to start generating your documentation</p>
@@ -79,8 +79,8 @@
                         <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px]" (click)="skipTooltip()">
                             Skip
                         </button>
-                        <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px]">
-                            Next
+                        <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px]" (click)="doneWithTooltip()">
+                            Done
                         </button>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
         </div>
     </div>
     <!-- release history list-->
-    <ul class="bg-white border border-[#E9EAEB] rounded-xl text-sm text-[#535862] text-sm opacity-[0.6]">
+    <ul class="bg-white border border-[#E9EAEB] rounded-xl text-sm text-[#535862] text-sm">
         <li class="grid grid-cols-7 gap-4 border-b-1 border-[#E9EAEB] py-3 px-4 ps-[24px]">
             <div class="flex gap-2 justify-start items-center">
                 Documentation

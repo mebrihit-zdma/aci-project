@@ -15,4 +15,44 @@ export class DocumentationComponent {
 
   sources = ['JIRA-ADA-516', 'JIRA-ADA-516'];
   templates = ['User ManuL', 'Release Notes'];
+
+
+  // tooltip
+  skipTooltipValue = false;
+  sourcesTemplateTooltip = false;
+  exportPublishTooltip = false;
+  generateTooltip =false;
+  editorTooltip =false;
+
+  sourcesTemplateTooltipDone = false;
+  exportPublishTooltipDone = false;
+  generateTooltipDone = false;
+  editorTooltipDone = false;
+
+
+  skipTooltip(){
+    this.skipTooltipValue = true;
+  }
+
+  // goToAciSourcesTemplateTooltip(){
+  //   this.aciPaymentHubTooltip = true;
+  //   this.dashboardModelDone = true;
+  // }
+
+  goToExportPublishTooltip(){
+    this.sourcesTemplateTooltipDone = true;
+    this.exportPublishTooltip = true;
+  }
+
+  goToGenerateTooltip(){
+    this.exportPublishTooltipDone = true;
+    this.generateTooltip = true;
+  }
+  goToEditorTooltip(){
+    this.generateTooltipDone = true;
+    this.editorTooltip = true;
+  }
+  doneWithTooltip(){
+    this.editorTooltipDone = true;
+  }
 }
