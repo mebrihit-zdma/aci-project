@@ -18,7 +18,7 @@ export class OnBoardingPageComponent {
   hiddenPersonalizeDashboardSection = true;
 
   // disable the questions after answered
-  disableRoleSection= false;
+  disableRoleSection = false;
   disableProductsSection = false;
   disablePersonalizeDashboardSection = false;
 

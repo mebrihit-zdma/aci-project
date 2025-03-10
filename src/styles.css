@@ -87,7 +87,7 @@ input[type='radio']:checked:after {
 }
 /* create documentation */
 .create-documentation-tooltip{
-  left: -180%; 
+  left: -170%; 
   top: -50%; 
   z-index: 100;
 }

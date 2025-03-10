@@ -68,4 +68,22 @@ export class DashboardComponent {
       learnMore:"View Past Release Notes"
     },
   ]
+
+  // tooltip
+  skipTooltipValue = false;
+  aciPaymentHubTooltip = false;
+  createDocTooltip = false;
+
+  skipTooltip(){
+    this.skipTooltipValue = true;
+  }
+
+  goToAciPaymentHubTooltip(){
+    this.aciPaymentHubTooltip = true;
+  }
+
+  goToCreateDocTooltip(){
+    this.createDocTooltip = true;
+  }
+
 }
