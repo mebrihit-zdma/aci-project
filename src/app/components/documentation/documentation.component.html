@@ -4,24 +4,37 @@
         <!-- documentation dropdown section -->
         <div class="flex justify-between">
             <!--/* left section */-->
-            <div class="flex gap-[16px]">
-                <!-- sources dropdown section -->
-                <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
-                    <select [(ngModel)]="selectedOption1">
-                        <option class="bg-gray-200 text-black" value="" disabled selected>Sources</option>
-                        <option class="bg-gray-200 text-black" *ngFor="let source of sources" [value]="source">{{ source }}</option>
-                    </select>
+            <div class="flex flex-col relative ">
+                <div class="flex gap-[16px]">
+                    <!-- sources dropdown section -->
+                    <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
+                        <select [(ngModel)]="selectedOption1">
+                            <option class="bg-gray-200 text-black" value="" disabled selected>Sources</option>
+                            <option class="bg-gray-200 text-black" *ngFor="let source of sources" [value]="source">{{ source }}</option>
+                        </select>
+                    </div>
+                    <!-- template dropdown section -->
+                    <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
+                        <select [(ngModel)]="selectedOption2" class="px-[4px]">
+                            <option class="bg-gray-200 text-black" value="" disabled selected>Select Template</option>
+                            <option class="bg-gray-200 text-black" *ngFor="let template of templates" [value]="template">{{ template }}</option>
+                        </select>
+                    </div>
                 </div>
-                <!-- template dropdown section -->
-                <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
-                    <select [(ngModel)]="selectedOption2" class="px-[4px]">
-                        <option class="bg-gray-200 text-black" value="" disabled selected>Select Template</option>
-                        <option class="bg-gray-200 text-black" *ngFor="let template of templates" [value]="template">{{ template }}</option>
-                    </select>
+                <!--/* tooltip */-->
+                <div class="flex flex-col bg-white p-[18px] gap-[16px] w-[384px] h-[146px] items-center rounded-[12px] absolute sources-template-tooltip ">
+                    <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Use these buttons to choose your sources and select a template before getting started.</p>
+                    <div class="flex justify-between w-full mt-[10px]">
+                        <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px]">
+                            Skip
+                        </button>
+                        <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px]">
+                            Next
+                        </button>
+                    </div>
                 </div>
-                
             </div>
-            <!--/* right section */-->
+            <!--/* right section buttons*/-->
             <div class="flex gap-[16px]">
                 <button class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
                     <span class="w-[21.83px] h-[21.83px] bg-[url('./app/resources/icons/download-icon.svg')]">
@@ -32,7 +45,7 @@
             </div>
         </div>
         <!-- documentation section -->
-        <div class="bg-white flex flex-col gap-[16px] w-full h-full justify-center items-center rounded-lg px-6 py-8">
+        <div class="bg-white flex flex-col gap-[16px] w-full h-full justify-center items-center rounded-lg px-6 py-8 opacity-[0.6]">
             <p class="text-[#666F8D] text-sm">Upload Sources to get started</p>
             <button class="text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] py-[10px] rounded-lg border border-[#D5D7DA]">
                 <span class="w-[18.33px] h-[18.33px] bg-[url('./app/resources/icons/white-stars.svg')]">

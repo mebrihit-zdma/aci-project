@@ -86,21 +86,11 @@ input[type='radio']:checked:after {
   visibility: visible;
 }
 
-/* test */
-
-
-.testTest{
-
-
-}
-
 .tooltip-div {
   left: -180%; 
   top: -50%; 
   z-index: 100;
 }
-
-
 .tooltip::after,
 .tooltip::before {
   content: "";
@@ -116,4 +106,22 @@ input[type='radio']:checked:after {
   -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
   -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
 }
-
+.sources-template-tooltip{
+  top: 170%; 
+  z-index: 100;
+}
+.sources-template-tooltip::after,
+.sources-template-div-tooltip::before {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  top: -14px;
+  left:50%;
+  transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -webkit-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -moz-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+}
