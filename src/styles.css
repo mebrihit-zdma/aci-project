@@ -108,7 +108,7 @@ input[type='radio']:checked:after {
 }
 /* sources and template */
 .sources-template-tooltip{
-  top: 170%; 
+  top: 140%; 
   z-index: 100;
 }
 .sources-template-tooltip::after,
@@ -128,8 +128,8 @@ input[type='radio']:checked:after {
 }
 /* export and publish */
 .export-publish-tooltip{
-  top: 170%; 
-  left: -50%;
+  top: 140%; 
+  left: -30%;
   z-index: 100;
 }
 .export-publish-tooltip::after,
@@ -194,8 +194,8 @@ input[type='radio']:checked:after {
 }
 /* ACI Payment Hub */
 .aci-payment-hub-tooltip{
-  top:-110%;
-  left:130%;
+  top:-70%;
+  left:120%;
   z-index: 100;
 }
 .aci-payment-hub-tooltip::after,
