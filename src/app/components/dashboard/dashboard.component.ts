@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-    paymentHubUpdates = [
+  paymentHubUpdates = [
     { 
       latestUpdate: "Latest Update", 
       title: "What’s new in Payment Hub 1.2.3-A", 
@@ -42,33 +42,6 @@ export class DashboardComponent {
     },
   ]
 
-  documentationData = [
-    { documentation: "Payment_Hub_1.2.3-A", 
-      product: "UTF", 
-      type: "Release Notes",
-      status: "In Progress",
-      deliveryDate: "",
-      executedBy: "Gulse",
-      view: "",
-    },
-    { documentation: "Payment_Hub_1.2.3-A", 
-      product: "UTF", 
-      type: "Release Notes",
-      status: "Published",
-      deliveryDate: "Jan 13, 2025",
-      executedBy: "Jeannie",
-      view: "View",
-    },
-    { documentation: "Payment_Hub_1.2.3-A", 
-      product: "UTF", 
-      type: "User Manual",
-      status: "Published",
-      deliveryDate: "Jan 13, 2025",
-      executedBy: "Meera",
-      view: "View",
-    },
-  ];
-
   releaseHistory = [
     { documentation: "Payment_Hub_1.2.3-A", 
       product: "UTF", 
@@ -95,7 +68,7 @@ export class DashboardComponent {
       view: "View",
     },
   ];
-
+  
   // tooltip
   skipTooltipValue = false;
   aciPaymentHubTooltip = false;

@@ -14,6 +14,7 @@ html, body{
     background-attachment: fixed;
 
     font-family: 'Inter';
+   
     
 }
 *{
@@ -84,6 +85,17 @@ input[type='radio']:checked:after {
   content:url('./app/resources/icons/blue-checkmark-icon.svg');
   display: inline-block;
   visibility: visible;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  
+  z-index: 100
 }
 /* create documentation */
 .create-documentation-tooltip{
@@ -180,8 +192,7 @@ input[type='radio']:checked:after {
 .generate-documentation-tooltip::before {
   content: "";
   position: absolute;
-  background-color: black;
-  /* background-color: white; */
+  background-color: white;
   height: 30px;
   width: 30px;
   top: -14px;
@@ -196,7 +207,7 @@ input[type='radio']:checked:after {
 .aci-payment-hub-tooltip{
   top:-70%;
   left:120%;
-  z-index: 100;
+  z-index: 100020;
 }
 .aci-payment-hub-tooltip::after,
 .aci-payment-hub-tooltip::before {
@@ -212,4 +223,7 @@ input[type='radio']:checked:after {
   -moz-transform: translate(-50%, -10%) rotate(45deg) scale(1);
   -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
   -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+
+  opacity: 1; /* Adjust transparency */
+  z-index: 100;
 }
