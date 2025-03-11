@@ -27,21 +27,29 @@ export class DocumentationComponent {
   generateTooltipDone = false;
   editorTooltipDone = false;
 
-  skipTooltip(){
-    this.skipTooltipValue = true;
+  skipSourcesTemplateTooltip(){
+    this.sourcesTemplateTooltipDone = true;
   }
   goToExportPublishTooltip(){
     this.sourcesTemplateTooltipDone = true;
     this.exportPublishTooltip = true;
   }
-
+  skipExportPublishTooltip(){
+    this.exportPublishTooltipDone = true;
+  }
   goToGenerateTooltip(){
     this.exportPublishTooltipDone = true;
     this.generateTooltip = true;
   }
+  skipGenerateTooltip(){
+    this.generateTooltipDone = true;
+  }
   goToEditorTooltip(){
     this.generateTooltipDone = true;
     this.editorTooltip = true;
+  }
+  skipEditorTooltip(){
+    this.editorTooltipDone = true;
   }
   doneWithTooltip(){
     this.editorTooltipDone = true;
