@@ -86,10 +86,16 @@ export class DashboardComponent {
     this.aciPaymentHubTooltip = true;
     this.dashboardModelDone = true;
   }
+  skipAciPaymentHubTooltip(){
+    this.aciPaymentHubTooltipDone = true;
+  }
 
   goToCreateDocTooltip(){
     this.createDocTooltip = true;
     this.aciPaymentHubTooltipDone = true;
+  }
+  skipCreateDocTooltip(){
+    this.createDocTooltipDone = true;
   }
   doneWithTooltip(){
     this.createDocTooltipDone = true;
