@@ -39,11 +39,6 @@ html, body{
 .paymentHubCard{
   background: rgba(39, 38, 221, 0.1);
 }
-.dashboard-model{
-  left: calc(50% - 400px/2);
-  top: calc(50% - 420px/2);
-  box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
-}
 /* on boarding */
 .dnone{
   display: none;
@@ -59,7 +54,7 @@ html, body{
   background-color: #2726DD;
   color: white;
 }
-
+/* radio buttons */
 input[type="radio"] {
   visibility:hidden;
 }
@@ -86,20 +81,49 @@ input[type='radio']:checked:after {
   display: inline-block;
   visibility: visible;
 }
-
+/* tooltip */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  
+  background: rgba(0, 0, 0, 0.5);
   z-index: 100
 }
 .tooltip {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   z-index: 10010;
+}
+/* dashboard model */
+.dashboard-model{
+  left: calc(50% - 400px/2);
+  top: calc(50% - 420px/2);
+  box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+}
+/* ACI Payment Hub */
+.aci-payment-hub-tooltip{
+  top:-70%;
+  left:120%;
+  z-index: 100020;
+}
+.aci-payment-hub-tooltip::after,
+.aci-payment-hub-tooltip::before {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  top: 50%;
+  left:0px;
+  transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -webkit-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -moz-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+
+  opacity: 1; /* Adjust transparency */
+  z-index: 100;
 }
 /* create documentation */
 .create-documentation-tooltip{
@@ -163,7 +187,27 @@ input[type='radio']:checked:after {
   -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
   -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
 }
-
+/* generate documentation */
+.generate-documentation-tooltip{
+  top: 130%; 
+  left: -20%;
+  z-index: 100;
+}
+.generate-documentation-tooltip::after,
+.generate-documentation-tooltip::before {
+  content: "";
+  position: absolute;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  top: -13px;
+  left:50%;
+  transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -webkit-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -moz-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+  -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
+}
 /* editor */
 .editor-tooltip{
   right: 120%;
@@ -184,50 +228,4 @@ input[type='radio']:checked:after {
   -moz-transform: translate(-50%, -10%) rotate(45deg) scale(1);
   -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
   -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
-}
-
-/* generate documentation */
-.generate-documentation-tooltip{
-  top: 130%; 
-  left: -50%;
-  z-index: 100;
-}
-.generate-documentation-tooltip::after,
-.generate-documentation-tooltip::before {
-  content: "";
-  position: absolute;
-  background-color: white;
-  height: 30px;
-  width: 30px;
-  top: -13px;
-  left:50%;
-  transform: translate(-50%, -10%) rotate(45deg) scale(1);
-  -webkit-transform: translate(-50%, -10%) rotate(45deg) scale(1);
-  -moz-transform: translate(-50%, -10%) rotate(45deg) scale(1);
-  -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
-  -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
-}
-/* ACI Payment Hub */
-.aci-payment-hub-tooltip{
-  top:-70%;
-  left:120%;
-  z-index: 100020;
-}
-.aci-payment-hub-tooltip::after,
-.aci-payment-hub-tooltip::before {
-  content: "";
-  position: absolute;
-  background-color: white;
-  height: 30px;
-  width: 30px;
-  top: 50%;
-  left:0px;
-  transform: translate(-50%, -10%) rotate(45deg) scale(1);
-  -webkit-transform: translate(-50%, -10%) rotate(45deg) scale(1);
-  -moz-transform: translate(-50%, -10%) rotate(45deg) scale(1);
-  -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
-  -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
-
-  opacity: 1; /* Adjust transparency */
-  z-index: 100;
 }
