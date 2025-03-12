@@ -37,8 +37,8 @@
         <span class="w-[22.76px] h-[29.25px] bg-[url('./app/resources/icons/blue-bell-icon.svg')]"></span>
     </div>
     <p class="font-medium text-2xl font-[inter] text-[#19213D]">Welcome Joanna!</p>
-    <div class="flex gap-4">
-        <div class="bg-white border border-[#D5D7DA] rounded-lg w-[33%] h-[310px] flex flex-col gap-[16px] p-[24px]" *ngFor="let update of paymentHubUpdates">
+    <div class="grid grid-cols-3 gap-4">
+        <div class="bg-white border border-[#D5D7DA] rounded-lg h-[310px] flex flex-col gap-[16px] p-[24px]" *ngFor="let update of paymentHubUpdates">
             <div class="flex"> 
                 <p class="paymentHubCard border border-[#2726DD] text-xs font-medium font-[inter] py-[4px] px-[8px] rounded-sm">{{ update.latestUpdate }}</p>
             </div>
