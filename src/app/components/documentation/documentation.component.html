@@ -4,7 +4,7 @@
         <div class="flex justify-between">
             <!-- sources and template dropdown section -->
             <div class="flex flex-col relative">
-                <div [ngClass]="(!sourcesTemplateTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''" >
+                <div [ngClass]="(!sourcesTemplateTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" >
                     <div class="flex gap-[16px]">
                         <!-- sources dropdown section -->
                         <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
@@ -23,8 +23,9 @@
                     </div>
                 </div>
                 <!-- sources template tooltip -->
+                <div [ngClass]="(!sourcesTemplateTooltipDone)? 'overlay' : ''"></div>
                 <div [ngClass]="(!sourcesTemplateTooltipDone)? 'dblock' : ' dnone'" >
-                    <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute sources-template-tooltip">
+                    <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute sources-template-tooltip tooltip">
                         <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Use these buttons to choose your sources and select a template before getting started.</p>
                         <div class="flex justify-between w-full mt-[10px] gap-[12px]">
                             <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipSourcesTemplateTooltip()">
@@ -39,8 +40,8 @@
             </div>
             <!-- export and publish button section -->
             <div class="flex flex-col relative">
-                <div [ngClass]="(!exportPublishTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''" 
-                    [ngClass]="exportPublishTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''" >
+                <div [ngClass]="(!exportPublishTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" 
+                    [ngClass]="exportPublishTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" >
                     <div class="flex gap-[16px]">
                         <button class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
                             <span class="w-[21.83px] h-[21.83px] bg-[url('./app/resources/icons/download-icon.svg')]">
@@ -51,9 +52,11 @@
                     </div>
                 </div>
                 <!-- export publish tooltip -->
+                <div [ngClass]="(!exportPublishTooltipDone)? 'overlay' : ''" 
+                    [ngClass]="exportPublishTooltip? 'overlay' : ''"></div>
                 <div [ngClass]="(!exportPublishTooltipDone)? 'dblock' : ' dnone'" 
                     [ngClass]="exportPublishTooltip? 'dblock' : ' dnone'" >
-                    <div class="flex flex-col bg-white p-[18px] gap-[16px] items-center rounded-[12px] absolute export-publish-tooltip">
+                    <div class="flex flex-col bg-white p-[18px] gap-[16px] items-center rounded-[12px] absolute export-publish-tooltip tooltip">
                         <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Once you've made your changes, you can publish the content to the product playbook or export it in your preferred format.</p>
                         <div class="flex justify-between w-full mt-[10px] gap-[12px]">
                             <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipExportPublishTooltip()">
@@ -70,8 +73,8 @@
         <!-- documentation section -->
         <div class="bg-white flex flex-col gap-[16px] w-full h-full justify-center items-center rounded-lg px-6 py-8 ">
             <div class="flex flex-col relative">
-                <div [ngClass]="(!generateTooltipDone)? 'bg-white p-[16px] rounded-[8px]' : ''" 
-                    [ngClass]="generateTooltip? 'bg-white p-[16px] rounded-[8px]' : ''">
+                <div [ngClass]="(!generateTooltipDone)? 'bg-white p-[16px] rounded-[8px] tooltip' : ''" 
+                    [ngClass]="generateTooltip? 'bg-white p-[16px] rounded-[8px] tooltip' : ''">
                     <div class="flex flex-col gap-[16px] justify-center items-center">
                         <p class="text-[#666F8D] text-sm">Upload Sources to get started</p>
                         <button class="text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] py-[10px] rounded-lg border border-[#D5D7DA] h-[44px]">
@@ -82,9 +85,11 @@
                     </div>
                 </div>
                 <!-- documentation tooltip -->
+                <div [ngClass]="(!generateTooltipDone)? 'overlay' : ''" 
+                    [ngClass]="generateTooltip? 'overlay' : ''"></div>
                 <div [ngClass]="(!generateTooltipDone)? 'dblock' : ' dnone'" 
                     [ngClass]="generateTooltip? 'dblock' : ' dnone'"  >
-                    <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute generate-documentation-tooltip">
+                    <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute generate-documentation-tooltip tooltip">
                         <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">After listing all your sources, click this button to generate the content.</p>
                         <div class="flex justify-between w-full mt-[10px] gap-[12px]">
                             <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipGenerateTooltip()">
@@ -104,9 +109,11 @@
         <div class="flex-1"></div>
         <div class="flex flex-col relative">
             <!-- editor tooltip -->
+            <div [ngClass]="(!editorTooltipDone)? 'overlay' : ''" 
+                    [ngClass]="editorTooltip? 'overlay' : ''"></div>
             <div [ngClass]="(!editorTooltipDone)? 'dblock' : ' dnone'" 
                 [ngClass]="editorTooltip? 'dblock' : ' dnone'"  >
-                <div class="flex flex-col bg-white p-[18px] gap-[16px] items-center rounded-[12px] absolute editor-tooltip">
+                <div class="flex flex-col bg-white p-[18px] gap-[16px] items-center rounded-[12px] absolute editor-tooltip tooltip">
                     <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Use the built-in AI editor to refine or rewrite the content to match your tone and style.</p>
                     <div class="flex justify-between w-full mt-[10px] gap-[12px]">
                         <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipEditorTooltip()">
@@ -118,8 +125,8 @@
                     </div>
                 </div>
             </div>
-            <div [ngClass]="(!editorTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''" 
-                [ngClass]="editorTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px]' : ''"  >
+            <div [ngClass]="(!editorTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" 
+                [ngClass]="editorTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''"  >
                 <button class="my-auto bg-white border border-[#D3D3D3] rounded-[36px] px-[18px] py-[12px] flex items-center gap-[12px]">
                     <span class="w-[21.83px] h-[21.83px] bg-[url('./app/resources/icons/pencil-icon.svg')]">
                     </span>
