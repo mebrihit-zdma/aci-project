@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
+import { SummaryCardComponent } from '../../components/cards/summary-card/summary-card.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SummaryCardComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -119,4 +120,10 @@ export class DashboardComponent {
   doneWithTooltip(){
     this.createDocTooltipDone = true;
   }
+
+  // data Summary Card Component
+  cardData = {
+    title: 'Angular Card',
+    description: 'This is a card component receiving data from the parent component.'
+  };
 }
