@@ -106,22 +106,24 @@ export class DashboardComponent {
     this.createDocTooltipDone = true;
   }
 
-  // testing
-  view: [number, number] = [120, 120]; // Adjust size
-
-  // Data for the chart
-  pieChartData = [
-    { name: 'In Progress', value: 1 },
-    { name: 'Open', value: 1 },
-    { name: 'Resolved', value: 3 }
-  ];
-
-  // Custom Colors
-  customColors = [
-    { name: 'In Progress', value: '#6A94E5' },
-    { name: 'Open', value: '#C1D3FA' },
-    { name: 'Resolved', value: '#1F4BB9' }
-  ];
+  pieData = [
+    {
+      title:'JIRA Issues Summary', 
+      view: [120, 120] as [number, number],
+      pieChartData: [
+        { name: 'In Progress', value: 1, color:'#6A94E5'},
+        { name: 'Open', value: 1, color:'#C1D3FA'},
+        { name: 'Resolved', value: 3, color:'#1F4BB9'},
+        { name: 'test', value: 5, color:'red'},
+      ],
+      customColors: [
+        { name: 'In Progress', value: '#6A94E5' },
+        { name: 'Open', value: '#C1D3FA' },
+        { name: 'Resolved', value: '#1F4BB9' },
+        { name: 'test', value: 'red' }
+      ]
+    }
+  ]
 
   // Chart properties
   showLegend = false;
