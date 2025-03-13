@@ -33,15 +33,42 @@
                 </div>
             </div>
         </div>
-        <!-- bell icon section -->
+        <!-- bell icon -->
         <span class="w-[22.76px] h-[29.25px] bg-[url('./app/resources/icons/blue-bell-icon.svg')]"></span>
     </div>
     <p class="font-medium text-2xl font-[inter] text-[#19213D]">Welcome Joanna!</p>
     <!-- summary card section-->
     <div class="grid grid-cols-3 gap-4">
+        <!-- summary card -->
         <div *ngFor="let update of paymentHubUpdates">
             <app-summary-card [data]="update"/>
         </div>
+        <!-- category card -->
+        <div class="flex flex-col gap-4">
+            <div class="bg-white border border-[#D5D7DA] rounded-lg h-[50%] flex flex-col gap-[16px] p-[24px]">
+                <div class="flex flex-col gap-[4px]">
+                    <div class="flex justify-between"> 
+                        <p class="font-medium text-sm">Total Bug Raised</p>
+                        <!-- bell icon section -->
+                        <span class="w-[11.2px] h-[9.98px] scale-[1.2] bg-[url('./app/resources/icons/blue-slant-up-arrow-icon.svg')]"></span>
+                    </div>
+                    <div class="font-bold text-[32px]">12</div>
+                    <p class="font-medium text-sm text-[#78716C]">This month</p>
+                </div>
+            </div>
+            <div class="bg-white border border-[#D5D7DA] rounded-lg h-[50%] flex flex-col gap-[16px] p-[24px]">
+                <div class="flex flex-col gap-[4px]">
+                    <div class="flex justify-between"> 
+                        <p class="font-medium text-sm">Total Bug Raised</p>
+                        <!-- bell icon section -->
+                        <span class="w-[11.2px] h-[9.98px] scale-[1.2] bg-[url('./app/resources/icons/blue-slant-up-arrow-icon.svg')]"></span>
+                    </div>
+                    <div class="font-bold text-[32px]">80%</div>
+                    <p class="font-medium text-sm text-[#78716C]">This month</p>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- release history section-->
     <p class="font-medium text-base font-Inter text-[#19213D]">Release History</p>

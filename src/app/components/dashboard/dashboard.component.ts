@@ -32,15 +32,15 @@ export class DashboardComponent {
       ],
       learnMore:"Learn more"
     },
-    { 
-      latestUpdate: "Last Release", 
-      title: "What’s new in Payment Hub 1.2.3-A", 
-      updateList: [
-        "Added batch processing for large transactions to increase efficiency.",
-        "Improved error logging to simplify troubleshooting for failed payments.",
-      ],
-      learnMore:"View Past Release Notes"
-    },
+    // { 
+    //   latestUpdate: "Last Release", 
+    //   title: "What’s new in Payment Hub 1.2.3-A", 
+    //   updateList: [
+    //     "Added batch processing for large transactions to increase efficiency.",
+    //     "Improved error logging to simplify troubleshooting for failed payments.",
+    //   ],
+    //   learnMore:"View Past Release Notes"
+    // },
   ]
 
   releaseHistory = [
