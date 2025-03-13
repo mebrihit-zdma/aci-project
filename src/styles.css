@@ -231,41 +231,5 @@ input[type='radio']:checked:after {
 }
 
 /* test */
-.testdiv{
 
-}
 
-.legend {
-  margin-top: 10px;
-  text-align: left;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.in-progress {
-  background-color: #6A94E5;
-}
-
-.open {
-  background-color: #C1D3FA;
-}
-
-.resolved {
-  background-color: #1F4BB9;
-}
-
-.count {
-  font-weight: bold;
-  
-}
-
-.testdiv{
-  
-
-}
