@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 import { SummaryCardComponent } from '../../components/cards/summary-card/summary-card.component';
+import { CategoryCardComponent } from '../../components/cards/category-card/category-card.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule, SummaryCardComponent],
+  imports: [CommonModule, FormsModule, SummaryCardComponent, CategoryCardComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -32,17 +33,19 @@ export class DashboardComponent {
       ],
       learnMore:"Learn more"
     },
-    // { 
-    //   latestUpdate: "Last Release", 
-    //   title: "What’s new in Payment Hub 1.2.3-A", 
-    //   updateList: [
-    //     "Added batch processing for large transactions to increase efficiency.",
-    //     "Improved error logging to simplify troubleshooting for failed payments.",
-    //   ],
-    //   learnMore:"View Past Release Notes"
-    // },
   ]
-
+  categoryData = [
+    { 
+      title: "Total Bug Raised", 
+      bugNumber: "12", 
+      month:"This month"
+    },
+    { 
+      title: "User Engagement Metrics", 
+      bugNumber: "80%", 
+      month:"Customer Satisfaction Rate"
+    }
+  ]
   releaseHistory = [
     { documentation: "Payment_Hub_1.2.3-A", 
       product: "UTF", 
