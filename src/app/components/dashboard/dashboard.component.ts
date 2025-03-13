@@ -41,25 +41,6 @@ export class DashboardComponent {
       ],
       learnMore:"View Past Release Notes"
     },
-    { 
-      latestUpdate: "Last Release", 
-      title: "What’s new in Payment Hub 1.2.3-A", 
-      updateList: [
-        "Added batch processing for large transactions to increase efficiency.",
-        "Improved error logging to simplify troubleshooting for failed payments.",
-      ],
-      learnMore:"View Past Release Notes"
-    },
-    { 
-      latestUpdate: "Latest Update", 
-      title: "What’s new in Payment Hub 1.2.3-A", 
-      updateList: [
-        "Enhanced transaction security to prevent unauthorized access.",
-        "Improved API response times by 30% for better performance.",
-        "Introduced a new fraud detection feature to minimize risk.",
-      ],
-      learnMore:"Learn more"
-    },
   ]
 
   releaseHistory = [
@@ -119,22 +100,5 @@ export class DashboardComponent {
   }
   doneWithTooltip(){
     this.createDocTooltipDone = true;
-  }
-
-  // data Summary Card Component
-  // cardData = {
-  //   title: 'Angular Card',
-  //   description: 'This is a card component receiving data from the parent component.'
-  // };
-
-  cardData = { 
-    latestUpdate: "Latest Update", 
-    title: "What’s new in Payment Hub 1.2.3-A", 
-    updateList: [
-      "Enhanced transaction security to prevent unauthorized access.",
-      "Improved API response times by 30% for better performance.",
-      "Introduced a new fraud detection feature to minimize risk.",
-    ],
-    learnMore:"Learn more"
   }
 }
