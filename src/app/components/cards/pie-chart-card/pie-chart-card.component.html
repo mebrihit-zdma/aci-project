@@ -1,1 +1,25 @@
-<p>pie-chart-card works!</p>
+<div class="bg-white border border-[#D5D7DA] h-[310px] rounded-lg flex flex-col p-[24px]">
+    <div class="flex flex-col justify-center items-center relative">
+        <p class="text-base text-[#475467]">{{data.title}}</p>
+        <ngx-charts-pie-chart
+            [view]=data.view
+            [results]="data.pieChartData"
+            [legend]="showLegend"
+            [labels]="showLabels"
+            [explodeSlices]="explodeSlices"
+            [doughnut]="doughnut"
+            [arcWidth]="arcWidth"
+            [customColors]="data.customColors">
+        </ngx-charts-pie-chart>
+        <div class="absolute font-semibold text-[25px] text-[#101828] top-[47%] left-[47%]">5</div>
+    </div>
+    <ul class="flex flex-col">
+        <li class="flex items-center justify-between pb-[8px] mb-[8px] border-b border-[#EEEEEE] last:border-b-0" *ngFor="let givenColor of data.pieChartData">
+            <div>
+                <span class="inline-block mr-[5px] w-[10px] h-[10px] rounded-full" [ngStyle]="{'background-color': givenColor.color }"></span>
+                <span class="text-sm font-medium text-[#344054]">{{givenColor.name}}</span>
+            </div> 
+            <span class="text-sm font-medium text-[#344054]">{{givenColor.value}}</span>
+        </li>
+    </ul>
+</div>

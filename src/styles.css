@@ -232,4 +232,26 @@ input[type='radio']:checked:after {
 
 /* test */
 
+.jjj{
+  /* Row */
 
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 8px 0px;
+gap: 55px;
+
+width: 187px;
+height: 36px;
+
+border-bottom: 1px solid #EEEEEE;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+}

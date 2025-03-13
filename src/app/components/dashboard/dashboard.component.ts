@@ -3,16 +3,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 import { SummaryCardComponent } from '../../components/cards/summary-card/summary-card.component';
 import { CategoryCardComponent } from '../../components/cards/category-card/category-card.component';
+import { PieChartCardComponent } from '../../components/cards/pie-chart-card/pie-chart-card.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule, SummaryCardComponent, CategoryCardComponent, NgxChartsModule],
+  imports: [CommonModule, FormsModule, SummaryCardComponent, CategoryCardComponent, NgxChartsModule, PieChartCardComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+  // cards data
   paymentHubUpdates = [
     { 
       latestUpdate: "Latest Update", 
@@ -47,6 +49,24 @@ export class DashboardComponent {
       month:"Customer Satisfaction Rate"
     }
   ]
+  pieData = [
+    {
+      title:'JIRA Issues Summary', 
+      view: [120, 120] as [number, number],
+      pieChartData: [
+        { name: 'In Progress', value: 1, color:'#6A94E5'},
+        { name: 'Open', value: 1, color:'#C1D3FA'},
+        { name: 'Resolved', value: 3, color:'#1F4BB9'},
+      ],
+      customColors: [
+        { name: 'In Progress', value: '#6A94E5' },
+        { name: 'Open', value: '#C1D3FA' },
+        { name: 'Resolved', value: '#1F4BB9' },
+      ]
+    }
+  ]
+
+  // release history data 
   releaseHistory = [
     { documentation: "Payment_Hub_1.2.3-A", 
       product: "UTF", 
@@ -105,30 +125,4 @@ export class DashboardComponent {
   doneWithTooltip(){
     this.createDocTooltipDone = true;
   }
-
-  pieData = [
-    {
-      title:'JIRA Issues Summary', 
-      view: [120, 120] as [number, number],
-      pieChartData: [
-        { name: 'In Progress', value: 1, color:'#6A94E5'},
-        { name: 'Open', value: 1, color:'#C1D3FA'},
-        { name: 'Resolved', value: 3, color:'#1F4BB9'},
-        { name: 'test', value: 5, color:'red'},
-      ],
-      customColors: [
-        { name: 'In Progress', value: '#6A94E5' },
-        { name: 'Open', value: '#C1D3FA' },
-        { name: 'Resolved', value: '#1F4BB9' },
-        { name: 'test', value: 'red' }
-      ]
-    }
-  ]
-
-  // Chart properties
-  showLegend = false;
-  showLabels = false;
-  explodeSlices = false;
-  doughnut = true;
-  arcWidth = 0.2; // Controls thickness of the ring
 }
