@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 import { SummaryCardComponent } from '../../components/cards/summary-card/summary-card.component';
 import { CategoryCardComponent } from '../../components/cards/category-card/category-card.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule, SummaryCardComponent, CategoryCardComponent],
+  imports: [CommonModule, FormsModule, SummaryCardComponent, CategoryCardComponent, NgxChartsModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -23,16 +24,16 @@ export class DashboardComponent {
       ],
       learnMore:"Learn more"
     },
-    { 
-      latestUpdate: "Latest Update", 
-      title: "What’s new in Payment Hub 1.2.3-A", 
-      updateList: [
-        "Enhanced transaction security to prevent unauthorized access.",
-        "Improved API response times by 30% for better performance.",
-        "Introduced a new fraud detection feature to minimize risk.",
-      ],
-      learnMore:"Learn more"
-    },
+    // { 
+    //   latestUpdate: "Latest Update", 
+    //   title: "What’s new in Payment Hub 1.2.3-A", 
+    //   updateList: [
+    //     "Enhanced transaction security to prevent unauthorized access.",
+    //     "Improved API response times by 30% for better performance.",
+    //     "Introduced a new fraud detection feature to minimize risk.",
+    //   ],
+    //   learnMore:"Learn more"
+    // },
   ]
   categoryData = [
     { 
@@ -104,4 +105,28 @@ export class DashboardComponent {
   doneWithTooltip(){
     this.createDocTooltipDone = true;
   }
+
+  // testing
+  view: [number, number] = [120, 120]; // Adjust size
+
+  // Data for the chart
+  pieChartData = [
+    { name: 'In Progress', value: 1 },
+    { name: 'Open', value: 1 },
+    { name: 'Resolved', value: 3 }
+  ];
+
+  // Custom Colors
+  customColors = [
+    { name: 'In Progress', value: '#6A94E5' },
+    { name: 'Open', value: '#C1D3FA' },
+    { name: 'Resolved', value: '#1F4BB9' }
+  ];
+
+  // Chart properties
+  showLegend = false;
+  showLabels = false;
+  explodeSlices = false;
+  doughnut = true;
+  arcWidth = 0.2; // Controls thickness of the ring
 }
