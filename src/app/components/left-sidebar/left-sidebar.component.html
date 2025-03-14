@@ -29,11 +29,11 @@
                 >
                   <i class="text-xl font-extrabold"  [class]="item.icon"></i>
                   @if (!isLeftSidebarCollapsed()) {
-                    <span class="text-[#000000] font-normal text-sm font-inter">{{ item.label }}</span>
+                    <span class="text-[#000000] font-normal text-sm">{{ item.label }}</span>
                   }
                   <!-- text  tooltip section -->
                   @if (isLeftSidebarCollapsed()) {
-                    <span class="tooltip-text text-[#FFFFFF] bg-[#3D3B3B] rounded-sm py-[4px] px-[8px] font-normal text-sm font-inter absolute  left-[112%]">{{ item.label }}</span>
+                    <span class="tooltip-text text-[#FFFFFF] bg-[#3D3B3B] rounded-sm py-[4px] px-[8px] font-normal text-sm absolute  left-[112%]">{{ item.label }}</span>
                   }
                 </a>
             </li>
@@ -53,8 +53,8 @@
         <!-- profile name section-->
         @if (!isLeftSidebarCollapsed()) {
           <div class="">
-            <p class="jona text-[#414651] font-semibold text-sm font-Inter">Joanna</p>
-            <p class="magn text-[#535862] text-sm font-normal font-inter w-[115px]">Product Manager</p>
+            <p class="jona text-[#414651] font-semibold text-sm">Joanna</p>
+            <p class="magn text-[#535862] text-sm font-normal w-[115px]">Product Manager</p>
           </div>
         }
       </div>
