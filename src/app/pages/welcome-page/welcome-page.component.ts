@@ -14,7 +14,6 @@ export class WelcomePageComponent {
   constructor(private router: Router) {}
 
   goToOnboarding() {
-    // this.router.navigate(['/dashboard-page']);
     this.router.navigate(['/on-boarding-page']);
   }
 }
