@@ -1,15 +1,57 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-user-login-page',
   standalone:true,
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, FormsModule ],
   templateUrl: './user-login-page.component.html',
   styleUrl: './user-login-page.component.css'
 })
-export class UserLoginPageComponent {
+export class UserLoginPageComponent{
+  signupUsers: any[] = [];
+
+  signupObj: any = {
+    userName:'',
+    email:'',
+    role:'',
+    password:''
+
+  };
+
+  loginObj: any = {
+    userName:'',
+    password:''
+  }
+  onSignUp(){
+    this.signupUsers.push(this.signupObj);
+    localStorage.setItem('signUpUsers', JSON.stringify(this.signupUsers))
+    this.signupObj = {
+      userName:'',
+      email:'',
+      role:'',
+      password:''
+  
+    };
+  }
+  userRole = "";
+  onLogin(){
+    const localData = localStorage.getItem('signUpUsers');
+    if(localData != null){
+      this.signupUsers = JSON.parse(localData);
+
+      const isUserExist = this.signupUsers.find(m => m.userName == this.loginObj.userName && m.password == this.loginObj.password);
+      if(isUserExist != undefined){
+        this.userRole = isUserExist.role
+        console.log("test mz, ttt",  this.userRole)
+        alert('User Login Successfully' )
+      }else{
+        alert('Wrong credentials')
+      }
+    }
+  }
 
 }
