@@ -14,7 +14,7 @@
                 <div class="flex flex-col gap-[32px] w-full">
                     <div class="flex">
                         <div class="mt-[-4px] w-[36px] h-[36px] scale-[0.7] bg-[url('./app/resources/icons/blue-chat-icon.svg')]" [ngClass]="!disableRoleSection? '' : 'disabled'"></div>
-                        <p class="bg-white flex py-[10px] px-[12px] w-[68%]  border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg pe-[40px]" [ngClass]="!disableRoleSection? '' : 'disabled'">I see your role is Product Owner. Does that look right to you?</p>
+                        <p class="bg-white flex py-[10px] px-[12px] w-[68%]  border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg pe-[40px]" [ngClass]="!disableRoleSection? '' : 'disabled'">I see your role is {{userRole}}. Does that look right to you?</p>
                     </div>
                     <div class="flex justify-end">
                         <div class="flex gap-[8px]">

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-on-boarding-page',
@@ -11,7 +12,13 @@ import { Router } from '@angular/router';
   styleUrl: './on-boarding-page.component.css'
 })
 export class OnBoardingPageComponent {
-  constructor(private router: Router) {}
+
+  constructor(private userService: UserService, private router: Router ) {}
+  userRole = "";
+  ngOnInit() {
+    this.userRole = this.userService.getUserRole();
+    console.log('User Role:', this.userRole);
+  }
 
   // hide the questions at the beginning 
   hiddenProductsSection = true;

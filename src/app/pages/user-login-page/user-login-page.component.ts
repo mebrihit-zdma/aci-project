@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-login-page',
@@ -37,7 +38,8 @@ export class UserLoginPageComponent{
   
     };
   }
-  constructor(private router: Router) {}
+  
+  constructor(private userService: UserService, private router: Router) {}
   userRole = "";
   userName = ""
   onLogin(){
@@ -49,7 +51,8 @@ export class UserLoginPageComponent{
       if(isUserExist != undefined){
         this.userRole = isUserExist.role;
         this.userName = isUserExist.userName
-        console.log("test mz, ttt", this.userName,  this.userRole)
+        this.userService.setUserRole(this.userRole);
+        this.userService.setUserName(this.userName);
         this.router.navigate(['/welcome-page', this.userName]);
         alert('User Login Successfully' )
       }else{
@@ -57,5 +60,4 @@ export class UserLoginPageComponent{
       }
     }
   }
-
 }
