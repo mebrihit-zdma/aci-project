@@ -50,7 +50,7 @@ export class UserLoginPageComponent{
         this.userRole = isUserExist.role;
         this.userName = isUserExist.userName
         console.log("test mz, ttt", this.userName,  this.userRole)
-        this.router.navigate(['/welcome-page']);
+        this.router.navigate(['/welcome-page', this.userName]);
         alert('User Login Successfully' )
       }else{
         alert('Wrong credentials')

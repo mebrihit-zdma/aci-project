@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class WelcomePageComponent {
   constructor(private router: Router) {}
-
   goToOnboarding() {
     this.router.navigate(['/on-boarding-page']);
   }
