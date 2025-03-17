@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+// import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-welcome-page',
@@ -10,9 +10,18 @@ import { Router } from '@angular/router';
   templateUrl: './welcome-page.component.html',
   styleUrl: './welcome-page.component.css'
 })
-export class WelcomePageComponent {
-  constructor(private router: Router) {}
+export class WelcomePageComponent implements OnInit {
+  userName: string | null = '';
+  constructor(private route: ActivatedRoute, private router: Router) {}
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.userName = params.get('userName');
+    });
+  }
+  
   goToOnboarding() {
     this.router.navigate(['/on-boarding-page']);
   }
+
 }
