@@ -39,6 +39,7 @@ export class UserLoginPageComponent{
   }
   constructor(private router: Router) {}
   userRole = "";
+  userName = ""
   onLogin(){
     const localData = localStorage.getItem('signUpUsers');
     if(localData != null){
@@ -46,9 +47,10 @@ export class UserLoginPageComponent{
 
       const isUserExist = this.signupUsers.find(m => m.userName == this.loginObj.userName && m.password == this.loginObj.password);
       if(isUserExist != undefined){
-        this.userRole = isUserExist.role
-        console.log("test mz, ttt",  this.userRole)
-        this.router.navigate(['/on-boarding-page']);
+        this.userRole = isUserExist.role;
+        this.userName = isUserExist.userName
+        console.log("test mz, ttt", this.userName,  this.userRole)
+        this.router.navigate(['/welcome-page']);
         alert('User Login Successfully' )
       }else{
         alert('Wrong credentials')
