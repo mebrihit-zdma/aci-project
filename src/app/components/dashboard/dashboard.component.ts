@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { SummaryCardComponent } from '../../components/cards/summary-card/summary-card.component';
 import { CategoryCardComponent } from '../../components/cards/category-card/category-card.component';
 import { PieChartCardComponent } from '../../components/cards/pie-chart-card/pie-chart-card.component';
+import { ReleaseHistoryTableComponent } from '../../components/tables/release-history-table/release-history-table.component';
+import { BugFixesTableComponent } from '../../components/tables/bug-fixes-table/bug-fixes-table.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule, SummaryCardComponent, CategoryCardComponent, NgxChartsModule, PieChartCardComponent],
+  imports: [CommonModule, FormsModule, SummaryCardComponent, CategoryCardComponent, NgxChartsModule, PieChartCardComponent, ReleaseHistoryTableComponent, BugFixesTableComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -97,6 +99,31 @@ export class DashboardComponent {
       deliveryDate: "Jan 13, 2025",
       executedBy: "Meera",
       view: "View",
+    },
+  ];
+
+  // bug fixes data 
+  bugFixes = [
+    { issue: "SBI-323", 
+      description: "Slow loading times", 
+      priority: "Low",
+      status: "Fix In Progress",
+      assignedTo: "Adam",
+      viewResolution: "",
+    },
+    { issue: "SBI-321", 
+      description: "Payment approval delays for high-volume tran...", 
+      priority: "Highest",
+      status: "Resolved",
+      assignedTo: "Adam",
+      viewResolution: "View Resolution",
+    },
+    { issue: "SBI-319", 
+      description: "Performance Optimizations", 
+      priority: "High",
+      status: "Resolved",
+      assignedTo: "Adam",
+      viewResolution: "View Resolution",
     },
   ];
   

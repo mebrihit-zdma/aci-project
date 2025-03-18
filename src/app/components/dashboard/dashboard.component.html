@@ -1,6 +1,6 @@
-<div class="pt-8 flex flex-col gap-4 me-4">
+<div class=" flex flex-col gap-4 me-4 mb-[32px]">
     <!-- documentation dropdown section -->
-    <div class="flex justify-between mb-4 mt-6">
+    <div class="flex justify-between mb-2 mt-8">
         <!-- sources and template dropdown section -->
         <div class="flex relative">
             <div class="flex gap-[16px]" 
@@ -98,29 +98,13 @@
         </div>
     </div>
     <!-- release history list-->
-    <ul class="bg-white border border-[#E9EAEB] rounded-xl text-sm text-[#535862] text-sm">
-        <li class="grid grid-cols-7 gap-4 border-b-1 border-[#E9EAEB] py-3 px-4 ps-[24px]">
-            <div class="flex gap-2 justify-start items-center">
-                Documentation
-            </div>
-            <div class="">Product</div>
-            <div class="">Type</div>
-            <div class="">Status</div>
-            <div class="">Delivery date</div>
-            <div class="">Executed by</div>
-        </li>
-        <li class="grid grid-cols-7 gap-4 border-b-1 border-[#E9EAEB] py-5 px-4 ps-[24px] last:border-b-0" *ngFor="let item of releaseHistory">
-            <div class="flex gap-2 justify-start items-center">
-                {{ item.documentation }}
-            </div>
-            <div class="">{{ item.product }}</div>
-            <div class="">{{ item.type }}</div>
-            <div class="">{{ item.status }}</div>
-            <div class="">{{ item.deliveryDate }}</div>
-            <div class="">{{ item.executedBy }}</div>
-            <div class="text-[#2726DD] font-semibold">{{ item.view }}</div>
-        </li>
-    </ul>
+    <div>
+        <app-release-history-table [data]="releaseHistory" />
+    </div>
+    <!-- bug fixes list-->
+    <div>
+        <app-bug-fixes-table [data]="bugFixes" />
+    </div>
 </div>
 
 <!--/* model section */-->
