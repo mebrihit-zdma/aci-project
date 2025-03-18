@@ -12,7 +12,15 @@
             <span class="w-[11.2px] h-[9.98px] scale-[1.2] bg-[url('./app/resources/icons/blue-slant-up-arrow-icon.svg')]"></span>
         </div>
         <div class="w-60 truncate flex items-center">{{ item.description }}</div>
-        <div class="flex items-center">{{ item.priority }}</div>
+        <div class="flex items-center gap-[12px]">
+            <div *ngIf="item.priority === 'Low'" class="w-[7.45px] h-[4.39px] scale-[1.5] bg-[url('./app/resources/icons/blue-low-icon.svg')] ">
+            </div>
+            <div *ngIf="item.priority === 'High'" class="w-[7.92px] h-[4.39px] scale-[1.5] bg-[url('./app/resources/icons/red-high-icon.svg')] ">
+            </div>
+            <div *ngIf="item.priority === 'Highest'" class="w-[7.92px] h-[8.78px] scale-[1.5] bg-[url('./app/resources/icons/red-highest-icon.svg')] ">
+            </div>
+            {{ item.priority }}
+        </div>
         <div class="flex items-center">
             <span class=" px-5 py-2 rounded-[16px] text-xs font-medium" 
                 [ngStyle]="{

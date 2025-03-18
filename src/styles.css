@@ -323,11 +323,14 @@ input[type='radio']:checked:after {
 #chk:checked ~ .signup label{
   transform: scale(.6);
 }
-.hhhh{
-  
-  
-background: #F5F5F5;
+.low-priority {
+  background-image: url('./app/resources/icons/blue-low-icon.svg');
+}
 
-color: #414651;
+.high-priority {
+  background-image: url('./app/resources/icons/red-high-icon.svg');
+}
 
+.highest-priority {
+  background-image: url('./app/resources/icons/red-highest-icon.svg');
 }
