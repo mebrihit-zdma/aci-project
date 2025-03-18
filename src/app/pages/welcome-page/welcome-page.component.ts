@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-// import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-welcome-page',
@@ -11,13 +11,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './welcome-page.component.css'
 })
 export class WelcomePageComponent implements OnInit {
-  userName: string | null = '';
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private router: Router, private userService: UserService) {}
 
+  userName = "";
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.userName = params.get('userName');
-    });
+    this.userName = this.userService.getUserName();
   }
   
   goToOnboarding() {

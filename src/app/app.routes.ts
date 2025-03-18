@@ -11,8 +11,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 export const routes: Routes = [
     { path: '', redirectTo: 'user-login-page', pathMatch: 'full' },
     { path: 'user-login-page', component: UserLoginPageComponent},
-    { path: 'welcome-page/:userName', component: WelcomePageComponent },
-    // { path: 'welcome-page', component: WelcomePageComponent },
+    { path: 'welcome-page', component: WelcomePageComponent },
     { path: 'on-boarding-page', component: OnBoardingPageComponent },
     { path: 'dashboard-page', 
     component: DashboardPageComponent,
