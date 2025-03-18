@@ -1,4 +1,4 @@
-<ul class="bg-white border border-[#E9EAEB] rounded-xl text-sm text-[#535862] text-sm">
+<ul class="bg-white border border-[#E9EAEB] rounded-xl text-sm text-[#535862] text-sm pt-[4px]">
     <li class="grid grid-cols-[1fr_2fr_1fr_1fr_1fr_1fr] gap-4 border-b-1 border-[#E9EAEB] py-3 px-4 ps-[24px]">
         <div class="flex gap-2 justify-start items-center">Issue</div>
         <div class="">Description</div>
@@ -14,7 +14,9 @@
         <div class="">{{ item.description }}</div>
         <div class="">{{ item.priority }}</div>
         <div class="">{{ item.status }}</div>
-        <div class="">
+        <div class="flex justify-start items-center gap-[10px]">
+            <div class="border border-[#9D9D9D] rounded-[200px] w-[40px] h-[40px] bg-[url('./app/resources/icons/profile-picture.svg')] ">
+            </div>
             {{ item.assignedTo }}
         </div>
         <div class="text-[#2726DD] font-semibold">{{ item.viewResolution }}</div>
