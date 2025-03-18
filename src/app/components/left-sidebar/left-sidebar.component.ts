@@ -1,6 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -11,6 +12,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './left-sidebar.component.css'
 })
 export class LeftSidebarComponent {
+  constructor(private userService: UserService ) {}
+  userName = "";
+  userRole = "";
+  ngOnInit() {
+    this.userName = this.userService.getUserName();
+    this.userRole = this.userService.getUserRole();
+  }
+
   isLeftSidebarCollapsed = input.required<boolean>();
   changeIsLeftSidebarCollapsed = output<boolean>();
   items = [
