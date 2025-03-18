@@ -159,6 +159,20 @@ export class DashboardComponent {
       assignedTo: "Adam",
       viewResolution: "View Resolution",
     },
+    { issue: "SBI-319", 
+      description: "Performance Optimizations", 
+      priority: "High",
+      status: "Resolved",
+      assignedTo: "Adam",
+      viewResolution: "View Resolution",
+    },
+    { issue: "SBI-319", 
+      description: "Performance Optimizations", 
+      priority: "High",
+      status: "Resolved",
+      assignedTo: "Adam",
+      viewResolution: "View Resolution",
+    },
   ];
   
   // tooltip
