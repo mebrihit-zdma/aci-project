@@ -98,11 +98,11 @@
         </div>
     </div>
     <!-- release history list-->
-    <div>
+    <div *ngIf="userRole === 'Program Manger'">
         <app-release-history-table [data]="releaseHistory" />
     </div>
     <!-- bug fixes list-->
-    <div>
+    <div *ngIf="userRole === 'Help24 Analyst'">
         <app-bug-fixes-table [data]="bugFixes" />
     </div>
 </div>
