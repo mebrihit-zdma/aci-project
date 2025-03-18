@@ -112,7 +112,7 @@ export class DashboardComponent {
       viewResolution: "",
     },
     { issue: "SBI-321", 
-      description: "Payment approval delays for high-volume tran...", 
+      description: "Payment approval delays for high volume", 
       priority: "Highest",
       status: "Resolved",
       assignedTo: "Adam",
