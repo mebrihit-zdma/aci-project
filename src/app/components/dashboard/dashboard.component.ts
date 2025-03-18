@@ -5,6 +5,7 @@ import { SummaryCardComponent } from '../../components/cards/summary-card/summar
 import { CategoryCardComponent } from '../../components/cards/category-card/category-card.component';
 import { PieChartCardComponent } from '../../components/cards/pie-chart-card/pie-chart-card.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +15,11 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+  constructor(private userService: UserService ) {}
+  userName = "";
+  ngOnInit() {
+    this.userName = this.userService.getUserName();
+  }
   // cards data
   paymentHubUpdates = [
     { 
