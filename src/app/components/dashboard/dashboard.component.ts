@@ -77,7 +77,7 @@ export class DashboardComponent {
   // release history data 
   releaseHistory = [
     { documentation: "Payment_Hub_1.2.3-A", 
-      product: "UTF", 
+      product: "Payment Hub", 
       type: "Release Notes",
       status: "In Progress",
       deliveryDate: "",
@@ -85,7 +85,7 @@ export class DashboardComponent {
       view: "",
     },
     { documentation: "Payment_Hub_1.2.3-A", 
-      product: "UTF", 
+      product: "Payment Hub", 
       type: "Release Notes",
       status: "Published",
       deliveryDate: "Jan 13, 2025",
@@ -93,7 +93,7 @@ export class DashboardComponent {
       view: "View",
     },
     { documentation: "Payment_Hub_1.2.3-A", 
-      product: "UTF", 
+      product: "Payment Hub", 
       type: "User Manual",
       status: "Published",
       deliveryDate: "Jan 13, 2025",
