@@ -1,12 +1,12 @@
 <ul class="bg-white border border-[#E9EAEB] rounded-xl text-sm text-[#535862] text-sm pt-[4px]">
-    <li class="grid grid-cols-[1fr_2fr_1fr_1fr_1fr_1fr] gap-4 border-b-1 border-[#E9EAEB] py-3 px-4 ps-[24px]">
+    <li class="grid grid-cols-[0.75fr_2fr_1fr_1fr_1fr_1fr] gap-4 border-b-1 border-[#E9EAEB] py-3 px-4 ps-[24px]">
         <div class="flex gap-2 justify-start items-center">Issue</div>
         <div class="">Description</div>
         <div class="">Priority</div>
         <div class="">Status</div>
         <div class="">Assigned to</div>
     </li>
-    <li class="grid grid-cols-[1fr_2fr_1fr_1fr_1fr_1fr] gap-4 border-b-1 border-[#E9EAEB] py-5 px-4 ps-[24px] last:border-b-0" *ngFor="let item of data">
+    <li class="grid grid-cols-[0.75fr_2fr_1fr_1fr_1fr_1fr] gap-4 border-b-1 border-[#E9EAEB] py-5 px-4 ps-[24px] last:border-b-0" *ngFor="let item of data">
         <div class="flex gap-2 justify-start items-center text-[#2726DD] font-semibold">
             {{ item.issue }}
             <span class="w-[11.2px] h-[9.98px] scale-[1.2] bg-[url('./app/resources/icons/blue-slant-up-arrow-icon.svg')]"></span>
