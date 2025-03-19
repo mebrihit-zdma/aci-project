@@ -1,6 +1,6 @@
-<div class="w-full h-screen flex justify-center items-center overflow-auto">
-    <div class="p-4 h-full py-6 flex flex-col justify-between w-[50%]">
-        <div class="flex flex-col gap-[10px] w-[660px] justify-center items-center mt-[6%]">
+<div class="w-full h-screen flex justify-center items-center overflow-y-auto">
+    <div class="p-4 h-full py-6 flex flex-col justify-between sm:w-[50%]">
+        <div class="flex flex-col gap-[10px] sm:w-[660px]  justify-center items-center mt-[6%]">
             <p class="text-[#101828] font-semibold text-[32px] text-center tracking-[-0.02em] ">Confirm your role</p>
             <p class="text-[#30425C] text-[20px] font-medium text-center">
                 We've identified your role based on your login. If this is incorrect, you can update it below.
@@ -14,7 +14,7 @@
                 <div class="flex flex-col gap-[32px] w-full">
                     <div class="flex">
                         <div class="mt-[-4px] w-[36px] h-[36px] scale-[0.7] bg-[url('./app/resources/icons/blue-chat-icon.svg')]" [ngClass]="!disableRoleSection? '' : 'disabled'"></div>
-                        <p class="bg-white flex py-[10px] px-[12px] w-[68%]  border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg pe-[40px]" [ngClass]="!disableRoleSection? '' : 'disabled'">I see your role is {{userRole}}. Does that look right to you?</p>
+                        <p class="bg-white flex py-[10px] px-[12px] w-[100%] lg:w-[68%] border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg sm:pe-[40px]" [ngClass]="!disableRoleSection? '' : 'disabled'">I see your role is {{userRole}}. Does that look right to you?</p>
                     </div>
                     <div class="flex justify-end">
                         <div class="flex gap-[8px]">
@@ -47,7 +47,7 @@
                     <!-- products question section -->
                     <div class="flex">
                         <div class="mt-[-4px] w-[36px] h-[36px] scale-[0.7] bg-[url('./app/resources/icons/blue-chat-icon.svg')]" [ngClass]="!disableProductsSection? '' : 'disabled'"></div>
-                        <p class="bg-white flex py-[10px] px-[12px] w-[68%]  border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg pe-[40px]" [ngClass]="!disableProductsSection? '' : 'disabled'">Next, let’s set up your workspace. Select the products you are actively working on</p>
+                        <p class="bg-white flex py-[10px] px-[12px] w-[100%] lg:w-[68%] border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg sm:pe-[40px]" [ngClass]="!disableProductsSection? '' : 'disabled'">Next, let’s set up your workspace. Select the products you are actively working on</p>
                     </div>
                     <!-- products radio button section -->
                     <div class="flex justify-end">
@@ -83,7 +83,7 @@
                     </div>
 
                     <!-- cancel and next button -->
-                    <div class="flex justify-between w-full">
+                    <div class="flex justify-between w-full" [ngClass]="!disableProductsSection? '' : 'dnone'">
                         <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm">
                             Cancel
                         </button>
@@ -99,13 +99,13 @@
                     <!-- personalize your dashboard question section -->
                     <div class="flex">
                         <div class="mt-[-4px] w-[36px] h-[36px] scale-[0.7] bg-[url('./app/resources/icons/blue-chat-icon.svg')]"></div>
-                        <p class="bg-white flex py-[10px] px-[12px] w-[68%]  border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg pe-[40px]">Personalize your dashboard by selecting the content you find most valuable. We’ve pre-selected a few options for you.</p>
+                        <p class="bg-white flex py-[10px] px-[12px] w-[100%] lg:w-[68%] border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg sm:pe-[40px]">Personalize your dashboard by selecting the content you find most valuable. We’ve pre-selected a few options for you.</p>
                     </div>
                     <!-- personalize your dashboard radio button section -->
                     <div class="flex justify-end">
-                        <div class="w-[90%] grid grid-cols-2 gap-[8px] ">
+                        <div class="sm:w-[90%] gap-[8px] grid grid-cols-1 sm:grid-cols-2 ">
                             <label class="bg-white flex justify-center items-center py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[16px] relative">
-                                <div class="w-[70px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
+                                <div class="w-[75px] lg:w-[70px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
                                 <div class="flex flex-col gap-[2px] me-[32px]">
                                     <p class="text-base leading-[150%] font-semibold ">User Engagement Metrics</p>
                                     <p class="leading-[130%] text-[#19213D] text-sm font-medium">Understand Frequently asked questions from a product</p>
@@ -113,7 +113,7 @@
                                 <input type="radio" name="personalize" value="personalize" class="absolute top-[10px] right-[10px]" (change)="personalizeDashboardAnswered()">
                             </label>
                             <label class="bg-white flex justify-center items-center py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[16px] relative">
-                                <div class="w-[70px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
+                                <div class="w-[75px] lg:w-[70px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
                                 <div class="flex flex-col gap-[2px] me-[32px]">
                                     <p class="text-base leading-[150%] font-semibold ">User Engagement Metrics</p>
                                     <p class="leading-[130%] text-[#19213D] text-sm font-medium">Understand Frequently asked questions from a product</p>
@@ -121,7 +121,7 @@
                                 <input type="radio" name="personalize" value="personalize" class="absolute top-[10px] right-[10px]" (change)="personalizeDashboardAnswered()">
                             </label>
                             <label class="bg-white flex justify-center items-center py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[16px] relative">
-                                <div class="w-[70px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
+                                <div class="w-[75px] lg:w-[70px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
                                 <div class="flex flex-col gap-[2px] me-[32px]">
                                     <p class="text-base leading-[150%] font-semibold ">User Engagement Metrics</p>
                                     <p class="leading-[130%] text-[#19213D] text-sm font-medium">Understand Frequently asked questions from a product</p>
@@ -129,7 +129,7 @@
                                 <input type="radio" name="personalize" value="personalize" class="absolute top-[10px] right-[10px]" (change)="personalizeDashboardAnswered()">
                             </label>
                             <label class="bg-white flex justify-center items-center py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[16px] relative">
-                                <div class="w-[70px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
+                                <div class="w-[75px] lg:w-[70px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
                                 <div class="flex flex-col gap-[2px] me-[32px]">
                                     <p class="text-base leading-[150%] font-semibold ">User Engagement Metrics</p>
                                     <p class="leading-[130%] text-[#19213D] text-sm font-medium">Understand Frequently asked questions from a product</p>
@@ -137,7 +137,7 @@
                                 <input type="radio" name="personalize" value="personalize" class="absolute top-[10px] right-[10px]" (change)="personalizeDashboardAnswered()">
                             </label>
                             <label class="bg-white flex justify-center items-center py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[16px] relative">
-                                <div class="w-[70px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
+                                <div class="w-[75px] lg:w-[70px] h-[48px] scale-[0.8] bg-[url('./app/resources/icons/blue-lightning-bolts.svg')]"></div>
                                 <div class="flex flex-col gap-[2px] me-[32px]">
                                     <p class="text-base leading-[150%] font-semibold ">User Engagement Metrics</p>
                                     <p class="leading-[130%] text-[#19213D] text-sm font-medium">Understand Frequently asked questions from a product</p>
