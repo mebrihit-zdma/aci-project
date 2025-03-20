@@ -15,20 +15,22 @@
                 </div>
             </div>
             <!-- ACI payment hub tooltip -->
-            <div [ngClass]="(!aciPaymentHubTooltipDone)? 'overlay' : ''" 
-            [ngClass]="aciPaymentHubTooltip? 'overlay' : ''"></div>
-            <div [ngClass]="(!aciPaymentHubTooltipDone)? 'dblock tooltip' : ' dnone'" 
-                [ngClass]="aciPaymentHubTooltip? 'dblock tooltip' : ' dnone'" 
-                >
-                <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute aci-payment-hub-tooltip tooltip">
-                    <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Use the dropdown menu to switch Products and versions.</p>
-                    <div class="flex justify-between w-full mt-[10px] gap-[12px]">
-                        <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipAciPaymentHubTooltip()">
-                            Skip
-                        </button>
-                        <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToCreateDocTooltip()" >
-                            Next
-                        </button>
+            <div class="hidden md:block">
+                <div [ngClass]="(!aciPaymentHubTooltipDone)? 'overlay' : ''" 
+                [ngClass]="aciPaymentHubTooltip? 'overlay' : ''"></div>
+                <div [ngClass]="(!aciPaymentHubTooltipDone)? 'dblock tooltip' : ' dnone'" 
+                    [ngClass]="aciPaymentHubTooltip? 'dblock tooltip' : ' dnone'" 
+                    >
+                    <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute aci-payment-hub-tooltip tooltip">
+                        <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Use the dropdown menu to switch Products and versions.</p>
+                        <div class="flex justify-between w-full mt-[10px] gap-[12px]">
+                            <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipAciPaymentHubTooltip()">
+                                Skip
+                            </button>
+                            <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToCreateDocTooltip()" >
+                                Next
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,19 +82,21 @@
                     </button>
                 </div>
                 <!-- create documentation tooltip -->
-                <div [ngClass]="(!createDocTooltipDone)? 'overlay' : ''" 
-                [ngClass]="createDocTooltip? 'overlay' : ''"></div>
-                <div [ngClass]="!createDocTooltipDone? 'dblock tooltip' : ' dnone'" 
-                    [ngClass]="createDocTooltip? 'dblock tooltip' : ' dnone'">
-                    <div class="flex flex-col bg-white p-[18px] gap-[16px] w-[384px] h-[146px] items-center rounded-[12px] absolute create-documentation-tooltip">
-                        <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Click this button to start generating your documentation</p>
-                        <div class="flex justify-between w-full mt-[10px]">
-                            <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px]" (click)="skipCreateDocTooltip()">
-                                Skip
-                            </button>
-                            <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px]" (click)="doneWithTooltip()">
-                                Done
-                            </button>
+                <div class="hidden md:block">
+                    <div [ngClass]="(!createDocTooltipDone)? 'overlay' : ''" 
+                    [ngClass]="createDocTooltip? 'overlay' : ''"></div>
+                    <div [ngClass]="!createDocTooltipDone? 'dblock tooltip' : ' dnone'" 
+                        [ngClass]="createDocTooltip? 'dblock tooltip' : ' dnone'">
+                        <div class="flex flex-col bg-white p-[18px] gap-[16px] w-[384px] h-[146px] items-center rounded-[12px] absolute create-documentation-tooltip">
+                            <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Click this button to start generating your documentation</p>
+                            <div class="flex justify-between w-full mt-[10px]">
+                                <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px]" (click)="skipCreateDocTooltip()">
+                                    Skip
+                                </button>
+                                <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px]" (click)="doneWithTooltip()">
+                                    Done
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,22 +124,24 @@
 </div>
 
 <!--/* model section */-->
-<div [ngClass]="(!skipTooltipValue)? 'overlay' : ''" 
-[ngClass]="!dashboardModelDone? 'overlay' : ''"></div>
-<div [ngClass]="!skipTooltipValue? 'dblock' : ' dnone'" 
-    [ngClass]="!dashboardModelDone? 'dblock' : ' dnone'">
-    <div class="flex flex-col bg-white p-[24px] gap-[16px] w-[400px] h-[400px] items-center rounded-[12px] absolute dashboard-model tooltip">
-        <div class="w-[352px] h-[200px] bg-[url('./app/resources/images/dashboard-tooltip-image.svg')] rounded-lg">
-        </div>
-        <p class="font-semibold text-lg text-[#101828] mb-[-10px]">Welcome to your dashboard</p>
-        <p class="text-sm text-center text-[#475467] leading-[20px]">We’re glad to have you onboard. Here are some quick tips to get you up and running.</p>
-        <div class="flex justify-between w-full mt-[10px]">
-            <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[170px]" (click)="skipTooltip()">
-                Skip
-            </button>
-            <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[170px]" (click)="goToAciPaymentHubTooltip()">
-                Next
-            </button>
+<div class="hidden md:block">
+    <div [ngClass]="(!skipTooltipValue)? 'overlay' : ''" 
+    [ngClass]="!dashboardModelDone? 'overlay' : ''"></div>
+    <div [ngClass]="!skipTooltipValue? 'dblock' : ' dnone'" 
+        [ngClass]="!dashboardModelDone? 'dblock' : ' dnone'">
+        <div class="flex flex-col bg-white p-[24px] gap-[16px] w-[400px] h-[400px] items-center rounded-[12px] absolute dashboard-model tooltip">
+            <div class="w-[352px] h-[200px] bg-[url('./app/resources/images/dashboard-tooltip-image.svg')] rounded-lg">
+            </div>
+            <p class="font-semibold text-lg text-[#101828] mb-[-10px]">Welcome to your dashboard</p>
+            <p class="text-sm text-center text-[#475467] leading-[20px]">We’re glad to have you onboard. Here are some quick tips to get you up and running.</p>
+            <div class="flex justify-between w-full mt-[10px]">
+                <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[170px]" (click)="skipTooltip()">
+                    Skip
+                </button>
+                <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[170px]" (click)="goToAciPaymentHubTooltip()">
+                    Next
+                </button>
+            </div>
         </div>
     </div>
 </div>
