@@ -1,11 +1,17 @@
 
 <!--/* <div class="flex gap-6  p-6 h-screen opacity-[0.6]"> */-->
-<div class="flex gap-6  p-6 h-screen">
+<!--/* <div class="flex gap-6  p-6 h-screen">
     <app-left-sidebar 
         [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
         (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
     />
     <app-main-content class="flex-1"/>
+</div> */-->
+
+<div class="flex sm:flex-row gap-0 sm:gap-6 p-6 h-screen">
+    <app-left-sidebar class="w-0 sm:w-0 md:w-20 lg:w-[300px] overflow-hidden"
+        [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+        (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
+    />
+    <app-main-content class="flex-1" />
 </div>
-
-

@@ -49,4 +49,11 @@ export class LeftSidebarComponent {
   openSidenav(): void {
     this.changeIsLeftSidebarCollapsed.emit(false);
   }
+
+  //mobile
+  isOpen = false; // Sidebar state
+
+  toggleSidebar() {
+    this.isOpen = !this.isOpen;
+  }
 }

@@ -264,7 +264,6 @@ input[type='radio']:checked:after {
   justify-content: center;
   display: flex;
   margin: 50px 50px 30px;
-  /* margin: 50px; */
   font-weight: bold;
   cursor: pointer;
   transition: .5s ease-in-out;
