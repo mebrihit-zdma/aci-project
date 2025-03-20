@@ -1,89 +1,91 @@
-<!--/* test */-->
-<!-- Hamburger Button (Hidden on Large Screens) -->
-<button (click)="toggleSidebar()" class="lg:hidden fixed top-4 left-4 z-50 p-2 bg-gray-900 text-white rounded-md">
-  <!-- Hamburger Icon -->
-  <svg *ngIf="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-  </svg>
-  <!-- Close Icon -->
-  <svg *ngIf="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-  </svg>
-</button>
+<div class="h-full z-100">
+  <!-- Hamburger Button (Hidden on Large Screens) -->
+  <button (click)="toggleSidebar()" class="lg:hidden fixed top-4 left-4 z-50 p-2 bg-gray-900 text-white rounded-md mt-2">
+    <!-- Hamburger Icon -->
+    <svg *ngIf="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+    <!-- Close Icon -->
+    <svg *ngIf="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
 
-<!-- Sidebar -->
-<div 
-  [class.translate-x-0]="isOpen" 
-  [class.-translate-x-full]="!isOpen"
-  [ngClass]="{ 'lg:w-18': isLeftSidebarCollapsed(), 'lg:w-75': !isLeftSidebarCollapsed() }"
-  class="fixed top-0 left-0 w-75 lg:w-75 bg-white p-4 h-full rounded-2xl py-6 flex flex-col justify-between transition-transform transform lg:translate-x-0 lg:static">
+  <!-- Sidebar -->
+  <div 
+    [class.translate-x-0]="isOpen" 
+    [class.-translate-x-full]="!isOpen"
+    [ngClass]="{ 'lg:w-18': isLeftSidebarCollapsed(), 'lg:w-75': !isLeftSidebarCollapsed() }"
+    class="fixed top-0 left-0 w-75 lg:w-75 bg-white p-4 h-full rounded-2xl py-6 flex flex-col justify-between transition-transform transform lg:translate-x-0 lg:static z-10">
 
-  <div class="flex flex-col gap-6 ">
-    <!-- playbook-logo section -->
-    <div class="flex gap-16 w-full">
-      <div class="flex gap-2">
-        <button class="w-[36px] h-[36px] bg-[url('./app/resources/icons/play-book-logo.svg')] rounded-lg" (click)="toggleCollapse()">
-        </button>
-        @if (!isLeftSidebarCollapsed()) {
-          <div class="text-[#2A29DD] font-medium text-2xl font-(family-name:BentonSans)">Playbook</div>
-        }
-      </div>
-      <!-- close sidebar section -->
-      @if (!isLeftSidebarCollapsed()) {
-        <button class="w-[24px] h-[24px] mx-auto bg-[url('./app/resources/icons/close-sidebar.svg')]" (click)="closeSidenav()">
-        </button>
-      }
-    </div>
-    <!-- sidebar nav section -->
-    <div class="flex flex-col gap-2">
-      @for (item of items; track $index) {
-        <ul class="w-full">
-            <li class="w-full">
-                <a
-                class="flex gap-x-2 items-center rounded-2xl p-3 relative"
-                [ngClass]="isLeftSidebarCollapsed() ? 'tooltip-btn' : ''"
-                [routerLink]="item.routeLink"
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: true }"
-                >
-                  <i class="text-xl font-extrabold"  [class]="item.icon"></i>
-                  @if (!isLeftSidebarCollapsed()) {
-                    <span class="text-[#000000] font-normal text-sm">{{ item.label }}</span>
-                  }
-                  <!-- text  tooltip section -->
-                  @if (isLeftSidebarCollapsed()) {
-                    <span class="tooltip-text text-[#FFFFFF] bg-[#3D3B3B] rounded-sm py-[4px] px-[8px] font-normal text-sm absolute  left-[112%]">{{ item.label }}</span>
-                  }
-                </a>
-            </li>
-        </ul>
-      }
-    </div>
-  </div>
-
-  <!--user profile section -->
-  <div class="flex flex-col gap-4">
-    <div class="bg-[#E9EAEB] h-[1px]"></div>
-    <div class="flex gap-16 w-full">
-      <div class="flex gap-2">
-        <!-- profile picture section-->
-        <div class="border border-[#9D9D9D] rounded-[200px] w-[40px] h-[40px] bg-[url('./app/resources/icons/profile-picture.svg')] ">
+    <div class="flex flex-col gap-6 ">
+      <!-- playbook-logo section -->
+      <div class="flex gap-16 w-full">
+        <div class="flex gap-2">
+          <button class="w-[36px] h-[36px] bg-[url('./app/resources/icons/play-book-logo.svg')] rounded-lg" (click)="toggleCollapse()">
+          </button>
+          @if (!isLeftSidebarCollapsed()) {
+            <div class="text-[#2A29DD] font-medium text-2xl font-(family-name:BentonSans)">Playbook</div>
+          }
         </div>
-        <!-- profile name section-->
+        <!-- close sidebar section -->
         @if (!isLeftSidebarCollapsed()) {
-          <div class="">
-            <p class="jona text-[#414651] font-semibold text-sm">{{userName}}</p>
-            <p class="magn text-[#535862] text-sm font-normal w-[115px]">{{userRole}}</p>
-          </div>
+          <button class="hidden md:block w-[24px] h-[24px] mx-auto bg-[url('./app/resources/icons/close-sidebar.svg')]" (click)="closeSidenav()">
+          </button>
         }
       </div>
-      <!-- profile right arrow section-->
-      @if (!isLeftSidebarCollapsed()) {
-        <div class="w-[36px] h-[36px] rounded-[8px] mx-auto bg-[url('./app/resources/icons/right-arrow-icon.svg')]"></div>
-      }
+      <!-- sidebar nav section -->
+      <div class="flex flex-col gap-2">
+        @for (item of items; track $index) {
+          <ul class="w-full">
+              <li class="w-full">
+                  <a
+                  class="flex gap-x-2 items-center rounded-2xl p-3 relative"
+                  [ngClass]="isLeftSidebarCollapsed() ? 'tooltip-btn' : ''"
+                  [routerLink]="item.routeLink"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  >
+                    <i class="text-xl font-extrabold"  [class]="item.icon"></i>
+                    @if (!isLeftSidebarCollapsed()) {
+                      <span class="text-[#000000] font-normal text-sm">{{ item.label }}</span>
+                    }
+                    <!-- text  tooltip section -->
+                    @if (isLeftSidebarCollapsed()) {
+                      <span class="tooltip-text text-[#FFFFFF] bg-[#3D3B3B] rounded-sm py-[4px] px-[8px] font-normal text-sm absolute  left-[112%]">{{ item.label }}</span>
+                    }
+                  </a>
+              </li>
+          </ul>
+        }
+      </div>
+    </div>
+
+    <!--user profile section -->
+    <div class="flex flex-col gap-4">
+      <div class="bg-[#E9EAEB] h-[1px]"></div>
+      <div class="flex gap-16 w-full">
+        <div class="flex gap-2">
+          <!-- profile picture section-->
+          <div class="border border-[#9D9D9D] rounded-[200px] w-[40px] h-[40px] bg-[url('./app/resources/icons/profile-picture.svg')] ">
+          </div>
+          <!-- profile name section-->
+          @if (!isLeftSidebarCollapsed()) {
+            <div class="">
+              <p class="jona text-[#414651] font-semibold text-sm">{{userName}}</p>
+              <p class="magn text-[#535862] text-sm font-normal w-[115px]">{{userRole}}</p>
+            </div>
+          }
+        </div>
+        <!-- profile right arrow section-->
+        @if (!isLeftSidebarCollapsed()) {
+          <div class="w-[36px] h-[36px] rounded-[8px] mx-auto bg-[url('./app/resources/icons/right-arrow-icon.svg')]"></div>
+        }
+      </div>
     </div>
   </div>
 </div>
+
 
 <!--/* before mobile */-->
 <!--/* <div  class="bg-white p-4 h-full rounded-2xl py-6 flex flex-col justify-between" [ngClass]="isLeftSidebarCollapsed() ? 'w-[78]' : ''">
