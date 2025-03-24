@@ -46,7 +46,8 @@
                   routerLinkActive="active"
                   [routerLinkActiveOptions]="{ exact: true }"
                   >
-                    <i class="text-xl font-extrabold"  [class]="item.icon"></i>
+                    <span class="material-icons">{{item.icon}}</span>
+                    <!--/* <i class="text-xl font-extrabold"  [class]="item.icon"></i> */-->
                     @if (!isLeftSidebarCollapsed()) {
                       <span class="text-[#000000] font-normal text-sm">{{ item.label }}</span>
                     }

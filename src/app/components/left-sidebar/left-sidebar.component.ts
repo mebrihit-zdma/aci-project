@@ -25,17 +25,17 @@ export class LeftSidebarComponent {
   items = [
     {
       routeLink: 'dashboard',
-      icon: 'fal fa-home-lg',
+      icon: 'home',
       label: 'Dashboard',
     },
     {
       routeLink: 'documentation',
-      icon: 'fal fa-book',
+      icon: 'feed',
       label: 'Documentation',
     },
     {
       routeLink: 'chat',
-      icon: 'fal fa-comments',
+      icon: 'chat_bubble',
       label: 'Chat',
     },
   ];
