@@ -22,7 +22,7 @@
       <!-- playbook-logo section -->
       <div class="flex gap-16 w-full  justify-center items-center md:h-auto">
         <div class="flex gap-2">
-          <button class="w-[36px] h-[36px] bg-[url('./app/resources/icons/play-book-logo.svg')] rounded-lg" (click)="toggleCollapse()">
+          <button class="w-[21.69px] h-[27.9px] bg-[url('./app/resources/icons/blue-book-icon.svg')] rounded-lg" (click)="toggleCollapse()">
           </button>
           @if (!isLeftSidebarCollapsed()) {
             <div class="text-[#2A29DD] font-medium text-2xl font-(family-name:BentonSans)">Playbook</div>
@@ -30,7 +30,7 @@
         </div>
         <!-- close sidebar section -->
         @if (!isLeftSidebarCollapsed()) {
-          <button class="hidden md:block w-[24px] h-[24px] mx-auto bg-[url('./app/resources/icons/close-sidebar.svg')]" (click)="closeSidenav()">
+          <button class="hidden md:block w-[15.83px] h-[15.83px] mx-auto bg-[url('./app/resources/icons/sidebar-close-icon.svg')]" (click)="closeSidenav()">
           </button>
         }
       </div>
@@ -47,7 +47,6 @@
                   [routerLinkActiveOptions]="{ exact: true }"
                   >
                     <span class="material-icons">{{item.icon}}</span>
-                    <!--/* <i class="text-xl font-extrabold"  [class]="item.icon"></i> */-->
                     @if (!isLeftSidebarCollapsed()) {
                       <span class="text-[#000000] font-normal text-sm">{{ item.label }}</span>
                     }
