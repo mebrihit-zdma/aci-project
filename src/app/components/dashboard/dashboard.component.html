@@ -41,19 +41,16 @@
     <p class="font-medium text-2xl text-[#19213D] text-center md:text-start">Welcome {{userName}}!</p>
     <!-- summary card section -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- summary card -->
+        <div *ngFor="let upDate of productLatestUpdates">
+            <app-summary-card [data]="upDate"/>
+        </div>
+        <div *ngFor="let upDate of releaseNotesSummary">
+            <app-summary-card [data]="upDate"/>
+        </div>
         <!-- pie chart card -->
         <div *ngFor="let data of pieData" >
             <app-pie-chart-card [data]="data"/>
-        </div>
-        <!-- summary card -->
-        <div *ngFor="let upDate of paymentHubUpdates">
-            <app-summary-card [data]="upDate"/>
-        </div>
-        <!-- category card -->
-        <div class="flex flex-col gap-4">
-            <div *ngFor="let givendata of categoryData">
-                <app-category-card [data]="givendata"/> 
-            </div>
         </div>
     </div>
     <!-- release history search filter section -->
@@ -108,7 +105,8 @@
         <p class="font-medium text-base text-[#19213D]">Bug Fixes in the latest release</p>
         <div>
             <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium w-[273px]">
-                <i class="fas fa-search"></i>
+                <!--/* <i class="fas fa-search"></i> */-->
+                <span class="material-icons">search</span>
                 <input trpe="text" placeholder="Search"/>
             </div>
         </div>

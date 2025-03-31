@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 import { SummaryCardComponent } from '../../components/cards/summary-card/summary-card.component';
-import { CategoryCardComponent } from '../../components/cards/category-card/category-card.component';
 import { PieChartCardComponent } from '../../components/cards/pie-chart-card/pie-chart-card.component';
 import { ReleaseHistoryTableComponent } from '../../components/tables/release-history-table/release-history-table.component';
 import { BugFixesTableComponent } from '../../components/tables/bug-fixes-table/bug-fixes-table.component';
@@ -12,7 +11,7 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule, SummaryCardComponent, CategoryCardComponent, NgxChartsModule, PieChartCardComponent, ReleaseHistoryTableComponent, BugFixesTableComponent],
+  imports: [CommonModule, FormsModule, SummaryCardComponent, NgxChartsModule, PieChartCardComponent, ReleaseHistoryTableComponent, BugFixesTableComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -25,27 +24,30 @@ export class DashboardComponent {
     this.userRole = this.userService.getUserRole();
   }
   // cards data
-  paymentHubUpdates = [
+  productLatestUpdates = [
     { 
-      latestUpdate: "Latest Update", 
-      title: "What’s new in Payment Hub 1.2.3-A", 
+      latestUpdate: "7th March, 2025", 
+      title: "Latest Updates in the product", 
+      subTitle:"Enhanced transaction security to prevent unauthorized access.",
       updateList: [
-        "Enhanced transaction security to prevent unauthorized access.",
         "Improved API response times by 30% for better performance.",
         "Introduced a new fraud detection feature to minimize risk.",
       ],
-      learnMore:"Learn more"
+      moreInfo:"View More",
+      latest:"Latest"
     },
-    // { 
-    //   latestUpdate: "Latest Update", 
-    //   title: "What’s new in Payment Hub 1.2.3-A", 
-    //   updateList: [
-    //     "Enhanced transaction security to prevent unauthorized access.",
-    //     "Improved API response times by 30% for better performance.",
-    //     "Introduced a new fraud detection feature to minimize risk.",
-    //   ],
-    //   learnMore:"Learn more"
-    // },
+  ]
+  releaseNotesSummary = [
+    { 
+      latestUpdate: "2nd March, 2025", 
+      title: "Release Notes Summary", 
+      subTitle:"Added batch processing for large transactions to increase efficiency.",
+      updateList: [
+        "Improved error logging to simplify troubleshooting for failed payments.",
+        "Added support for Instant Payments in new regions, including SEPA Instant Credit Transfer.",
+      ],
+      moreInfo:"View Summary"
+    },
   ]
   categoryData = [
     { 
@@ -61,17 +63,17 @@ export class DashboardComponent {
   ]
   pieData = [
     {
-      title:'JIRA Issues Summary', 
-      view: [120, 120] as [number, number],
+      title:'Total Bugs Raised', 
+      view: [140, 140] as [number, number],
       pieChartData: [
-        { name: 'In Progress', value: 1, color:'#6A94E5'},
-        { name: 'Open', value: 1, color:'#C1D3FA'},
-        { name: 'Resolved', value: 3, color:'#1F4BB9'},
+        { name: 'Critical', value: 6, color:'#6A94E5'},
+        { name: 'High', value: 2, color:'#C1D3FA'},
+        { name: 'Others', value: 4, color:'#1F4BB9'},
       ],
       customColors: [
-        { name: 'In Progress', value: '#6A94E5' },
-        { name: 'Open', value: '#C1D3FA' },
-        { name: 'Resolved', value: '#1F4BB9' },
+        { name: 'Critical', value: '#6A94E5' },
+        { name: 'High', value: '#C1D3FA' },
+        { name: 'Others', value: '#1F4BB9' },
       ]
     }
   ]
