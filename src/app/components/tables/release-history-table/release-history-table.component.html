@@ -1,9 +1,7 @@
 <div class="bg-white border border-[#E9EAEB] rounded-xl text-sm text-[#535862] text-sm pt-[4px]">
     <ul>
         <li class="grid grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr_0.5fr] gap-4 border-b-1 border-[#E9EAEB] py-3 px-4 ps-[24px]">
-            <div class="flex gap-2 justify-start items-center">
-                Documentation
-            </div>
+            <div class="flex gap-2 justify-start items-center">Version</div>
             <div class="flex items-center">Product</div>
             <div class="flex items-center">Type</div>
             <div class="flex items-center">Status</div>
@@ -27,8 +25,7 @@
             </div>
             <div class="flex items-center">{{ item.deliveryDate }}</div>
             <div class="flex justify-start items-center gap-[10px]">
-                <div class="border border-[#9D9D9D] rounded-[200px] w-[40px] h-[40px] bg-[url('./app/resources/icons/profile-picture.svg')] ">
-                </div>
+                <span class="flex border border-[#9D9D9D] rounded-[200px] w-[40px] h-[40px] justify-center items-center">{{ getFirstLetter(item.executedBy) }}</span>
                 {{ item.executedBy }}
             </div>
             <div class="text-[#2726DD] font-semibold flex items-center">{{ item.view }}</div>
