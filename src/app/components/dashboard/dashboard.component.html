@@ -1,6 +1,6 @@
-<div class=" flex flex-col gap-4 mb-[32px] gap-0 sm:me-4  ">
+<div class=" flex flex-col gap-4  gap-0 sm:me-4  ">
     <!-- documentation dropdown section -->
-    <div class="flex justify-between mb-2 mt-0 sm:mt-14 ml-[60px] md:ml-0">
+    <div class="flex justify-between mb-2 ml-[60px] md:ml-0">
         <!-- sources and template dropdown section -->
         <div class="flex relative">
             <div class="flex gap-[16px]" 
@@ -120,6 +120,14 @@
     <!-- bug fixes list-->
     <div *ngIf="userRole === 'Help24 Analyst'">
         <app-bug-fixes-table [data]="bugFixes" />
+    </div>
+    <!--/* Start New Chart */-->
+    <div class="flex justify-center items-center mb-[0px] mt-[24px]">
+        <button
+            class="bg-white flex justify-center items-center py-[16px] px-[24px] gap-[16px] border border-[#D5D7DA] rounded-[16px] w-fit h-fit p-2 border">
+            <p>Start New Chart</p>
+            <div class="w-[23px] h-[23px] bg-[url('./app/resources/icons/blue-stars.svg')]"></div>
+        </button>
     </div>
 </div>
 
