@@ -20,6 +20,24 @@ export class OnBoardingPageComponent {
     console.log('User Role:', this.userRole);
   }
 
+  personalizeDashboard  = [
+    {
+      title:"Documentation History",
+      description :"Track the status of your documentation in one place."
+    },
+    {
+      title:"Release Notes Summary",
+      description :"Catch up on the changes from the latest  release notes that may impact your product."
+    },
+    {
+      title:"Latest Updates in the product",
+      description :"See highlights of new features and improvements."
+    },
+    {
+      title:"Bug Volume Overview",
+      description :"Monitor the number of bugs raised this month to gauge product stability."
+    },
+  ]
   // hide the questions at the beginning 
   hiddenProductsSection = true;
   hiddenPersonalizeDashboardSection = true;
