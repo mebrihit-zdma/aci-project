@@ -86,9 +86,11 @@
       </div>
     </div>
   </div>
-  <button class="flex mt-[30px] ml-[-10px] z-110" (click)="toggleCollapse()">
-      <span class="w-[15.83px] h-[15.83px] bg-[url('./app/resources/icons/gray-open-icon.svg')]">
-      </span>
-  </button>
+  @if (isLeftSidebarCollapsed()) {
+    <button class="flex mt-[30px] ml-[-10px] z-110" (click)="toggleCollapse()">
+        <span class="w-[15.83px] h-[15.83px] bg-[url('./app/resources/icons/gray-open-icon.svg')]">
+        </span>
+    </button>
+  }
 </div>
 
