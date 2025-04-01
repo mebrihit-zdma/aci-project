@@ -67,9 +67,11 @@
         <div class="bg-[#E9EAEB] h-[1px]"></div>
         <div class="flex gap-16 w-full">
           <div class="flex gap-2">
-            <!-- profile picture section-->
-            <div class="border border-[#9D9D9D] rounded-[200px] w-[40px] h-[40px] bg-[url('./app/resources/icons/profile-picture.svg')] ">
+            <!-- profile first letter section-->
+            <div class="flex justify-start items-center gap-[10px]">
+                <span class="brand-color bg-[#e9eef8] flex rounded-[200px] w-[40px] h-[40px] justify-center items-center">{{ getFirstLetter(userName) }}</span>
             </div>
+
             <!-- profile name section-->
             @if (!isLeftSidebarCollapsed()) {
               <div class="">
@@ -86,6 +88,7 @@
       </div>
     </div>
   </div>
+  <!--/* close sidebar button */-->
   @if (isLeftSidebarCollapsed()) {
     <button class="flex mt-[30px] ml-[-10px] z-110" (click)="toggleCollapse()">
         <span class="w-[15.83px] h-[15.83px] bg-[url('./app/resources/icons/gray-open-icon.svg')]">

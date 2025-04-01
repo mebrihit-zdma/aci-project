@@ -56,4 +56,7 @@ export class LeftSidebarComponent {
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }
+  getFirstLetter(name: string): string {
+    return name ? name.charAt(0).toUpperCase() : '';
+  }
 }
