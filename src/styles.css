@@ -67,6 +67,12 @@ border-radius: 8px;
 .dblock{
   display: block;
 }
+.disabled-button{
+  opacity: 0.5;
+  pointer-events: none;
+  background-color: #d5d7da;
+  color:black;
+}
 .disabled{
   opacity: 0.5;
   pointer-events: none;
@@ -340,7 +346,6 @@ input[type='radio']:checked:after {
 #chk:checked ~ .signup label{
   transform: scale(.6);
 }
-
 .display-flex{
   display: flex;
 }

@@ -41,10 +41,11 @@
                         </div>
                     </div>
                 </div>
+                <!-- Generate button -->
                 <div class="flex flex-col relative">
                     <div [ngClass]="(!generateTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" 
                         [ngClass]="generateTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''">
-                        <button class="text-sm text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] rounded-lg border border-[#D5D7DA] h-[41px]">
+                        <button class="text-sm text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] rounded-lg border border-[#D5D7DA] h-[41px] disabled">
                             <span class="w-[18.33px] h-[18.33px] scale-[0.8] bg-[url('./app/resources/icons/white-stars.svg')]">
                             </span>
                             <span>Generate</span>
