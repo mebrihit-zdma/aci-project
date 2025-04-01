@@ -5,7 +5,11 @@
             <div class="flex items-center">Product</div>
             <div class="flex items-center">Type</div>
             <div class="flex items-center">Status</div>
-            <div class="flex items-center">Delivery date</div>
+            <div class="flex items-center gap-[4px]">
+                Delivery date
+                <span class="w-[16px] h-[16px] bg-[url('./app/resources/icons/black-down-arrow-icon.svg')] ">
+                </span>
+            </div>
             <div class="flex items-center">Executed by</div>
         </li>
         <li class="grid grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr_0.5fr] gap-4 border-b-1 border-[#E9EAEB] py-3 px-4 ps-[24px]" *ngFor="let item of paginatedItems">
