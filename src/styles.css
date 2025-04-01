@@ -340,3 +340,15 @@ input[type='radio']:checked:after {
 #chk:checked ~ .signup label{
   transform: scale(.6);
 }
+.material-icons{
+  color: #2726DD;
+  width: 48px;
+  height: 48px;
+  background: #F4EBFF;
+  border-radius: 28px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
