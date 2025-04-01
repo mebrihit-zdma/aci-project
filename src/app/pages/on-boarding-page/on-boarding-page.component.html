@@ -22,7 +22,7 @@
                                 <input type="radio" id="yes" name="role" value="yes" (change)="roleAnswered()">
                                 Yes, that’s correct
                             </label>
-                            <label class="bg-white flex justify-center items-center py-[8px] px-[16px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[8px]" [ngClass]="!disableRoleSection? '' : 'disabled'">
+                            <label class="bg-white flex justify-center items-center py-[8px] px-[16px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[8px]" [ngClass]="!disableRoleSection? '' : 'disabled'" (click)="showProductList()">
                                 <input type="radio" id="no" name="role" value="no" (change)="roleAnswered()">
                                 No, I want to change it
                             </label>
@@ -30,11 +30,11 @@
                     </div>
 
                     <!-- products radio button section -->
-                    <div class="flex justify-end">
-                        <div class="grid grid-cols-3 gap-[20px] sm:justify-end sm:w-[80%]">
+                    <div class="flex justify-end" [ngClass]="givenProductList? '' : 'dnone'" >
+                        <div class="grid grid-cols-3 gap-[20px] sm:justify-end sm:w-[80%]" [ngClass]="!disableRoleSection? '' : 'disabled'">
                             <label class="bg-white flex justify-center items-center py-[16px] px-[12px]  border border-[#D5D7DA] rounded-[8px] text-sm gap-[32px] relative" *ngFor="let item of productList">
                                 <div class="flex flex-col  me-[32px] py-[8px]">
-                                    <span class="material-icons">{{item.icon}}</span>
+                                    <span class="display-flex justify-center items-center w-[48px] h-[48px] material-icons brand-color bg-[#F4EBFF] rounded-[28px]">{{item.icon}}</span>
                                     <p class="text-base font-semibold mt-[12px] mb-[6px]">{{item.title}}</p>
                                     <p class="text-xs font-medium">{{item.description}}</p>
                                 </div>

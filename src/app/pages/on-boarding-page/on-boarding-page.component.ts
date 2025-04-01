@@ -20,6 +20,10 @@ export class OnBoardingPageComponent {
     console.log('User Role:', this.userRole);
   }
 
+  givenProductList = false;
+  showProductList(){
+    this.givenProductList = true;
+  }
   personalizeDashboard  = [
     {
       title:"Documentation History",
@@ -70,6 +74,7 @@ export class OnBoardingPageComponent {
       description :"Manage Documentation and product updates."
     },
   ]
+
   // hide the questions at the beginning 
   hiddenProductsSection = true;
   hiddenPersonalizeDashboardSection = true;
