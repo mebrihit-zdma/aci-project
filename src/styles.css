@@ -209,8 +209,8 @@ input[type='radio']:checked:after {
 }
 /* generate documentation */
 .generate-documentation-tooltip{
-  top: 130%; 
-  left: -20%;
+  top: 140%; 
+  left: -70%;
   z-index: 100;
 }
 .generate-documentation-tooltip::after,

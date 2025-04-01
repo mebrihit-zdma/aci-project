@@ -41,11 +41,35 @@
                         </div>
                     </div>
                 </div>
-                <button class="text-sm text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] rounded-lg border border-[#D5D7DA] h-[41px]">
-                    <span class="w-[18.33px] h-[18.33px] scale-[0.8] bg-[url('./app/resources/icons/white-stars.svg')]">
-                    </span>
-                    <span>Generate</span>
-                </button>
+                <div class="flex flex-col relative">
+                    <div [ngClass]="(!generateTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" 
+                        [ngClass]="generateTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''">
+                        <button class="text-sm text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] rounded-lg border border-[#D5D7DA] h-[41px]">
+                            <span class="w-[18.33px] h-[18.33px] scale-[0.8] bg-[url('./app/resources/icons/white-stars.svg')]">
+                            </span>
+                            <span>Generate</span>
+                        </button>
+                    </div>
+                    <!-- documentation tooltip -->
+                    <div class="hidden md:block">
+                        <div [ngClass]="(!generateTooltipDone)? 'overlay' : ''" 
+                            [ngClass]="generateTooltip? 'overlay' : ''"></div>
+                        <div [ngClass]="(!generateTooltipDone)? 'dblock' : ' dnone'" 
+                            [ngClass]="generateTooltip? 'dblock' : ' dnone'"  >
+                            <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute generate-documentation-tooltip tooltip">
+                                <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">After listing all your sources, click this button to generate the content.</p>
+                                <div class="flex justify-between w-full mt-[10px] gap-[12px]">
+                                    <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipGenerateTooltip()">
+                                        Skip
+                                    </button>
+                                    <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToEditorTooltip()">
+                                        Next
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- export and publish button section -->
             <div class="flex flex-col relative">
@@ -84,7 +108,7 @@
         <!-- documentation section -->
         <div class="bg-white flex flex-col gap-[16px] w-full h-full justify-center items-center rounded-lg px-6 py-8 ">
             <div class="flex flex-col relative">
-                <div [ngClass]="(!generateTooltipDone)? 'bg-white p-[32px] px-[60px] rounded-[8px] tooltip' : ''" 
+                <!--/* <div [ngClass]="(!generateTooltipDone)? 'bg-white p-[32px] px-[60px] rounded-[8px] tooltip' : ''" 
                     [ngClass]="generateTooltip? 'bg-white p-[32px] px-[60px] rounded-[8px] tooltip' : ''">
                     <div class="flex flex-col gap-[16px] justify-center items-center">
                         <p class="text-[#666F8D] text-sm">Upload Sources to get started</p>
@@ -94,9 +118,9 @@
                             Generate
                         </button>
                     </div>
-                </div>
+                </div> */-->
                 <!-- documentation tooltip -->
-                <div class="hidden md:block">
+                <!--/* <div class="hidden md:block">
                     <div [ngClass]="(!generateTooltipDone)? 'overlay' : ''" 
                         [ngClass]="generateTooltip? 'overlay' : ''"></div>
                     <div [ngClass]="(!generateTooltipDone)? 'dblock' : ' dnone'" 
@@ -113,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */-->
             </div>
         </div>
     </div>
