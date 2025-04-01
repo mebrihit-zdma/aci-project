@@ -12,7 +12,7 @@ import { UserService } from '../../services/user.service';
   styleUrl: './on-boarding-page.component.css'
 })
 export class OnBoardingPageComponent {
-
+  
   constructor(private userService: UserService, private router: Router ) {}
   userRole = "";
   ngOnInit() {
