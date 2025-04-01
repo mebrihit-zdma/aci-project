@@ -23,7 +23,7 @@
         <!-- playbook-logo section -->
         <div class="flex gap-16 w-full  justify-center items-center md:h-auto">
           <div class="flex gap-2">
-            <button class="w-[21.69px] h-[27.9px] bg-[url('./app/resources/icons/blue-book-icon.svg')] rounded-lg" (click)="toggleCollapse()">
+            <button class="w-[21.69px] h-[27.9px] bg-[url('./app/resources/icons/blue-book-icon.svg')] rounded-lg">
             </button>
             @if (!isLeftSidebarCollapsed()) {
               <div class="text-[#2A29DD] font-medium text-2xl font-(family-name:BentonSans)">Playbook</div>
@@ -86,9 +86,9 @@
       </div>
     </div>
   </div>
-  <div class="flex mt-[30px] ml-[-10px] z-110">
+  <button class="flex mt-[30px] ml-[-10px] z-110" (click)="toggleCollapse()">
       <span class="w-[15.83px] h-[15.83px] bg-[url('./app/resources/icons/gray-open-icon.svg')]">
       </span>
-  </div>
+  </button>
 </div>
 
