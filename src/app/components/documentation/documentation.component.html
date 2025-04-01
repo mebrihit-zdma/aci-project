@@ -2,23 +2,23 @@
     <!-- document generate section -->
     <div class="flex flex-col gap-[16px] flex-1">
         <div class="flex justify-between">
-            <!-- Release Notes and Add Sources dropdown section -->
+            <!-- Select Template and Add Sources dropdown section -->
             <div class="flex gap-[16px]">
                 <div class="flex flex-col relative">
                     <div [ngClass]="(!sourcesTemplateTooltipDone)? 'md:bg-[#F7F8FA] md:p-[16px] md:rounded-[8px] md:z-10010 md:shadow-[0px_4px_10px_rgba(0,0,0,0.2)]' : ''" >
                         <div class="flex gap-[16px]">
-                            <!-- Release Notes dropdown section -->
+                            <!-- Select Template dropdown section -->
                             <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
                                 <select [(ngModel)]="selectedOption1" class="px-[4px]">
-                                    <option class="bg-gray-200 text-black" value="" disabled selected>Release Notes</option>
-                                    <option class="bg-gray-200 text-black" *ngFor="let source of sources" [value]="source">{{ source }}</option>
+                                    <option class="bg-gray-200 text-black" value="" disabled selected>Select Template</option>
+                                    <option class="bg-gray-200 text-black" *ngFor="let template of templates" [value]="template">{{ template }}</option>
                                 </select>
                             </div>
                             <!-- Add Sources dropdown section -->
                             <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
                                 <select [(ngModel)]="selectedOption2" class="px-[4px]">
                                     <option class="bg-gray-200 text-black" value="" disabled selected>Add Sources</option>
-                                    <option class="bg-gray-200 text-black" *ngFor="let template of templates" [value]="template">{{ template }}</option>
+                                    <option class="bg-gray-200 text-black" *ngFor="let source of sources" [value]="source">{{ source }}</option>
                                 </select>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                             </span>
                             Export
                         </button>
-                        <button class="my-auto border border-[#D5D7DA] rounded-[8px] px-[24px] py-[8px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-white text-sm font-medium bg-[#2726DD]">Publish</button>
+                        <button class="my-auto border border-[#D5D7DA] rounded-[8px] px-[24px] py-[8px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-white text-sm font-medium bg-[#2726DD] disabled">Publish</button>
                     </div>
                 </div>
                 <!-- export publish tooltip -->

@@ -13,8 +13,8 @@ export class DocumentationComponent {
   selectedOption1 = '';  
   selectedOption2 = '';  
 
+  templates = ['User Manual', 'Release Notes'];
   sources = ['JIRA-ADA-516', 'JIRA-ADA-516'];
-  templates = ['User ManuL', 'Release Notes'];
   // tooltip
   skipTooltipValue = false;
   sourcesTemplateTooltip = false;
