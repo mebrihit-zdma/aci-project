@@ -124,7 +124,6 @@ input[type='radio']:checked:after {
 }
 /* ACI Payment Hub */
 .aci-payment-hub-tooltip{
-  top:-70%;
   left:120%;
   z-index: 100020;
 }
@@ -135,7 +134,7 @@ input[type='radio']:checked:after {
   background-color: white;
   height: 30px;
   width: 30px;
-  top: 50%;
+  top: 20%;
   left:0px;
   transform: translate(-50%, -10%) rotate(45deg) scale(1);
   -webkit-transform: translate(-50%, -10%) rotate(45deg) scale(1);
