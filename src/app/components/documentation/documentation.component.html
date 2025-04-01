@@ -107,37 +107,23 @@
         </div>
         <!-- documentation section -->
         <div class="bg-white flex flex-col gap-[16px] w-full h-full justify-center items-center rounded-lg px-6 py-8 ">
-            <div class="flex flex-col relative">
-                <!--/* <div [ngClass]="(!generateTooltipDone)? 'bg-white p-[32px] px-[60px] rounded-[8px] tooltip' : ''" 
-                    [ngClass]="generateTooltip? 'bg-white p-[32px] px-[60px] rounded-[8px] tooltip' : ''">
-                    <div class="flex flex-col gap-[16px] justify-center items-center">
-                        <p class="text-[#666F8D] text-sm">Upload Sources to get started</p>
-                        <button class="text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] py-[10px] rounded-lg border border-[#D5D7DA] h-[44px]">
-                            <span class="w-[18.33px] h-[18.33px] bg-[url('./app/resources/icons/white-stars.svg')]">
-                            </span>
-                            Generate
-                        </button>
+            <div class="flex flex-col">
+                <div class="flex flex-col justify-center items-center text-[#666f8d]">
+                    <p class="text-[32px] font-medium">Meet DocuBot!</p>
+                    <p class="text-[24px] font-medium">Your assistant for generating documentation.</p>
+                    <div class="flex mt-[18px]">
+                        <span class="w-[110.2px] h-[74.14px] bg-[url('./app/resources/icons/docu-bot-icon.svg')]">
+                        </span>
                     </div>
-                </div> */-->
-                <!-- documentation tooltip -->
-                <!--/* <div class="hidden md:block">
-                    <div [ngClass]="(!generateTooltipDone)? 'overlay' : ''" 
-                        [ngClass]="generateTooltip? 'overlay' : ''"></div>
-                    <div [ngClass]="(!generateTooltipDone)? 'dblock' : ' dnone'" 
-                        [ngClass]="generateTooltip? 'dblock' : ' dnone'"  >
-                        <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute generate-documentation-tooltip tooltip">
-                            <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">After listing all your sources, click this button to generate the content.</p>
-                            <div class="flex justify-between w-full mt-[10px] gap-[12px]">
-                                <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipGenerateTooltip()">
-                                    Skip
-                                </button>
-                                <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToEditorTooltip()">
-                                    Next
-                                </button>
-                            </div>
-                        </div>
+                    <div class="flex flex-col gap-[12px] mt-[70px]">
+                        <p>To get started:</p>
+                        <ol class="text-sm text-[#666f8d]">
+                            <li>1. Select a template that fits the document you need</li>
+                            <li>2. Add the relevant sources</li>
+                            <li>3. Click Generate to create your documentation</li>
+                        </ol>
                     </div>
-                </div> */-->
+                </div>
             </div>
         </div>
     </div>
