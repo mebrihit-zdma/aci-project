@@ -177,16 +177,25 @@
                    
                 </div>
                 <p class="text-base text-[#344054]">Add JIRA or confluence Pages</p>
-                <div class="flex w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[16px] px-[16px] gap-[8px]">
+                <ul>
+                    <li class="flex w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[10px] px-[16px] gap-[8px]" *ngFor="let item of sources">
+                        <span class="w-[24px] h-[24px] bg-[url('./app/resources/icons/jira-icon.svg')]">
+                        </span>
+                        <span class="text-sm">{{item.source}}</span>
+                    </li>
+                </ul>
+                <div class="flex w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[10px] px-[16px] gap-[8px]">
                     <span class="w-[13px] h-[20px] bg-[url('./app/resources/icons/paste-url-icon.svg')]">
                     </span>
-                    <input type="text" placeholder="Paste your URL here">
+                    <input type="text" placeholder="Paste your URL here" class="text-sm">
                 </div>
+                
+               
             </div>
             <!-- Drag and drop section -->
             <div class="flex flex-col gap-[16px] w-[100%]">
                 <div class="flex flex-col items-center justify-center w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[16px] px-[24px] gap-[4px]">
-                    <span class="material-icons rotate-270 text-[#919399] my-[8px]">logout</span>
+                    <span class="material-icons rotate-270 text-[#919399] my-[4px]">logout</span>
                     <p class="text-[#474567] text-sm">Drag and drop or <span class="brand-color">Browse</span></p>
                     <p class="text-[#919399] text-xs">PDF, DOC or DOCX (max. 50 MB)</p>
                 </div>

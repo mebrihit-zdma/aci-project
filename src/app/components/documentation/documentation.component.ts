@@ -13,8 +13,19 @@ export class DocumentationComponent {
   selectedOption1 = '';  
   selectedOption2 = '';  
 
-  templates = ['User ManuL', 'Release Notes'];
-  sources = ['JIRA-ADA-516', 'JIRA-ADA-516'];
+  templates = ['User Manual', 'Release Notes'];
+  imagePath ='./app/resources/icons/paste-url-icon.svg';
+  sources = [
+    {
+      icon:'./app/resources/icons/paste-url-icon.svg',
+      source:"JIRA-516: Bug Fixes from latest code chan..."
+    },
+    {
+      icon:'./app/resources/icons/paste-url-icon.svg',
+      source:"EPIC-516: Payment Hub Security updates..."
+    },
+    
+  ];
   // tooltip
   skipTooltipValue = false;
   sourcesTemplateTooltip = false;
@@ -71,7 +82,7 @@ export class DocumentationComponent {
         ],
     },
   ];
-  
+
   isModalOpen = false; // Initial state (modal is closed)
 
   openModal() {
