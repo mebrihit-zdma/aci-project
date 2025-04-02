@@ -190,7 +190,7 @@
                 <div class="flex w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[10px] px-[16px] gap-[8px]">
                     <span class="w-[13px] h-[20px] bg-[url('./app/resources/icons/paste-url-icon.svg')]">
                     </span>
-                    <input type="text" placeholder="Paste your URL here" class="text-sm">
+                    <input type="text" placeholder="Paste your URL here" class="text-sm"  [(ngModel)]="newSource">
                 </div>
             </div>
             <!-- Drag and drop section -->
@@ -204,7 +204,7 @@
                     <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] w-[50%]" (click)="closeModal()">
                         Cancel
                     </button>
-                    <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] w-[50%]">
+                    <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] w-[50%]" (click)="addSource()">
                         Save
                     </button>
                 </div>

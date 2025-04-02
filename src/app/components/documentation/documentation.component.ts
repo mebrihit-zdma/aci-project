@@ -16,18 +16,30 @@ export class DocumentationComponent {
   templates = ['User Manual', 'Release Notes'];
   imagePath ='./app/resources/icons/paste-url-icon.svg';
   // sources section
-  sources = [
-    {
-      icon:'./app/resources/icons/paste-url-icon.svg',
-      source:"JIRA-516: Bug Fixes from latest code chan..."
-    },
-    {
-      icon:'./app/resources/icons/paste-url-icon.svg',
-      source:"EPIC-516: Payment Hub Security updates..."
-    },
+  // sources = [
+  //   {
+  //     icon:'./app/resources/icons/paste-url-icon.svg',
+  //     source:"JIRA-516: Bug Fixes from latest code chan..."
+  //   },
+  //   {
+  //     icon:'./app/resources/icons/paste-url-icon.svg',
+  //     source:"EPIC-516: Payment Hub Security updates..."
+  //   },
     
+  // ];
+  sources = [
+    { source: 'JIRA-516: Bug Fixes from latest code changes' },
+    { source: 'EPIC-516: Payment Hub Security updates' }
   ];
-  
+
+  newSource: string = '';
+
+  addSource() {
+    if (this.newSource.trim()) {
+      this.sources.push({ source: this.newSource });
+      this.newSource = ''; // Clear input after adding
+    }
+  }
 
   deleteSource(index: number) {
     this.sources.splice(index, 1);
