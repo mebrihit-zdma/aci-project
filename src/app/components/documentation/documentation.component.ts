@@ -27,6 +27,7 @@ export class DocumentationComponent {
     },
     
   ];
+  
 
   deleteSource(index: number) {
     this.sources.splice(index, 1);
