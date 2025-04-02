@@ -16,7 +16,7 @@
                             </div>
                             <!-- Add Sources section -->
                             <div class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[10px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium">
-                                <button class="flex gap-[8px]">
+                                <button class="flex gap-[8px]" (click)="openModal()">
                                     <span class="w-[16.67px] h-[18px] bg-[url('./app/resources/icons/pluses-icon.svg')]">
                                     </span>
                                     Add Sources
@@ -159,6 +159,45 @@
                     </span>
                     Editor
                 </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/* add sources modal section */-->
+<div class="" *ngIf="isModalOpen">
+    <div class="overlay"></div>
+    <div>
+        <div class="flex flex-col bg-white p-[24px] gap-[12px] w-[480px] h-[490px]  rounded-[12px] absolute dashboard-model tooltip justify-between">
+            <div class="flex flex-col gap-[8px]">
+                <div class="flex items-center justify-between mb-[16px]">
+                    <p class="font-medium font-[20px] text-[#2c2d2e]">Upload Sources</p>
+                    <button (click)="closeModal()" class="flex">
+                        <span class="w-[21.69px] h-[27.9px] bg-[url('./app/resources/icons/black-close-icon.svg')] rounded-lg"></span>
+                    </button>
+                   
+                </div>
+                <p class="text-base text-[#344054]">Add JIRA or confluence Pages</p>
+                <div class="flex w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[16px] px-[16px] gap-[8px]">
+                    <span class="w-[13px] h-[20px] bg-[url('./app/resources/icons/paste-url-icon.svg')]">
+                    </span>
+                    <input type="text" placeholder="Paste your URL here">
+                </div>
+            </div>
+            <!-- Drag and drop section -->
+            <div class="flex flex-col gap-[16px] w-[100%]">
+                <div class="flex flex-col items-center justify-center w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[16px] px-[24px] gap-[4px]">
+                    <span class="material-icons rotate-270 text-[#919399] my-[8px]">logout</span>
+                    <p class="text-[#474567] text-sm">Drag and drop or <span class="brand-color">Browse</span></p>
+                    <p class="text-[#919399] text-xs">PDF, DOC or DOCX (max. 50 MB)</p>
+                </div>
+                <div class="flex gap-[12px]  mt-[10px] w-[100%] text-base font-bold">
+                    <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] w-[50%]" (click)="closeModal()">
+                        Cancel
+                    </button>
+                    <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] w-[50%]">
+                        Save
+                    </button>
+                </div>
             </div>
         </div>
     </div>

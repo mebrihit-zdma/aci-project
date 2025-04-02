@@ -13,7 +13,7 @@ export class DocumentationComponent {
   selectedOption1 = '';  
   selectedOption2 = '';  
 
-  templates = ['User Manual', 'Release Notes'];
+  templates = ['User ManuL', 'Release Notes'];
   sources = ['JIRA-ADA-516', 'JIRA-ADA-516'];
   // tooltip
   skipTooltipValue = false;
@@ -71,4 +71,14 @@ export class DocumentationComponent {
         ],
     },
   ];
+  
+  isModalOpen = false; // Initial state (modal is closed)
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
 }
