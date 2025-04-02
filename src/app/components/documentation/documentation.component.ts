@@ -15,6 +15,7 @@ export class DocumentationComponent {
 
   templates = ['User Manual', 'Release Notes'];
   imagePath ='./app/resources/icons/paste-url-icon.svg';
+  // sources section
   sources = [
     {
       icon:'./app/resources/icons/paste-url-icon.svg',
@@ -26,6 +27,10 @@ export class DocumentationComponent {
     },
     
   ];
+
+  deleteSource(index: number) {
+    this.sources.splice(index, 1);
+  }
   // tooltip
   skipTooltipValue = false;
   sourcesTemplateTooltip = false;

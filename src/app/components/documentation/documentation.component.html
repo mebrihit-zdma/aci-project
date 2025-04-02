@@ -177,11 +177,14 @@
                    
                 </div>
                 <p class="text-base text-[#344054]">Add JIRA or confluence Pages</p>
-                <ul>
-                    <li class="flex w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[10px] px-[16px] gap-[8px]" *ngFor="let item of sources">
-                        <span class="w-[24px] h-[24px] bg-[url('./app/resources/icons/jira-icon.svg')]">
-                        </span>
-                        <span class="text-sm">{{item.source}}</span>
+                <!-- sources list -->
+                <ul class="flex flex-col gap-[8px]">
+                    <li class="flex w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[10px] px-[16px] gap-[8px] justify-between " *ngFor="let item of sources">
+                        <div class="flex items-center justify-center gap-[4px]">
+                            <span class="w-[24px] h-[24px] scale-[0.8] bg-[url('./app/resources/icons/green-file-uplode-icon.svg')]"></span>
+                            <span class="text-sm">{{item.source}}</span>
+                        </div>
+                        <span class="material-icons text-[#919399] ml-[0px]">delete</span>
                     </li>
                 </ul>
                 <div class="flex w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[10px] px-[16px] gap-[8px]">
@@ -189,8 +192,6 @@
                     </span>
                     <input type="text" placeholder="Paste your URL here" class="text-sm">
                 </div>
-                
-               
             </div>
             <!-- Drag and drop section -->
             <div class="flex flex-col gap-[16px] w-[100%]">
