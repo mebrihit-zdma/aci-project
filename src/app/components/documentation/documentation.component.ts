@@ -17,21 +17,23 @@ export class DocumentationComponent {
   imagePath ='./app/resources/icons/paste-url-icon.svg';
 
   // sources section
-  sources = [
-    { source: 'JIRA-516: Bug Fixes from latest code changes' },
-    { source: 'EPIC-516: Payment Hub Security updates' }
-  ];
+  // sources = [
+  //   { source: 'JIRA-516: Bug Fixes from latest code changes' },
+  //   { source: 'EPIC-516: Payment Hub Security updates' }
+  // ];
+  sources: { source: string }[] = [];
 
   newSource: string = '';
+  generateDoc = false;
   
   addSource() {
     if (this.newSource.trim()) {
       this.sources.push({ source: this.newSource });
       this.newSource = ''; // Clear input after adding
     }
-     // Close the modal
+    this.generateDoc = true;
   }
-  
+
   deleteSource(index: number) {
     this.sources.splice(index, 1);
   }
