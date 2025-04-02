@@ -182,7 +182,7 @@
                     <li class="flex w-[100%] bg-[#FAFAFA] border border-[#DFDFDF] rounded-lg py-[10px] px-[16px] gap-[8px] justify-between " *ngFor="let item of sources; let i = index">
                         <div class="flex items-center justify-center gap-[4px]">
                             <span class="w-[24px] h-[24px] scale-[0.8] bg-[url('./app/resources/icons/green-file-uplode-icon.svg')]"></span>
-                            <span class="text-sm">{{item.source}}</span>
+                            <span class="text-sm break-words whitespace-normal flex-1 ">{{item.source}}</span>
                         </div>
                         <button class="material-icons text-[#919399] ml-[0px]" (click)="deleteSource(i)">delete</button>
                     </li>
