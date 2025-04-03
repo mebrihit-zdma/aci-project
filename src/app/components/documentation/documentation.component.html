@@ -46,7 +46,7 @@
                 <div class="flex flex-col relative">
                     <div [ngClass]="(!generateTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" 
                         [ngClass]="generateTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''">
-                        <button class="text-sm text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] rounded-lg border border-[#D5D7DA] h-[41px]" [ngClass]="(!generateDoc)? 'disabled' : ''">
+                        <button class="text-sm text-white bg-[#2726DD] flex items-center gap-[8px] px-[14px] rounded-lg border border-[#D5D7DA] h-[41px]" [ngClass]="(!generateDoc)? 'disabled' : ''" (click)="createDocument()">
                             <span class="w-[18.33px] h-[18.33px] scale-[0.8] bg-[url('./app/resources/icons/white-stars.svg')]">
                             </span>
                             <span>Generate</span>
@@ -83,7 +83,7 @@
                             </span>
                             Export
                         </button>
-                        <button class="my-auto border border-[#D5D7DA] rounded-[8px] px-[24px] py-[8px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-white text-sm font-medium bg-[#2726DD] disabled">Publish</button>
+                        <button class="my-auto border border-[#D5D7DA] rounded-[8px] px-[24px] py-[8px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-white text-sm font-medium bg-[#2726DD]" [ngClass]="(displayDoc)? '' : 'disabled'">Publish</button>
                     </div>
                 </div>
                 <!-- export publish tooltip -->
@@ -108,9 +108,9 @@
             </div>
         </div>
         <!-- documentation section -->
-        <div class="bg-white flex flex-col gap-[16px] w-full h-full rounded-lg px-6 py-8 ">
+        <div class="bg-white flex flex-col gap-[16px] w-full min-h-screen h-auto rounded-lg px-6 py-8 ">
             <!--/* doc section */-->
-            <div class="flex flex-col gap-[12px] px-[4px]">
+            <div class="flex flex-col gap-[12px] px-[4px]" [ngClass]="(displayDoc)? '' : 'dnone'">
                 <p>
                     Example: ACI Payment Gateway – Release Notes (Version 2.5.0) 
                 </p>
@@ -128,11 +128,29 @@
                         <p>
                            {{item.description}}
                         </p>
+                        <p>
+                           {{item.Issues}}
+                        </p>
+                        <ul class="list-disc flex flex-col gap-[12px] ml-[24px]">
+                            <li *ngFor="let issue of item.Issues">
+                                {{ issue }}
+                            </li>
+                        </ul>
                     </li>
                 </ul>
+                <p>
+                    For further details, contact: 
+                </p>
+                <p>
+                    ACI Support Team – support&#64;aci.com
+                </p>
+                <p>
+                    Documentation & FAQs – ACI Knowledge Base
+                </p>
+
             </div>
-            <!--/* doc section */-->
-            <div class="flex flex-col justify-center items-center h-full">
+            <!-- default  doc section -->
+            <div class="flex flex-col justify-center items-center h-full" [ngClass]="(!displayDoc)? '' : 'dnone'">
                 <div class="flex flex-col justify-center items-center text-[#666f8d]">
                     <p class="text-[32px] font-medium">Meet DocuBot!</p>
                     <p class="text-[24px] font-medium">Your assistant for generating documentation.</p>
