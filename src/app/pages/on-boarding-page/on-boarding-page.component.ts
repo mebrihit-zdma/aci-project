@@ -20,9 +20,9 @@ export class OnBoardingPageComponent {
     console.log('User Role:', this.userRole);
   }
 
-  givenProductList = false;
-  showProductList(){
-    this.givenProductList = true;
+  givenRoleList = false;
+  showRoleList(){
+    this.givenRoleList = true;
   }
   personalizeDashboard  = [
     {
@@ -42,7 +42,7 @@ export class OnBoardingPageComponent {
       description :"Monitor the number of bugs raised this month to gauge product stability."
     },
   ]
-  productList  = [
+  roleList  = [
     {
       icon:"edit_document",
       title:"Product Manager",
