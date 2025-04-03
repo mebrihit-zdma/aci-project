@@ -13,7 +13,6 @@ export class DocumentationComponent {
   selectedOption1 = '';  
   selectedOption2 = '';  
 
-  templates = ['User Manual', 'Release Notes'];
   imagePath ='./app/resources/icons/paste-url-icon.svg';
 
   // sources section
@@ -187,5 +186,20 @@ For further details, contact:
     a.click();
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
+  }
+
+  // Select Template section
+  isOpen = false;
+  selectedTemplate = 'Select Template';
+
+  templates = ['User Manual', 'Release Notes'];
+
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+  }
+
+  selectTemplate(template: string) {
+    this.selectedTemplate = template;
+    this.isOpen = false;
   }
 }
