@@ -142,29 +142,41 @@ export class DocumentationComponent {
   // export section
   releaseNotes: string = `
 Example: ACI Payment Gateway – Release Notes (Version 2.5.0)
+
 Release Date: March 15, 2025
 
 Prepared By: Product Management Team
 
 1. Overview
-This release introduces enhanced security measures, improved payment processing speed, and new API integrations to streamline bank and merchant operations.
+This release introduces enhanced security measures, improved payment processing speed, and new API integrations to streamline bank and merchant operations. Several bug fixes and performance optimizations have also been included.
 
 2. New Features & Enhancements
-- Enhanced Transaction Security: Implemented multi-layer fraud detection with AI-driven anomaly detection.
-- Faster Payment Processing: Optimized transaction routing to reduce processing time by 20%.
-- New API for Custom Reports: Introduced API endpoints for real-time payment tracking and data export.
+Feature    | Description
+-----------|-----------------------------------------------------
+Enhanced Transaction Security | Implemented multi-layer fraud detection with AI-driven anomaly detection.
+Faster Payment Processing | Optimized transaction routing to reduce processing time by 20%.
+New API for Custom Reports | Introduced API endpoints for real-time payment tracking and data export.
 
 3. Bug Fixes & Performance Improvements
-- Payment approval delays for high-volume transactions: Improved load balancing and optimized database queries.
-- Incorrect currency conversion in multi-currency transactions: Fixed calculation logic and tested accuracy.
-- Help24 system lagging during peak hours: Upgraded infrastructure and optimized query processing.
+Issue    | Resolution
+---------|-----------------------------------------------------
+Payment approval delays for high-volume transactions | Improved load balancing and optimized database queries.
+Incorrect currency conversion in multi-currency transactions | Fixed calculation logic and tested accuracy.
+Help24 system lagging during peak hours | Upgraded infrastructure and optimized query processing.
 
 4. Known Issues & Workarounds
-- Issue: Some users may experience delays when accessing new API features.
-  Workaround: Clear cache or wait for server sync to complete within 5 minutes.
-- Issue: Legacy integration users may see warning messages when processing transactions.
-  Workaround: Update to the latest API version or contact support for assistance.
+- **Issue**: Some users may experience delays when accessing new API features.  
+  **Workaround**: Clear cache or wait for server sync to complete within 5 minutes.
+
+- **Issue**: Legacy integration users may see warning messages when processing transactions.  
+  **Workaround**: Update to the latest API version or contact support for assistance.
+
+For further details, contact:
+📩 ACI Support Team – support@aci.com  
+📄 Documentation & FAQs – ACI Knowledge Base
 `;
+
+
   exportAsText() {
     const blob = new Blob([this.releaseNotes], { type: 'text/plain' });
     const url = window.URL.createObjectURL(blob);
