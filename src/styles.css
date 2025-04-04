@@ -10,6 +10,7 @@
 
   /* font family */
   --font-display: "Satoshi", "sans-serif";
+  --font-Inter: "Inter", "sans-serif";
 
   /* color palette */
   --color-primary: #2726DD;
@@ -23,6 +24,7 @@
 
   /* typography scale */
 
+  
   /* break point */
   --breakpoint-3xl: 120rem;
 }
@@ -41,15 +43,12 @@ html, body{
     background-size: cover;
     background-position: center; 
     background-attachment: fixed;
-
     font-family: 'Inter';
    
-    
 }
 *{
     outline: none;
 }
-
 
 /* sidebar */
 .active {
@@ -67,20 +66,16 @@ html, body{
 }
 /* dashboard */
 .paymentHubCard{
- 
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 8px 14px;
-gap: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 14px;
+  gap: 8px;
 
-background: #FAFAFA;
-border: 1px solid #D5D7DA;
-box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
-border-radius: 8px;
-
-
-
+  background: #FAFAFA;
+  border: 1px solid #D5D7DA;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
 }
 .bg-latest-label{
   background: rgba(36, 215, 218, 0.3);
@@ -103,7 +98,7 @@ border-radius: 8px;
   pointer-events: none;
 }
 .activeButton {
-  background-color: #2726DD;
+  background-color: var(--color-primary);
   color: white;
 }
 /* radio buttons */
@@ -307,7 +302,9 @@ input[type='checkbox']:checked:after {
   -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
   -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
 }
-
+.display-flex{
+  display: flex;
+}
 /* test */
 .login-page{
   margin: 0;
@@ -363,7 +360,7 @@ input[type='checkbox']:checked:after {
   justify-content: center;
   display: block;
   color: #fff;
-  background: #2726DD;
+  background: var(--color-primary);
   font-size: 1em;
   font-weight: bold;
   margin-top: 30px;
@@ -385,10 +382,9 @@ input[type='checkbox']:checked:after {
   transition: .8s ease-in-out;
 }
 .login label{
-  color: #2726DD;
+  color: var(--color-primary);
   transform: scale(.6);
 }
-
 #chk:checked ~ .login{
   transform: translateY(-500px);
 }
@@ -397,9 +393,6 @@ input[type='checkbox']:checked:after {
 }
 #chk:checked ~ .signup label{
   transform: scale(.6);
-}
-.display-flex{
-  display: flex;
 }
 
 
