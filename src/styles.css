@@ -14,17 +14,11 @@
 
   /* color palette */
   --color-primary: #2726DD;
-  --color-secondary: oklch(0.98 0.04 113.22);
-  --color-accent: oklch(0.94 0.11 115.03);
-  --color-dark: oklch(0.92 0.19 114.08);
-  --color-avocado-500: oklch(0.84 0.18 117.33);
-  --color-avocado-600: oklch(0.53 0.12 118.34);
-  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
-  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+ 
 
   /* typography scale */
   --text-smalltext: 8px;
-  --text-base: 40px;
+  /* --text-base: 40px; */
 
   /* break point */
   --breakpoint-3xl: 120rem;
