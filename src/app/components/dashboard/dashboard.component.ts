@@ -181,10 +181,12 @@ export class DashboardComponent {
   skipTooltipValue = false;
   aciPaymentHubTooltip = false;
   createDocTooltip = false;
+  startNewChatTooltip = false;
 
   dashboardModelDone = false;
   aciPaymentHubTooltipDone = false;
   createDocTooltipDone = false;
+  startNewChatTooltipDone = false;
 
   skipTooltip(){
     this.skipTooltipValue = true;
@@ -205,7 +207,11 @@ export class DashboardComponent {
   skipCreateDocTooltip(){
     this.createDocTooltipDone = true;
   }
-  doneWithTooltip(){
+  goToStartNewChatTooltip(){
+    this.startNewChatTooltip = true;
     this.createDocTooltipDone = true;
+  }
+  doneWithTooltip(){
+    this.startNewChatTooltipDone = true;
   }
 }

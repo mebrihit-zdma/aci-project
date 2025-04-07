@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 export class ReleaseHistoryTableComponent {
   @Input() data!: any; // Input property to receive data from the parent
 
-  itemsPerPage = 3;
+  itemsPerPage = 2;
   currentPage = 1;
 
   get totalPages(): number {
