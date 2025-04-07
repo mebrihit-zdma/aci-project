@@ -58,7 +58,7 @@
                     <!-- Release Notes Add Sources tooltip -->
                     <div class="hidden md:block">
                         <div [ngClass]="(!sourcesTemplateTooltipDone)? 'overlay' : ''"></div>
-                        <div [ngClass]="(!sourcesTemplateTooltipDone)? 'dblock' : ' dnone'" >
+                        <div [ngClass]="(!sourcesTemplateTooltipDone)? 'dblock' : ' hidden'" >
                             <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute sources-template-tooltip tooltip">
                                 <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Use these buttons to choose your sources and select a template before getting started.</p>
                                 <div class="flex justify-between w-full mt-[10px] gap-[12px]">
@@ -87,8 +87,8 @@
                     <div class="hidden md:block">
                         <div [ngClass]="(!generateTooltipDone)? 'overlay' : ''" 
                             [ngClass]="generateTooltip? 'overlay' : ''"></div>
-                        <div [ngClass]="(!generateTooltipDone)? 'dblock' : ' dnone'" 
-                            [ngClass]="generateTooltip? 'dblock' : ' dnone'"  >
+                        <div [ngClass]="(!generateTooltipDone)? 'dblock' : ' hidden'" 
+                            [ngClass]="generateTooltip? 'dblock' : ' hidden'"  >
                             <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute generate-documentation-tooltip tooltip">
                                 <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">After listing all your sources, click this button to generate the content.</p>
                                 <div class="flex justify-between w-full mt-[10px] gap-[12px]">
@@ -121,8 +121,8 @@
                 <div class="hidden md:block">
                     <div [ngClass]="(!exportPublishTooltipDone)? 'overlay' : ''" 
                         [ngClass]="exportPublishTooltip? 'overlay' : ''"></div>
-                    <div [ngClass]="(!exportPublishTooltipDone)? 'dblock' : ' dnone'" 
-                        [ngClass]="exportPublishTooltip? 'dblock' : ' dnone'" >
+                    <div [ngClass]="(!exportPublishTooltipDone)? 'dblock' : ' hidden'" 
+                        [ngClass]="exportPublishTooltip? 'dblock' : ' hidden'" >
                         <div class="flex flex-col bg-white p-[18px] gap-[16px] items-center rounded-[12px] absolute export-publish-tooltip tooltip">
                             <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Once you've made your changes, you can publish the content to the product playbook or export it in your preferred format.</p>
                             <div class="flex justify-between w-full mt-[10px] gap-[12px]">
@@ -141,7 +141,7 @@
         <!-- documentation section -->
         <div class="bg-white flex flex-col gap-[16px] w-full min-h-screen h-auto rounded-lg px-6 py-8 ">
             <!--/* doc section */-->
-            <div class="flex flex-col gap-[12px] px-[4px]" [ngClass]="(displayDoc)? '' : 'dnone'">
+            <div class="flex flex-col gap-[12px] px-[4px]" [ngClass]="(displayDoc)? '' : 'hidden'">
                 <p>
                     Example: ACI Payment Gateway – Release Notes (Version 2.5.0) 
                 </p>
@@ -182,7 +182,7 @@
                 </div>
             </div>
             <!-- default  doc section -->
-            <div class="flex flex-col justify-center items-center h-full" [ngClass]="(!displayDoc)? '' : 'dnone'">
+            <div class="flex flex-col justify-center items-center h-full" [ngClass]="(!displayDoc)? '' : 'hidden'">
                 <div class="flex flex-col justify-center items-center text-[#666f8d]">
                     <p class="text-[32px] font-medium">Meet DocuBot!</p>
                     <p class="text-[24px] font-medium">Your assistant for generating documentation.</p>
@@ -210,8 +210,8 @@
             <div class="hidden md:block">
                 <div [ngClass]="(!editorTooltipDone)? 'overlay' : ''" 
                         [ngClass]="editorTooltip? 'overlay' : ''"></div>
-                <div [ngClass]="(!editorTooltipDone)? 'dblock' : ' dnone'" 
-                    [ngClass]="editorTooltip? 'dblock' : ' dnone'"  >
+                <div [ngClass]="(!editorTooltipDone)? 'dblock' : ' hidden'" 
+                    [ngClass]="editorTooltip? 'dblock' : ' hidden'"  >
                     <div class="flex flex-col bg-white p-[18px] gap-[16px] items-center rounded-[12px] absolute editor-tooltip tooltip">
                         <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Use the built-in AI editor to refine or rewrite the content to match your tone and style.</p>
                         <div class="flex justify-between w-full mt-[10px] gap-[12px]">
