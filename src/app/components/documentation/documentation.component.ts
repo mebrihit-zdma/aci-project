@@ -12,8 +12,22 @@ import { FormsModule } from '@angular/forms';
 export class DocumentationComponent {
   selectedOption1 = '';  
   selectedOption2 = '';  
-
   imagePath ='./app/resources/icons/paste-url-icon.svg';
+
+  // Select Template section
+  isOpen = false;
+  selectedTemplate = 'Select Template';
+
+  templates = ['User Manual', 'Release Notes'];
+
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+  }
+
+  selectTemplate(template: string) {
+    this.selectedTemplate = template;
+    this.isOpen = false;
+  }
 
   // sources section
   // sources = [
@@ -71,16 +85,11 @@ export class DocumentationComponent {
   generateTooltipDone = false;
   editorTooltipDone = false;
 
+  // Template Sources Tooltip
   skipSourcesTemplateTooltip(){
     this.sourcesTemplateTooltipDone = true;
   }
-  goToExportPublishTooltip(){
-    this.generateTooltipDone = true;
-    this.exportPublishTooltip = true;
-  }
-  skipExportPublishTooltip(){
-    this.exportPublishTooltipDone = true;
-  }
+  // Generate Tooltip
   goToGenerateTooltip(){
     this.sourcesTemplateTooltipDone = true;
     this.generateTooltip = true;
@@ -88,23 +97,27 @@ export class DocumentationComponent {
   skipGenerateTooltip(){
     this.generateTooltipDone = true;
   }
+  // Editor Tooltip
   goToEditorTooltip(){
-    this.exportPublishTooltipDone = true;
+    this.generateTooltipDone = true;
     this.editorTooltip = true;
   }
   skipEditorTooltip(){
     this.editorTooltipDone = true;
   }
-  doneWithTooltip(){
+  // Export Publish Tooltip
+  goToExportPublishTooltip(){
     this.editorTooltipDone = true;
+    this.exportPublishTooltip = true;
+  }
+  doneWithTooltip(){
+    this.exportPublishTooltipDone = true;
   }
 
   isModalOpen = false; // Initial state (modal is closed)
-
   openModal() {
     this.isModalOpen = true;
   }
-
   closeModal() {
     this.isModalOpen = false;
   }
@@ -133,7 +146,6 @@ export class DocumentationComponent {
         ]
     },
   ]
-
   createDocument() {
     this.displayDoc = true;
   }
@@ -175,7 +187,6 @@ For further details, contact:
 📄 Documentation & FAQs – ACI Knowledge Base
 `;
 
-
   exportAsText() {
     const blob = new Blob([this.releaseNotes], { type: 'text/plain' });
     const url = window.URL.createObjectURL(blob);
@@ -186,20 +197,5 @@ For further details, contact:
     a.click();
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
-  }
-
-  // Select Template section
-  isOpen = false;
-  selectedTemplate = 'Select Template';
-
-  templates = ['User Manual', 'Release Notes'];
-
-  toggleDropdown() {
-    this.isOpen = !this.isOpen;
-  }
-
-  selectTemplate(template: string) {
-    this.selectedTemplate = template;
-    this.isOpen = false;
   }
 }
