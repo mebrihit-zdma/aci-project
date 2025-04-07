@@ -276,9 +276,7 @@ input[type='checkbox']:checked:after {
   -ms-transform: translate(-50%, -10%) rotate(45deg) scale(1);
   -o-transform: translate(-50%, -10%) rotate(45deg) scale(1);
 }
-.display-flex{
-  display: flex;
-}
+
 /* test */
 .login-page{
   margin: 0;
