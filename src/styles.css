@@ -61,9 +61,6 @@ html, body{
 }
 
 /* on boarding */
-.dblock{
-  display: block;
-}
 .disabled-button{
   opacity: 0.5;
   pointer-events: none;

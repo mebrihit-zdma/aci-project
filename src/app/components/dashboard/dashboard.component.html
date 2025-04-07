@@ -17,8 +17,8 @@
             <div class="hidden md:block">
                 <div [ngClass]="(!aciPaymentHubTooltipDone)? 'overlay' : ''" 
                 [ngClass]="aciPaymentHubTooltip? 'overlay' : ''"></div>
-                <div [ngClass]="(!aciPaymentHubTooltipDone)? 'dblock tooltip' : ' hidden'" 
-                    [ngClass]="aciPaymentHubTooltip? 'dblock tooltip' : ' hidden'" 
+                <div [ngClass]="(!aciPaymentHubTooltipDone)? 'block tooltip' : ' hidden'" 
+                    [ngClass]="aciPaymentHubTooltip? 'block tooltip' : ' hidden'" 
                     >
                     <div class="flex flex-col bg-white p-[18px] gap-[16px]  items-center rounded-[12px] absolute aci-payment-hub-tooltip tooltip ">
                         <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Use the dropdown menu to switch Products and versions.</p>
@@ -81,8 +81,8 @@
                 <div class="hidden md:block">
                     <div [ngClass]="(!createDocTooltipDone)? 'overlay' : ''" 
                     [ngClass]="createDocTooltip? 'overlay' : ''"></div>
-                    <div [ngClass]="!createDocTooltipDone? 'dblock tooltip' : ' hidden'" 
-                        [ngClass]="createDocTooltip? 'dblock tooltip' : ' hidden'">
+                    <div [ngClass]="!createDocTooltipDone? 'block tooltip' : ' hidden'" 
+                        [ngClass]="createDocTooltip? 'block tooltip' : ' hidden'">
                         <div class="flex flex-col bg-white p-[18px] gap-[16px] w-[384px] h-[146px] items-center rounded-[12px] absolute create-documentation-tooltip">
                             <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Click this button to start generating your documentation</p>
                             <div class="flex justify-between w-full mt-[10px]">
@@ -124,8 +124,8 @@
         <!--/* <div class="hidden md:block">
             <div [ngClass]="(!newChartTooltipDone)? 'overlay' : ''" 
             [ngClass]="newChartTooltip? 'overlay' : ''"></div>
-            <div [ngClass]="!newChartTooltipDone? 'dblock tooltip' : ' hidden'" 
-                [ngClass]="newChartTooltip? 'dblock tooltip' : ' hidden'">
+            <div [ngClass]="!newChartTooltipDone? 'block tooltip' : ' hidden'" 
+                [ngClass]="newChartTooltip? 'block tooltip' : ' hidden'">
                 <div class="flex flex-col bg-white p-[18px] gap-[16px] w-[384px] h-[146px] items-center rounded-[12px] absolute create-documentation-tooltip">
                     <p class="text-[18px] text-[#19213D] leading-[130%] font-medium">Click this button to start generating your documentation</p>
                     <div class="flex justify-between w-full mt-[10px]">
@@ -153,8 +153,8 @@
 <div class="hidden md:block">
     <div [ngClass]="(!skipTooltipValue)? 'overlay' : ''" 
     [ngClass]="!dashboardModelDone? 'overlay' : ''"></div>
-    <div [ngClass]="!skipTooltipValue? 'dblock' : ' hidden'" 
-        [ngClass]="!dashboardModelDone? 'dblock' : ' hidden'">
+    <div [ngClass]="!skipTooltipValue? 'block' : ' hidden'" 
+        [ngClass]="!dashboardModelDone? 'block' : ' hidden'">
         <div class="flex flex-col bg-white p-[24px] gap-[16px] w-[400px] h-[400px] items-center rounded-[12px] absolute dashboard-model tooltip">
             <div class="w-[352px] h-[200px] bg-[url('./app/resources/images/dashboard-tooltip-image.svg')] rounded-lg">
             </div>
