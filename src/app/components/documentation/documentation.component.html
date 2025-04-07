@@ -77,7 +77,7 @@
                 <div class="flex flex-col relative">
                     <div [ngClass]="(!generateTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" 
                         [ngClass]="generateTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''">
-                        <button class="text-sm text-white bg-primary flex items-center gap-[8px] px-[14px] rounded-lg border border-[#D5D7DA] h-[41px]" [ngClass]="(!generateDoc)? 'disabled' : ''" (click)="createDocument()">
+                        <button class="text-sm text-white bg-primary flex items-center gap-[8px] px-[14px] rounded-lg border border-[#D5D7DA] h-[41.5px]" [ngClass]="(!generateDoc)? 'disabled' : ''" (click)="createDocument()">
                             <span class="w-[18.33px] h-[18.33px] scale-[0.8] bg-[url('./app/resources/icons/white-stars.svg')]">
                             </span>
                             <span>Generate</span>
@@ -108,13 +108,13 @@
             <div class="flex flex-col relative">
                 <div [ngClass]="(!exportPublishTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" 
                     [ngClass]="exportPublishTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" >
-                    <div class="flex gap-[16px]">
-                        <button class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[8px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium" (click)="exportAsText()">
+                    <div class="flex gap-[16px] h-[100%]">
+                        <button class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[8px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium h-[100%]" (click)="exportAsText()">
                             <span class="w-[21.83px] h-[21.83px] bg-[url('./app/resources/icons/download-icon.svg')]">
                             </span>
                             Export
                         </button>
-                        <button class="my-auto border border-[#D5D7DA] rounded-[8px] px-[24px] py-[8px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-white text-sm font-medium bg-primary" [ngClass]="(displayDoc)? '' : 'disabled'">Publish</button>
+                        <button class="my-auto border border-[#D5D7DA] rounded-[8px] px-[24px] py-[8px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-white text-sm font-medium bg-primary h-[100%]" [ngClass]="(displayDoc)? '' : 'disabled'">Publish</button>
                     </div>
                 </div>
                 <!-- export publish tooltip -->
