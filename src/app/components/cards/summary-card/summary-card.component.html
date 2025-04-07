@@ -2,7 +2,7 @@
     <div class="h-[100%] flex flex-col gap-[16px] ">
         <div class="flex"> 
             <p class="text-xs font-medium py-[4px] px-[8px] text-[#666F8D]">{{ data.latestUpdate }}</p>
-            <p class="text-xs font-medium py-[4px] px-[8px] bg-latest-label rounded-[3.5px]" [ngClass]="(data.latest)? '' : 'dnone'" >{{data.latest}}</p>
+            <p class="text-xs font-medium py-[4px] px-[8px] bg-[#24D7DA4D] rounded-[3.5px]" [ngClass]="(data.latest)? '' : 'dnone'" >{{data.latest}}</p>
             
         </div>
         <p class="mb-[-8px] text-[16px] font-bold">{{ data.title }}</p>
