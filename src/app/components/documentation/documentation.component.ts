@@ -75,21 +75,21 @@ export class DocumentationComponent {
     this.sourcesTemplateTooltipDone = true;
   }
   goToExportPublishTooltip(){
-    this.sourcesTemplateTooltipDone = true;
+    this.generateTooltipDone = true;
     this.exportPublishTooltip = true;
   }
   skipExportPublishTooltip(){
     this.exportPublishTooltipDone = true;
   }
   goToGenerateTooltip(){
-    this.exportPublishTooltipDone = true;
+    this.sourcesTemplateTooltipDone = true;
     this.generateTooltip = true;
   }
   skipGenerateTooltip(){
     this.generateTooltipDone = true;
   }
   goToEditorTooltip(){
-    this.generateTooltipDone = true;
+    this.exportPublishTooltipDone = true;
     this.editorTooltip = true;
   }
   skipEditorTooltip(){

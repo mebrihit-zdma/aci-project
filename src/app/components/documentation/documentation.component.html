@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Release Notes Add Sources tooltip -->
+                    <!-- Select Template and Add Sources tooltip -->
                     <div class="hidden md:block">
                         <div [ngClass]="(!sourcesTemplateTooltipDone)? 'overlay' : ''"></div>
                         <div [ngClass]="(!sourcesTemplateTooltipDone)? 'block' : ' hidden'" >
@@ -65,7 +65,7 @@
                                     <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipSourcesTemplateTooltip()">
                                         Skip
                                     </button>
-                                    <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToExportPublishTooltip()">
+                                    <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToGenerateTooltip()">
                                         Next
                                     </button>
                                 </div>
@@ -95,7 +95,7 @@
                                     <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipGenerateTooltip()">
                                         Skip
                                     </button>
-                                    <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToEditorTooltip()">
+                                    <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToExportPublishTooltip()">
                                         Next
                                     </button>
                                 </div>
@@ -129,7 +129,7 @@
                                 <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipExportPublishTooltip()">
                                     Skip
                                 </button>
-                                <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToGenerateTooltip()">
+                                <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToEditorTooltip()">
                                     Next
                                 </button>
                             </div>
