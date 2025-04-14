@@ -12,19 +12,18 @@ import { CommonModule } from '@angular/common';
 })
 export class ChatComponent implements OnInit {
 
-  title = '';
+  answer = '';
 
-  constructor(private api: ApiService){}
+  constructor(private apiService: ApiService){}
 
   ngOnInit(): void {
-    this.api.getApiCall().subscribe({
-      next: (data) => {
-        console.log("API Data:", data);
-        this.title = data['title'];
-      },
-      error: (err) => {
-        console.error('API call failed:', err);
-      }
+    this.apiService.get<any>('559041ee-0318-4c65-a185-20d62d735cd7').subscribe({
+      next: (data) => 
+      {
+        console.log("api data:", data.chat.answer)
+        this.answer = data.chat.answer;
+    },
+      error: (err) => console.error('Error:', err),
     });
   }
 }

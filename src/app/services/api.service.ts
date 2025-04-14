@@ -9,24 +9,20 @@ export class ApiService {
   
   constructor(private http: HttpClient) {}
 
-  getApiCall() {
-    const url = `https://jsonplaceholder.typicode.com/todos/1`;
-    return this.http.get<any>(url);
+  baseUrl = `https://aci-playbook-peerai.azurewebsites.net/api/v1/get_chat`;
+  get<T>(endpoint: string): Observable<T> {
+    return this.http.get<T>(`${this.baseUrl}/${endpoint}`);
   }
 
-  // get<T>(endpoint: string): Observable<T> {
-  //   return this.http.get<T>(`${this.baseUrl}/${endpoint}`);
-  // }
+  post<T>(endpoint: string, data: any): Observable<T> {
+    return this.http.post<T>(`${this.baseUrl}/${endpoint}`, data);
+  }
 
-  // post<T>(endpoint: string, data: any): Observable<T> {
-  //   return this.http.post<T>(`${this.baseUrl}/${endpoint}`, data);
-  // }
+  put<T>(endpoint: string, data: any): Observable<T> {
+    return this.http.put<T>(`${this.baseUrl}/${endpoint}`, data);
+  }
 
-  // put<T>(endpoint: string, data: any): Observable<T> {
-  //   return this.http.put<T>(`${this.baseUrl}/${endpoint}`, data);
-  // }
-
-  // delete<T>(endpoint: string): Observable<T> {
-  //   return this.http.delete<T>(`${this.baseUrl}/${endpoint}`);
-  // }
+  delete<T>(endpoint: string): Observable<T> {
+    return this.http.delete<T>(`${this.baseUrl}/${endpoint}`);
+  }
 }
