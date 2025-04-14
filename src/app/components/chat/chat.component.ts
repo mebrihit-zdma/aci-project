@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject,  OnInit, signal  } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { catchError } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { Todo } from '../../model/todo.typs';
 
 @Component({
   selector: 'app-chat',
