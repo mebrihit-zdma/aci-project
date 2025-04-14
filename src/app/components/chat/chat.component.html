@@ -27,17 +27,9 @@
                 <div class="flex">
                     <div class="mt-[-4px] w-[36px] h-[36px] scale-[0.7] bg-[url('./app/resources/icons/blue-chat-icon.svg')]"></div>
                     <div class="bg-white flex py-[10px] px-[12px] w-[100%] lg:w-[60%] border border-[#D5D7DA] text-sm rounded-tl-none rounded-tr-lg rounded-br-lg rounded-bl-lg sm:pe-[40px]">
-                        <!--/* <p>
-                            Sure, Here’s what I found for the resolution of SBI-321
-                            Release Notes: Automated Bill Payment Feature Fix
-                            Issue Resolution: The automated bill payment feature was previously unavailable for some users due to various account-related and system issues. The development team has identified and addressed the root causes, including:
-                            Account Type Restriction: Certain account types, such as basic savings or student accounts, were incorrectly flagged as unsupported for automated bill payments. This issue has now been resolved, and the feature is available across all eligible account types.
-                            Minimum Balance Requirement: Users with balances below the minimum threshold experienced temporary unavailability of the feature. The system now properly checks balance thresholds and ensures functionality is restored when conditions are met.
-                            Impact:Users who were previously unable to access automated bill payments should now see the feature available, provided their account meets the necessary criteria. This fix ensures smoother access and reliability across supported accounts.
-                        </p> */-->
-                        @for (value of todoArray(); track $index){
-                            <p>{{value.title}}</p>
-                        }
+                        <ul class="list-disc text-[#666F8D] text-sm flex flex-col gap-[8px] ml-[24px]">
+                            <li *ngFor="let value of todoArray()">{{ value.title  }}</li>
+                        </ul>
                     </div>
                 </div>
             </div>
