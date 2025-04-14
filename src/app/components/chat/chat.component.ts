@@ -13,25 +13,20 @@ import { Todo } from '../../model/todo.typs';
   styleUrl: './chat.component.css'
 })
 export class ChatComponent implements OnInit {
-  todoService = inject(ApiService)
-  todoArray = signal<Array<Todo>>([])
+
+  title = '';
+
+  constructor(private api: ApiService){}
 
   ngOnInit(): void {
-    // console.log("todoService", this.todoService)
-
-    this.todoService.getFromApi()
-      .pipe(
-      catchError((err) => {
-        console.log(err);
-        throw err;
-      })
-    ).subscribe((todos) =>{
-      this.todoArray.set(todos)
+    this.api.getApiCall().subscribe({
+      next: (data) => {
+        console.log("API Data:", data);
+        this.title = data['title'];
+      },
+      error: (err) => {
+        console.error('API call failed:', err);
+      }
     });
-
-    console.log("todoArray", this.todoService)
-    
   }
-
-
 }

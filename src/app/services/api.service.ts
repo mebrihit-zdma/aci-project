@@ -1,21 +1,18 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Todo } from '../model/todo.typs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  http = inject(HttpClient)
-  // private baseUrl = 'https://jsonplaceholder.typicode.com/todos';
+  
+  constructor(private http: HttpClient) {}
 
-  getFromApi(){
-    const url = `https://jsonplaceholder.typicode.com/todos`;
-    return this.http.get<Array<Todo>>(url);
+  getApiCall() {
+    const url = `https://jsonplaceholder.typicode.com/todos/1`;
+    return this.http.get<any>(url);
   }
-
-  // constructor(private http: HttpClient) {}
 
   // get<T>(endpoint: string): Observable<T> {
   //   return this.http.get<T>(`${this.baseUrl}/${endpoint}`);
