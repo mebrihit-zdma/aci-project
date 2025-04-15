@@ -10,6 +10,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   baseUrl = `https://aci-playbook-peerai.azurewebsites.net/api/v1/get_chat`;
+  
   get<T>(endpoint: string): Observable<T> {
     return this.http.get<T>(`${this.baseUrl}/${endpoint}`);
   }

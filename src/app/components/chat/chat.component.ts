@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ChatComponent implements OnInit {
 
-  answer = '';
+  answer: any = '';
 
   constructor(private apiService: ApiService){}
 
@@ -21,9 +21,16 @@ export class ChatComponent implements OnInit {
       next: (data) => 
       {
         console.log("api data:", data.chat.answer)
-        this.answer = data.chat.answer;
+        const raw = data.chat.answer;
+        this.answer = this.extractAnswerText(raw);
+        // this.answer = data.chat.answer;
     },
       error: (err) => console.error('Error:', err),
     });
+  }
+
+  extractAnswerText(raw: string): string {
+    // Remove <answer> tags
+    return raw.replace(/<\/?answer>/g, '').trim();
   }
 }
