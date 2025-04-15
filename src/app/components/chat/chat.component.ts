@@ -38,7 +38,8 @@ export class ChatComponent implements OnInit {
   }
   
   extractAnswerText(raw: string): string {
-    return raw.replace(/<\/?answer>/g, '').trim();
+    const match = raw.match(/<answer>([\s\S]*?)<\/answer>/);
+    return match ? match[1].trim() : '';
   }
   
   async convertMarkdown(md: string): Promise<SafeHtml> {
