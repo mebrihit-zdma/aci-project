@@ -17,8 +17,10 @@ export class ChatComponent implements OnInit {
 
   safeHtmlAnswer: SafeHtml = '';
 
-  answer: any= '' ;
+  answer: SafeHtml = '';
 
+  sources: { file_name: string, page_number: string, file_path: string }[] = []; 
+  
   constructor(private apiService: ApiService, private sanitizer: DomSanitizer){}
   ngOnInit(): void {
     this.apiService.get<any>('559041ee-0318-4c65-a185-20d62d735cd7').subscribe({
@@ -26,8 +28,10 @@ export class ChatComponent implements OnInit {
         console.log("api data:", data.chat.answer);
         const raw = data.chat.answer;
         const extractAnswer = this.extractAnswerText(raw);
-        
         this.safeHtmlAnswer = await this.convertMarkdown(extractAnswer);
+
+        this.sources = data.source || []; // Assign sources separately
+        console.log("this.sources:", this.sources);
       },
       error: (err) => console.error('Error:', err),
     });
