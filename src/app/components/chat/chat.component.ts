@@ -24,14 +24,16 @@ export class ChatComponent implements OnInit {
   
   constructor(private apiService: ApiService, private sanitizer: DomSanitizer){}
   ngOnInit(): void {
-    this.apiService.get<any>('559041ee-0318-4c65-a185-20d62d735cd7').subscribe({
+    // const chat_id = '559041ee-0318-4c65-a185-20d62d735cd7';
+    const chat_id = 'c732cbdd-afdf-4a39-959a-661adc07cb18';
+    this.apiService.get<any>(chat_id).subscribe({
       next: async (data) => {
         console.log("api data:", data.chat.answer);
         const raw = data.chat.answer;
         const extractAnswer = this.extractAnswerText(raw);
         this.safeHtmlAnswer = await this.convertMarkdown(extractAnswer);
 
-        this.sources = data.source || []; // Assign sources separately
+        this.sources = data.source || [];
         console.log("this.sources:", this.sources);
       },
       error: (err) => console.error('Error:', err),
