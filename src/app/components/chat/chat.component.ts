@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { marked } from 'marked';
+import { SourceCardComponent } from '../../components/cards/source-card/source-card.component';
 
 @Component({
   selector: 'app-chat',
   standalone:true,
-  imports: [CommonModule],
+  imports: [CommonModule, SourceCardComponent],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
