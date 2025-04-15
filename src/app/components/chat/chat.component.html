@@ -41,7 +41,7 @@
             </div>
             <!-- Task question here -->
             <div class="w-[100%]">
-                <form (ngSubmit)="askQuestion()" class="w-[100%]">
+                <form (ngSubmit)="askQuestion(chatId)" class="w-[100%]">
                   <label class="bg-white flex items-center justify-between py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] gap-[16px] ">
                     <div class="flex gap-[8px] w-[90%]">
                         <span class="w-[16px] h-[17px] scale-[0.9] bg-[url('./app/resources/icons/chat-link-icon.svg')]"></span>
@@ -49,8 +49,8 @@
                           type="text" 
                           placeholder="Ask your question!" 
                           class="text-sm w-[100%]"
-                          name="chatInput"
-                          [(ngModel)]="inputText"
+                          name="chatId"
+                          [(ngModel)]="chatId"
                         />
                     </div>
                     <span class="w-[18px] h-[18.86px] bg-[url('./app/resources/icons/blue-right-arrow-icon.svg')]"></span>
@@ -73,7 +73,7 @@
               class="bg-white flex py-[10px] px-[12px] w-[60%] border border-[#D5D7DA] text-sm rounded-br-lg rounded-tl-lg rounded-bl-lg rounded-bl-lg" 
               [ngClass]="{
                 'rounded-tl-lg rounded-tr-none  max-w-[70%] ': msg.sender === 'user',
-                'rounded-tl-none rounded-tr-lg': msg.sender === 'bot'
+                'rounded-tl-none rounded-tr-lg pl-[12px] pr-[20px] py-[20px]': msg.sender === 'bot'
               }"
             >
               {{ msg.text }}

@@ -83,9 +83,9 @@ export class ChatComponent implements OnInit {
       error: (err) => console.error('Error:', err),
     });
   }
-  // In your component method:
-  askQuestion() {
-    const chatId = 'c732cbdd-afdf-4a39-959a-661adc07cb18';
+
+  chatId: string = '';
+  askQuestion(chatId : string ) {
     this.loadChat(chatId);
   }
 
