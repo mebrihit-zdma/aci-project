@@ -20,9 +20,7 @@
         <div class="flex flex-col justify-center gap-[24px]">
             <!-- question -->
             <div class="flex justify-end">
-            
-                    <p class="bg-white flex py-[10px] px-[12px] border border-[#D5D7DA] text-sm rounded-tl-lg rounded-tr-none rounded-br-lg rounded-bl-lg max-w-[70%]">{{question}}</p>
-                
+              <p class="bg-white flex py-[10px] px-[12px] border border-[#D5D7DA] text-sm rounded-tl-lg rounded-tr-none rounded-br-lg rounded-bl-lg max-w-[70%]">{{question}}</p>
             </div>
             <!-- answer -->
             <div class="">
@@ -43,14 +41,46 @@
             </div>
             <!-- Task question here -->
             <div class="w-[100%]">
-                <label class="bg-white flex items-center justify-between py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] gap-[16px] ">
+                <form (ngSubmit)="askQuestion()" class="w-[100%]">
+                  <label class="bg-white flex items-center justify-between py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] gap-[16px] ">
                     <div class="flex gap-[8px] w-[90%]">
                         <span class="w-[16px] h-[17px] scale-[0.9] bg-[url('./app/resources/icons/chat-link-icon.svg')]"></span>
-                        <input type="text" placeholder="Ask your question!" class="text-sm w-[100%]">
+                        <input 
+                          type="text" 
+                          placeholder="Ask your question!" 
+                          class="text-sm w-[100%]"
+                          name="chatInput"
+                          [(ngModel)]="inputText"
+                        />
                     </div>
                     <span class="w-[18px] h-[18.86px] bg-[url('./app/resources/icons/blue-right-arrow-icon.svg')]"></span>
-                </label>
+                  </label>
+                </form>
             </div>
         </div>
     </div>
+    <!--/* test */-->
+    <div class="w-[90%] ml-auto mr-auto mb-[50px]">
+      <div class="flex flex-col justify-center gap-[24px]">
+        <div *ngFor="let msg of messages">
+          <div
+            [ngClass]="{
+              'flex justify-end': msg.sender === 'user',
+              '': msg.sender === 'bot'
+            }"
+          >
+            <div
+              class="bg-white flex py-[10px] px-[12px] w-[60%] border border-[#D5D7DA] text-sm rounded-br-lg rounded-tl-lg rounded-bl-lg rounded-bl-lg" 
+              [ngClass]="{
+                'rounded-tl-lg rounded-tr-none  max-w-[70%] ': msg.sender === 'user',
+                'rounded-tl-none rounded-tr-lg': msg.sender === 'bot'
+              }"
+            >
+              {{ msg.text }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--/* end test */-->
 </div>
