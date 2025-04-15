@@ -18,7 +18,7 @@ export class ChatComponent implements OnInit {
 
   safeHtmlAnswer: SafeHtml = '';
 
-  answer: SafeHtml = '';
+  question: string = '';
 
   sources: { file_name: string, page_number: string, file_path: string }[] = []; 
   
@@ -32,7 +32,7 @@ export class ChatComponent implements OnInit {
         const raw = data.chat.answer;
         const extractAnswer = this.extractAnswerText(raw);
         this.safeHtmlAnswer = await this.convertMarkdown(extractAnswer);
-
+        this.question = data.chat.question;
         this.sources = data.source || [];
         console.log("this.sources:", this.sources);
       },
