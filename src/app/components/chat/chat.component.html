@@ -39,6 +39,35 @@
                     </div>
                 </div>
             </div>
+            <!--/* test */-->
+            <div class="w-[90%] ml-auto mr-auto mb-[50px]">
+              <div class="flex flex-col justify-center gap-[24px]">
+                <div *ngFor="let msg of messages">
+                  <div
+                  class="flex"
+                    [ngClass]="{
+                      'justify-end': msg.sender === 'user',
+                      'flex-row': msg.sender === 'bot'
+                    }"
+                  >
+                    <ng-container *ngIf="msg.sender === 'bot'">
+                      <div class="flex items-start gap-2">
+                        <span class="mt-[-4px] w-[36px] h-[36px] scale-[0.7] bg-[url('./app/resources/icons/blue-chat-icon.svg')]"></span>
+                      </div>
+                    </ng-container>
+                    <div
+                      class="bg-white flex py-[10px] px-[12px] w-[60%] border border-[#D5D7DA] text-sm rounded-br-lg rounded-tl-lg rounded-bl-lg rounded-bl-lg" 
+                      [ngClass]="{
+                        'rounded-tl-lg rounded-tr-none  max-w-[70%] ': msg.sender === 'user',
+                        'rounded-tl-none rounded-tr-lg pl-[12px] pr-[20px] py-[20px]': msg.sender === 'bot'
+                      }">
+                      <div class="ml-[12px] mt-[16px] mb-[16px] chat-answer" [innerHTML]="msg.text"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           <!--/* end test */-->
             <!-- Task question here -->
             <div class="w-[100%]">
                 <form (ngSubmit)="askQuestion(chatId)" class="w-[100%]">
@@ -59,33 +88,4 @@
             </div>
         </div>
     </div>
-    <!--/* test */-->
-    <div class="w-[90%] ml-auto mr-auto mb-[50px]">
-      <div class="flex flex-col justify-center gap-[24px]">
-        <div *ngFor="let msg of messages">
-          <div
-          class="flex"
-            [ngClass]="{
-              'justify-end': msg.sender === 'user',
-              'flex-row': msg.sender === 'bot'
-            }"
-          >
-            <ng-container *ngIf="msg.sender === 'bot'">
-              <div class="flex items-start gap-2">
-                <span class="mt-[-4px] w-[36px] h-[36px] scale-[0.7] bg-[url('./app/resources/icons/blue-chat-icon.svg')]"></span>
-              </div>
-            </ng-container>
-            <div
-              class="bg-white flex py-[10px] px-[12px] w-[60%] border border-[#D5D7DA] text-sm rounded-br-lg rounded-tl-lg rounded-bl-lg rounded-bl-lg" 
-              [ngClass]="{
-                'rounded-tl-lg rounded-tr-none  max-w-[70%] ': msg.sender === 'user',
-                'rounded-tl-none rounded-tr-lg pl-[12px] pr-[20px] py-[20px]': msg.sender === 'bot'
-              }">
-              <div class="ml-[12px] mt-[16px] mb-[16px] chat-answer" [innerHTML]="msg.text"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-<!--/* end test */-->
 </div>
