@@ -15,32 +15,30 @@ import { marked } from 'marked';
 })
 export class ChatComponent implements OnInit {
 
-  answer: any = '';
-  safeHtml: SafeHtml = '';
+  safeHtmlAnswer: SafeHtml = '';
+
+  answer: any= '' ;
 
   constructor(private apiService: ApiService, private sanitizer: DomSanitizer){}
-
   ngOnInit(): void {
     this.apiService.get<any>('559041ee-0318-4c65-a185-20d62d735cd7').subscribe({
-      next: (data) => 
-      {
-        console.log("api data:", data.chat.answer)
+      next: async (data) => {
+        console.log("api data:", data.chat.answer);
         const raw = data.chat.answer;
         const extractAnswer = this.extractAnswerText(raw);
-        this.answer = this.convertMarkdown(extractAnswer);
-        // this.answer = data.chat.answer;
-    },
+        
+        this.safeHtmlAnswer = await this.convertMarkdown(extractAnswer);
+      },
       error: (err) => console.error('Error:', err),
     });
   }
-
-   // Remove <answer> tags
+  
   extractAnswerText(raw: string): string {
     return raw.replace(/<\/?answer>/g, '').trim();
   }
-
-  async convertMarkdown(md: string) {
+  
+  async convertMarkdown(md: string): Promise<SafeHtml> {
     const html = await marked(md || '');
-    this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(html);
+    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 }
