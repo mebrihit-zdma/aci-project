@@ -53,9 +53,8 @@ export class ChatComponent implements OnInit {
 
 
   // testing
-  messages: { sender: 'user' | 'bot', text: string }[] = [];
-  // messages: { sender: 'user' | 'bot', text?: string, html?: SafeHtml }[] = [];
-  
+  messages: { sender: 'user' | 'bot', text: SafeHtml }[] = [];
+
   inputText: string = '';
 
   htmlAnswer: SafeHtml = '';
@@ -70,15 +69,9 @@ export class ChatComponent implements OnInit {
         this.question = data.chat.question;
         this.sources = data.source || [];
   
-        // Show in chat
-        this.messages.push({ sender: 'user', text: this.question });
-        this.messages.push({ sender: 'bot', text: extractAnswer });
-        // this.messages.push({ sender: 'user', text: this.question });
-        // this.messages.push({ sender: 'bot', html: safeAnswer }); 
-
-  
-        // Optionally store the safe HTML separately if you're rendering markdown/HTML
         this.htmlAnswer = safeAnswer;
+        this.messages.push({ sender: 'user', text: this.question });
+        this.messages.push({ sender: 'bot', text: this.htmlAnswer });
       },
       error: (err) => console.error('Error:', err),
     });

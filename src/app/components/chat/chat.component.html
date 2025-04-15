@@ -76,7 +76,7 @@
                 'rounded-tl-none rounded-tr-lg pl-[12px] pr-[20px] py-[20px]': msg.sender === 'bot'
               }"
             >
-              {{ msg.text }}
+              <div class="ml-[12px] mt-[16px] mb-[16px] chat-answer" [innerHTML]="msg.text"></div>
             </div>
           </div>
         </div>
