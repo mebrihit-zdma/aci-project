@@ -53,7 +53,11 @@ export class ChatComponent implements OnInit {
 
 
   // testing
-  messages: { sender: 'user' | 'bot', text: SafeHtml }[] = [];
+  messages: { 
+    sender: 'user' | 'bot', 
+    text: SafeHtml,
+    sources?: { file_name: string, page_number: string, file_path: string}[] 
+  }[] = [];
 
   inputText: string = '';
 
@@ -71,7 +75,9 @@ export class ChatComponent implements OnInit {
   
         this.htmlAnswer = safeAnswer;
         this.messages.push({ sender: 'user', text: this.question });
-        this.messages.push({ sender: 'bot', text: this.htmlAnswer });
+        this.messages.push({ sender: 'bot', 
+          text: this.htmlAnswer, sources: this.sources 
+         });
       },
       error: (err) => console.error('Error:', err),
     });
