@@ -119,23 +119,6 @@ export class ChatComponent implements OnInit {
   }
 
   postChat(chat_id: string) {
-    // this.apiService.get<any>(chat_id).subscribe({
-    //   next: async (data) => {
-    //     const raw = data.chat.answer;
-    //     const extractAnswer = this.extractAnswerText(raw);
-    //     const safeAnswer = await this.convertMarkdown(extractAnswer);
-  
-    //     this.question = data.chat.question;
-    //     this.sources = data.source || [];
-  
-    //     this.htmlAnswer = safeAnswer;
-    //     this.messages.push({ sender: 'user', text: this.question });
-    //     this.messages.push({ sender: 'bot', 
-    //       text: this.htmlAnswer, sources: this.sources 
-    //      });
-    //   },
-    //   error: (err) => console.error('Error:', err),
-    // });
     const payload = {
       app_id: '67daf330d62c5ade928150d1',
       session_id: '93bcc86e-a1a5-4d4e-a626-dc4d0c2a9377',
@@ -157,9 +140,16 @@ export class ChatComponent implements OnInit {
       next: async (data) => {
         console.log("api post data:", data);
         const extractAnswer = this.extractAnswerText(data);
-        this.safeHtmlAnswer = await this.convertMarkdown(extractAnswer);
-        console.log("safeHtmlAnswer", this.safeHtmlAnswer);
-        this.question = "testing mz";
+        const safeAnswer = await this.convertMarkdown(extractAnswer);
+      
+        this.question = data.chat.question;
+        this.sources = data.source || [];
+  
+        this.safeHtmlAnswer = safeAnswer;
+        this.messages.push({ sender: 'user', text: this.question });
+        this.messages.push({ sender: 'bot', 
+          text: this.htmlAnswer, sources: this.sources 
+         });
       },
       error: (err) => console.error('Error:', err),
     });
