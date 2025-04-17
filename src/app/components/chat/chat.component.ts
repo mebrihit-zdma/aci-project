@@ -62,31 +62,35 @@ export class ChatComponent implements OnInit {
 
   htmlAnswer: SafeHtml = '';
 
-  loadChat(chat_id: string) {
-    this.apiService.get<any>(chat_id).subscribe({
-      next: async (data) => {
-        const raw = data.chat.answer;
-        const extractAnswer = this.extractAnswerText(raw);
-        const safeAnswer = await this.convertMarkdown(extractAnswer);
+  // loadChat(chat_id: string) {
+  //   this.apiService.get<any>(chat_id).subscribe({
+  //     next: async (data) => {
+  //       const raw = data.chat.answer;
+  //       const extractAnswer = this.extractAnswerText(raw);
+  //       const safeAnswer = await this.convertMarkdown(extractAnswer);
   
-        this.question = data.chat.question;
-        this.sources = data.source || [];
+  //       this.question = data.chat.question;
+  //       this.sources = data.source || [];
   
-        this.htmlAnswer = safeAnswer;
-        this.messages.push({ sender: 'user', text: this.question });
-        this.messages.push({ sender: 'bot', 
-          text: this.htmlAnswer, sources: this.sources 
-         });
-      },
-      error: (err) => console.error('Error:', err),
-    });
-  }
+  //       this.htmlAnswer = safeAnswer;
+  //       this.messages.push({ sender: 'user', text: this.question });
+  //       this.messages.push({ sender: 'bot', 
+  //         text: this.htmlAnswer, sources: this.sources 
+  //        });
+  //     },
+  //     error: (err) => console.error('Error:', err),
+  //   });
+  // }
+
+  // chatId: string = '';
+  // askQuestion(chatId : string ) {
+  //   this.loadChat(chatId);
+  // }
 
   chatId: string = '';
   askQuestion(chatId : string ) {
-    this.loadChat(chatId);
+    this.postChat(chatId);
   }
-
   //post
   ngOnInit(): void {
     const payload = {
@@ -118,13 +122,13 @@ export class ChatComponent implements OnInit {
     });
   }
 
-  postChat(chat_id: string) {
+  postChat(givenQuestion: string) {
     const payload = {
       app_id: '67daf330d62c5ade928150d1',
       session_id: '93bcc86e-a1a5-4d4e-a626-dc4d0c2a9377',
       user_id: '67daf330d62c5ade928150mz',
-      question: 'How do I setup automated payment entry in ACI Payment Hub?', 
-      // question: this.inputText, 
+      // question: 'How do I setup automated payment entry in ACI Payment Hub?', 
+      question: givenQuestion, 
       model_name: 'openai/gpt-4o',
       source: [],
       top_k: 0,
@@ -142,7 +146,7 @@ export class ChatComponent implements OnInit {
         const extractAnswer = this.extractAnswerText(data);
         const safeAnswer = await this.convertMarkdown(extractAnswer);
       
-        this.question = data.chat.question;
+        this.question = givenQuestion;
         this.sources = data.source || [];
   
         this.safeHtmlAnswer = safeAnswer;
