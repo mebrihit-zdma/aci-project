@@ -7,6 +7,6 @@ export interface AnswerSource {
   
 export interface ChatMessage {
     sender: 'bot' | 'user';
-    html: any;
+    text: any;
     sources?: AnswerSource[];
 }

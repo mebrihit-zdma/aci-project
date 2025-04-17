@@ -20,20 +20,20 @@ import { AnswerSource, ChatMessage } from '../../models/chat.model'; // adjust p
 export class ChatComponent {
 
   askedQuestion: string = '';
-  
+  sources: AnswerSource[] = [];
+  messages: ChatMessage[] = [];
+
+  constructor(private apiService: ApiService, private sanitizer: DomSanitizer){}
   //sources
   // sources: { file_name: string, page_number: string, file_path: string }[] = []; 
-  sources: { fileName: string, pageNumber: string, url: string }[] = [];
-
-  // messages that display on html
-  messages: { 
-    sender: 'user' | 'bot', 
-    text: SafeHtml,
-    sources?: { fileName: string, pageNumber: string, url: string}[] 
-    // sources?: { file_name: string, page_number: string, file_path: string}[] 
-  }[] = [];
   
-  constructor(private apiService: ApiService, private sanitizer: DomSanitizer){}
+  // messages that display on html
+  // messages: { 
+  //   sender: 'user' | 'bot', 
+  //   text: SafeHtml,
+  //   // sources?: { file_name: string, page_number: string, file_path: string}[] 
+  // }[] = [];
+  
  
   // get api call
   loadChat(chat_id: string) {
@@ -60,12 +60,10 @@ export class ChatComponent {
   // }
 
   //post api call
-
   askQuestion(askedQuestion : string ) {
     this.postChat(askedQuestion);
   }
 
-  // answerSource: AnswerSource[] = [];
   postChat(askedQuestion: string) {
     const payload = {
       app_id: '67daf330d62c5ade928150d1',
@@ -87,11 +85,8 @@ export class ChatComponent {
         console.log("api post data mz:", data);
         const extractAnswer = this.extractAnswerText(data);
         const safeAnswer = await this.convertMarkdown(extractAnswer);
-        console.log("safeAnswermz:", safeAnswer);
-
+        
         let answerSource: AnswerSource[] = this.extractSources(data); 
-        console.log("answerSource:", answerSource);
-        // this.sources = answerSource || [];
         this.sources = data.source || [];
   
         this.messages.push({ sender: 'user', text: askedQuestion });
@@ -99,7 +94,6 @@ export class ChatComponent {
           sender: 'bot', 
           text: safeAnswer, 
           sources: answerSource 
-          // sources: this.sources 
          });
       },
       error: (err) => console.error('Error:', err),
@@ -117,13 +111,6 @@ export class ChatComponent {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
-  
-  // interface AnswerSource {
-  //   fileName: string,
-  //   pageNumber: string,
-  //   url: string,
-  // }
-  
   extractSources(raw: string): AnswerSource[] {
     const sourcePattern = /- \*\*File Name:\*\* (.+?)\s+\*\*Page Number:\*\* (.+?)\s+\*\*URL:\*\* ([^\s]+)/g;
     const matches = [...raw.matchAll(sourcePattern)];
