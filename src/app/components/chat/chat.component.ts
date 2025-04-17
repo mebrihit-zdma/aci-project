@@ -24,19 +24,9 @@ export class ChatComponent {
   messages: ChatMessage[] = [];
 
   constructor(private apiService: ApiService, private sanitizer: DomSanitizer){}
-  //sources
-  // sources: { file_name: string, page_number: string, file_path: string }[] = []; 
   
-  // messages that display on html
-  // messages: { 
-  //   sender: 'user' | 'bot', 
-  //   text: SafeHtml,
-  //   // sources?: { file_name: string, page_number: string, file_path: string}[] 
-  // }[] = [];
-  
- 
   // get api call
-  loadChat(chat_id: string) {
+  getChat(chat_id: string) {
     this.apiService.get<any>(chat_id).subscribe({
       next: async (data) => {
         const raw = data.chat.answer;
@@ -44,11 +34,13 @@ export class ChatComponent {
         const safeAnswer = await this.convertMarkdown(extractAnswer);
         const question = data.chat.question;
 
-        this.sources = data.source || [];
-
+        let answerSource: AnswerSource[] = this.extractSources(raw); 
+        
         this.messages.push({ sender: 'user', text:question });
-        this.messages.push({ sender: 'bot', 
-          text: safeAnswer, sources: this.sources 
+        this.messages.push({ 
+          sender: 'bot', 
+          text: safeAnswer, 
+          sources: answerSource 
          });
       },
       error: (err) => console.error('Error:', err),
@@ -56,7 +48,7 @@ export class ChatComponent {
   }
 
   // askQuestion(askedQuestion : string ) {
-  //   this.loadChat(askedQuestion);
+  //   this.getChat(askedQuestion);
   // }
 
   //post api call
@@ -87,8 +79,7 @@ export class ChatComponent {
         const safeAnswer = await this.convertMarkdown(extractAnswer);
         
         let answerSource: AnswerSource[] = this.extractSources(data); 
-        this.sources = data.source || [];
-  
+        
         this.messages.push({ sender: 'user', text: askedQuestion });
         this.messages.push({ 
           sender: 'bot', 
