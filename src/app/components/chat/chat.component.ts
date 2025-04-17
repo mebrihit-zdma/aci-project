@@ -15,31 +15,88 @@ import { SourceCardComponent } from '../../components/cards/source-card/source-c
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent {
 
-  safeHtmlAnswer: SafeHtml = '';
-
-  question: string = '';
-
+  askedQuestion: string = '';
+  
+  //sources
   sources: { file_name: string, page_number: string, file_path: string }[] = []; 
+
+  // messages that display on html
+  messages: { 
+    sender: 'user' | 'bot', 
+    text: SafeHtml,
+    sources?: { file_name: string, page_number: string, file_path: string}[] 
+  }[] = [];
   
   constructor(private apiService: ApiService, private sanitizer: DomSanitizer){}
-  // ngOnInit(): void {
-  //   const chat_id = 'c732cbdd-afdf-4a39-959a-661adc07cb18';
-  //   this.apiService.get<any>(chat_id).subscribe({
-  //     next: async (data) => {
-  //       console.log("api data:", data.chat.answer);
-  //       const raw = data.chat.answer;
-  //       const extractAnswer = this.extractAnswerText(raw);
-  //       this.safeHtmlAnswer = await this.convertMarkdown(extractAnswer);
-  //       this.question = data.chat.question;
-  //       this.sources = data.source || [];
-  //       console.log("this.sources:", this.sources);
-  //     },
-  //     error: (err) => console.error('Error:', err),
-  //   });
+ 
+  // get api call
+  loadChat(chat_id: string) {
+    this.apiService.get<any>(chat_id).subscribe({
+      next: async (data) => {
+        const raw = data.chat.answer;
+        const extractAnswer = this.extractAnswerText(raw);
+        const safeAnswer = await this.convertMarkdown(extractAnswer);
+        const question = data.chat.question;
+
+        this.sources = data.source || [];
+
+        this.messages.push({ sender: 'user', text:question });
+        this.messages.push({ sender: 'bot', 
+          text: safeAnswer, sources: this.sources 
+         });
+      },
+      error: (err) => console.error('Error:', err),
+    });
+  }
+
+  // askQuestion(askedQuestion : string ) {
+  //   this.loadChat(askedQuestion);
   // }
+
+  //post api call
+
+  askQuestion(askedQuestion : string ) {
+    this.postChat(askedQuestion);
+  }
+
+  postChat(askedQuestion: string) {
+    const payload = {
+      app_id: '67daf330d62c5ade928150d1',
+      session_id: '93bcc86e-a1a5-4d4e-a626-dc4d0c2a9377',
+      user_id: '67daf330d62c5ade928150mz',
+      question: askedQuestion, 
+      model_name: 'openai/gpt-4o',
+      source: [],
+      top_k: 0,
+      filter: {
+        additionalProp1: 'string',
+        additionalProp2: 'string',
+        additionalProp3: 'string',
+      },
+      use_cache: true
+    };
+    
+    this.apiService.post<any>('chat_stream', payload, 'text').subscribe({
+      next: async (data) => {
+        console.log("api post data mz:", data);
+        const extractAnswer = this.extractAnswerText(data);
+        const safeAnswer = await this.convertMarkdown(extractAnswer);
+        console.log("safeAnswermz:", safeAnswer);
+
+        this.sources = data.source || [];
   
+        this.messages.push({ sender: 'user', text: askedQuestion });
+        this.messages.push({ sender: 'bot', 
+          text: safeAnswer, sources: this.sources 
+         });
+      },
+      error: (err) => console.error('Error:', err),
+    });
+  }
+
+  //helper functions
   extractAnswerText(raw: string): string {
     const match = raw.match(/<answer>([\s\S]*?)<\/answer>/);
     return match ? match[1].trim() : '';
@@ -50,113 +107,6 @@ export class ChatComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
-
-  // testing
-  messages: { 
-    sender: 'user' | 'bot', 
-    text: SafeHtml,
-    sources?: { file_name: string, page_number: string, file_path: string}[] 
-  }[] = [];
-
-  inputText: string = '';
-
-  htmlAnswer: SafeHtml = '';
-
-  // loadChat(chat_id: string) {
-  //   this.apiService.get<any>(chat_id).subscribe({
-  //     next: async (data) => {
-  //       const raw = data.chat.answer;
-  //       const extractAnswer = this.extractAnswerText(raw);
-  //       const safeAnswer = await this.convertMarkdown(extractAnswer);
   
-  //       this.question = data.chat.question;
-  //       this.sources = data.source || [];
   
-  //       this.htmlAnswer = safeAnswer;
-  //       this.messages.push({ sender: 'user', text: this.question });
-  //       this.messages.push({ sender: 'bot', 
-  //         text: this.htmlAnswer, sources: this.sources 
-  //        });
-  //     },
-  //     error: (err) => console.error('Error:', err),
-  //   });
-  // }
-
-  // chatId: string = '';
-  // askQuestion(chatId : string ) {
-  //   this.loadChat(chatId);
-  // }
-
-  chatId: string = '';
-  askQuestion(chatId : string ) {
-    this.postChat(chatId);
-  }
-  //post
-  ngOnInit(): void {
-    const payload = {
-      app_id: '67daf330d62c5ade928150d1',
-      session_id: '93bcc86e-a1a5-4d4e-a626-dc4d0c2a9377',
-      user_id: '67daf330d62c5ade928150mz',
-      question: 'How do I setup automated payment entry in ACI Payment Hub?', 
-      // question: this.inputText, 
-      model_name: 'openai/gpt-4o',
-      source: [],
-      top_k: 0,
-      filter: {
-        additionalProp1: 'string',
-        additionalProp2: 'string',
-        additionalProp3: 'string',
-      },
-      use_cache: true
-    };
-    
-    this.apiService.post<any>('chat_stream', payload, 'text').subscribe({
-      next: async (data) => {
-        console.log("api post data:", data);
-        const extractAnswer = this.extractAnswerText(data);
-        this.safeHtmlAnswer = await this.convertMarkdown(extractAnswer);
-        console.log("safeHtmlAnswer", this.safeHtmlAnswer);
-        this.question = "testing mz";
-      },
-      error: (err) => console.error('Error:', err),
-    });
-  }
-
-  postChat(givenQuestion: string) {
-    const payload = {
-      app_id: '67daf330d62c5ade928150d1',
-      session_id: '93bcc86e-a1a5-4d4e-a626-dc4d0c2a9377',
-      user_id: '67daf330d62c5ade928150mz',
-      // question: 'How do I setup automated payment entry in ACI Payment Hub?', 
-      question: givenQuestion, 
-      model_name: 'openai/gpt-4o',
-      source: [],
-      top_k: 0,
-      filter: {
-        additionalProp1: 'string',
-        additionalProp2: 'string',
-        additionalProp3: 'string',
-      },
-      use_cache: true
-    };
-    
-    this.apiService.post<any>('chat_stream', payload, 'text').subscribe({
-      next: async (data) => {
-        console.log("api post data:", data);
-        const extractAnswer = this.extractAnswerText(data);
-        const safeAnswer = await this.convertMarkdown(extractAnswer);
-      
-        this.question = givenQuestion;
-        this.sources = data.source || [];
-  
-        this.safeHtmlAnswer = safeAnswer;
-        this.messages.push({ sender: 'user', text: this.question });
-        this.messages.push({ sender: 'bot', 
-          text: this.htmlAnswer, sources: this.sources 
-         });
-      },
-      error: (err) => console.error('Error:', err),
-    });
-  }
-
 }
