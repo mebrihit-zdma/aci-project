@@ -59,17 +59,11 @@ export class ChatComponent {
   postChat(askedQuestion: string) {
     const payload = {
       app_id: '67daf330d62c5ade928150d1',
-      session_id: '93bcc86e-a1a5-4d4e-a626-dc4d0c2a9377',
-      user_id: '67daf330d62c5ade928150mz',
+      session_id: 'b956506-2a95-43a2-8737-c0deb90d0b75',
+      user_id: '90487389-fd4d-4951-a72c-069d7b20test',
       question: askedQuestion, 
       model_name: 'openai/gpt-4o',
-      source: [],
-      top_k: 0,
-      filter: {
-        additionalProp1: 'string',
-        additionalProp2: 'string',
-        additionalProp3: 'string',
-      },
+      top_k: 3,
       use_cache: true
     };
     this.apiService.post<any>('chat_stream', payload, 'text').subscribe({
