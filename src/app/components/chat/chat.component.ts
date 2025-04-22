@@ -7,7 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { marked } from 'marked';
 import { SourceCardComponent } from '../../components/cards/source-card/source-card.component';
-import { AnswerSource, ChatMessage } from '../../models/chat.model'; // adjust path if needed
+import { AnswerSource, ChatMessage } from '../../models/chat.model';
+import { extractAnswerText, convertMarkdown, extractSources } from '../../utils/chat-utils';
+
 
 
 @Component({
@@ -30,11 +32,11 @@ export class ChatComponent {
     this.apiService.get<any>(chat_id).subscribe({
       next: async (data) => {
         const raw = data.chat.answer;
-        const extractAnswer = this.extractAnswerText(raw);
-        const safeAnswer = await this.convertMarkdown(extractAnswer);
+        const extractAnswer = extractAnswerText(raw);
+        const safeAnswer = await convertMarkdown(extractAnswer, this.sanitizer);
         const question = data.chat.question;
 
-        let answerSource: AnswerSource[] = this.extractSources(raw); 
+        let answerSource: AnswerSource[] = extractSources(raw); 
         
         this.messages.push({ sender: 'user', text:question });
         this.messages.push({ 
@@ -69,10 +71,10 @@ export class ChatComponent {
     this.apiService.post<any>('chat_stream', payload, 'text').subscribe({
       next: async (data) => {
         console.log("api post data mz:", data);
-        const extractAnswer = this.extractAnswerText(data);
-        const safeAnswer = await this.convertMarkdown(extractAnswer);
+        const extractAnswer = extractAnswerText(data);
+        const safeAnswer = await convertMarkdown(extractAnswer, this.sanitizer);
         
-        let answerSource: AnswerSource[] = this.extractSources(data); 
+        let answerSource: AnswerSource[] = extractSources(data); 
         
         this.messages.push({ sender: 'user', text: askedQuestion });
         this.messages.push({ 
@@ -85,26 +87,4 @@ export class ChatComponent {
     });
   }
 
-  //helper functions
-  extractAnswerText(raw: string): string {
-    const match = raw.match(/<answer>([\s\S]*?)<\/answer>/);
-    return match ? match[1].trim() : '';
-  }
-  
-  async convertMarkdown(md: string): Promise<SafeHtml> {
-    const html = await marked(md || '');
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
-
-  extractSources(raw: string): AnswerSource[] {
-    const sourcePattern = /- \*\*File Name:\*\* (.+?)\s+\*\*Page Number:\*\* (.+?)\s+\*\*URL:\*\* ([^\s]+)/g;
-    const matches = [...raw.matchAll(sourcePattern)];
-    
-    return matches.map(m => ({
-      fileName: m[1],
-      pageNumber: m[2],
-      url: m[3]
-    }));
-  }  
-  
 }
