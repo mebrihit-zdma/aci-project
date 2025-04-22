@@ -55,23 +55,22 @@
                 </div>
               </div>
             </div>
-            <!-- Task question here -->
+            <!-- ask question input field -->
             <div class="w-[100%]">
-                <form (ngSubmit)="askQuestion(askedQuestion)" class="w-[100%]">
-                  <label class="bg-white flex items-center justify-between py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] gap-[16px] ">
-                    <div class="flex gap-[8px] w-[90%]">
-                        <span class="w-[16px] h-[17px] scale-[0.9] bg-[url('./app/resources/icons/chat-link-icon.svg')]"></span>
-                        <input 
-                          type="text" 
-                          placeholder="Ask your question!" 
-                          class="text-sm w-[100%]"
-                          name="askedQuestion"
-                          [(ngModel)]="askedQuestion"
-                        />
-                    </div>
-                    <span class="w-[18px] h-[18.86px] bg-[url('./app/resources/icons/blue-right-arrow-icon.svg')]"></span>
-                  </label>
-                </form>
+              <label class="bg-white flex items-center justify-between py-[12px] px-[12px]  border border-[#D5D7DA] rounded-[8px] gap-[16px] ">
+                <div class="flex gap-[8px] w-[90%]">
+                    <span class="w-[16px] h-[17px] scale-[0.9] bg-[url('./app/resources/icons/chat-link-icon.svg')]"></span>
+                    <input 
+                      type="text" 
+                      placeholder="Ask your question!" 
+                      class="text-sm w-[100%]"
+                      name="askedQuestion"
+                      [(ngModel)]="askedQuestion"
+                      (keydown.enter)="askQuestion(askedQuestion)"
+                    />
+                </div>
+                <span class="w-[18px] h-[18.86px] bg-[url('./app/resources/icons/blue-right-arrow-icon.svg')]"></span>
+              </label>
             </div>
         </div>
     </div>

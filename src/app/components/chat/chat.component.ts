@@ -50,12 +50,18 @@ export class ChatComponent {
   }
 
   // askQuestion(askedQuestion : string ) {
-  //   this.getChat(askedQuestion);
+  //   const question = askedQuestion.trim();
+  //   if (!question) return;
+  //   this.getChat(question);
+  //   this.askedQuestion = ''; 
   // }
 
   //post api call
   askQuestion(askedQuestion : string ) {
-    this.postChat(askedQuestion);
+    const question = askedQuestion.trim();
+    if (!question) return;
+    this.postChat(question);
+    this.askedQuestion = ''; 
   }
 
   postChat(askedQuestion: string) {

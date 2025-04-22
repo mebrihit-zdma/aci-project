@@ -1,7 +1,7 @@
 // chat-utils.ts
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { marked } from 'marked';
-import { AnswerSource } from '../models/chat.model'; // adjust path as needed
+import { AnswerSource } from '../models/chat.model';
 
 export function extractAnswerText(raw: string): string {
   const match = raw.match(/<answer>([\s\S]*?)<\/answer>/);
