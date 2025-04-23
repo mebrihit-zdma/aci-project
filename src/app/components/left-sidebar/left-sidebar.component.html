@@ -37,7 +37,8 @@
         </div>
         <!-- sidebar nav section -->
         <div class="flex flex-col gap-2">
-          @for (item of items; track $index) {
+          <!--/* @for (item of items; track $index) { */-->
+          @for (item of items; let i = $index; track item) {
             <ul class="w-full">
                 <li class="w-full">
                     <a
@@ -56,6 +57,8 @@
                         <span class="tooltip-text text-[#FFFFFF] bg-[#3D3B3B] rounded-sm py-[4px] px-[8px] font-normal text-sm absolute  left-[112%]">{{ item.label }}</span>
                       }
                     </a>
+                    <hr *ngIf="i > 2" class="text-[#DFDFDF80]">
+                    <div *ngIf="i > 4"></div>
                 </li>
             </ul>
           }
