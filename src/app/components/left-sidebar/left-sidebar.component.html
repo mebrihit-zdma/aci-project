@@ -58,7 +58,12 @@
                       }
                     </a>
                     <hr *ngIf="i > 2" class="text-[#DFDFDF80]">
-                    <div *ngIf="i > 4"></div>
+                    <div *ngIf="item.label === 'Saved Chats'">
+                      <app-saved-chats/>
+                    </div>
+                    <div *ngIf="item.label === 'Chat History'">
+                      <app-chat-history/>
+                    </div>
                 </li>
             </ul>
           }

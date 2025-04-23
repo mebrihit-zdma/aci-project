@@ -2,12 +2,14 @@ import { Component, input, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
+import { ChatHistoryComponent } from '../../components/chats/chat-history/chat-history.component';
+import { SavedChatsComponent } from '../../components/chats/saved-chats/saved-chats.component';
 
 
 @Component({
   selector: 'app-left-sidebar',
   standalone: true,
-  imports: [RouterModule, CommonModule ],
+  imports: [RouterModule, CommonModule, SavedChatsComponent, ChatHistoryComponent ],
   templateUrl: './left-sidebar.component.html',
   styleUrl: './left-sidebar.component.css'
 })
