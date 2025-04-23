@@ -1,7 +1,7 @@
-<div>
+<div class="overflow-y-auto h-[3%] px-4">
 @for (chat of chatHistory; let i = $index; track chat) {
-    <ul class="flex flex-col px-6 mb-[32px]">
-        <li class="text-[#919399] text-base py-[12px] truncate">{{chat.question}}</li>
+    <ul>
+        <li class="text-[#919399] text-base py-[12px] truncate cursor-pointer">{{chat.question}}</li>
         <hr class="text-[#DFDFDF80] ">
     </ul>
 }
