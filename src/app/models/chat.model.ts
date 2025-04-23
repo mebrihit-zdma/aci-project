@@ -10,3 +10,8 @@ export interface ChatMessage {
     text: any;
     sources?: AnswerSource[];
 }
+
+export interface ChatHistory {
+    question: string;
+    chatId: string;
+}

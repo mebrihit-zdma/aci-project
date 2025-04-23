@@ -1,8 +1,8 @@
 <div>
+@for (chat of chatHistory; let i = $index; track chat) {
     <ul class="flex flex-col px-6 mb-[32px]">
-        <li class="text-[#919399] text-base py-[12px]">SBI-123: Bug resolution</li>
+        <li class="text-[#919399] text-base py-[12px] truncate">{{chat.question}}</li>
         <hr class="text-[#DFDFDF80] ">
-        <li class="text-[#919399] text-base py-[12px]">Updates from Release Notes</li>
-        <hr class="text-[#DFDFDF80]">
     </ul>
+}
 </div>
