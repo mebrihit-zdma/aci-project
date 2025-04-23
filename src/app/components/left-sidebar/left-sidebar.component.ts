@@ -38,6 +38,26 @@ export class LeftSidebarComponent {
       icon: 'chat_bubble',
       label: 'Chat',
     },
+    {
+      routeLink: 'start-new-chat',
+      icon: 'add_circle_outline',
+      label: 'Start New Chat',
+    },
+    {
+      routeLink: 'search-previous-chats',
+      icon: 'search',
+      label: 'Search Previous Chats',
+    },
+    {
+      routeLink: 'saved-chats',
+      icon: 'bookmark',
+      label: 'Saved Chats',
+    },
+    {
+      routeLink: 'chat-history',
+      icon: 'history',
+      label: 'Chat History',
+    },
   ];
   toggleCollapse(): void {
     this.changeIsLeftSidebarCollapsed.emit(!this.isLeftSidebarCollapsed());
