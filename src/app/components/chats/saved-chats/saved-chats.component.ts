@@ -19,7 +19,6 @@ export class SavedChatsComponent {
   getSavedChats(userId: string) {
     this.apiService.get<any>(userId).subscribe({
       next: (data) => {
-        console.log("data history:", data);
         data.forEach((item: { chat: { question: string }, chat_id: string }) => {
           const question = item.chat?.question || "";
           const chatId = item.chat_id;

@@ -9,13 +9,16 @@ export class ApiService {
   
   constructor(private http: HttpClient) {}
 
-  // baseUrl = `https://aci-playbook-peerai.azurewebsites.net/api/v1/get_chat`;
+  chatIdUrl = `https://aci-playbook-peerai.azurewebsites.net/api/v1/get_chat`;
   baseUrl = `https://aci-playbook-peerai.azurewebsites.net/api/v1`;
   postApi = `https://aci-playbook-peerai.azurewebsites.net/api/v1`;
   get<T>(endpoint: string): Observable<T> {
     return this.http.get<T>(`${this.baseUrl}/${endpoint}`);
   }
 
+  getSelectedQuestion<T>(endpoint: string): Observable<T> {
+    return this.http.get<T>(`${this.chatIdUrl}/${endpoint}`);
+  }
   post<T>(endpoint: string, data: any, responseType: 'json' | 'text' = 'json'): Observable<T> {
     return this.http.post<T>(`${this.postApi}/${endpoint}`, data, {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
