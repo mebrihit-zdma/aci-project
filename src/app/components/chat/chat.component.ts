@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject,  OnInit, signal, Input   } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { ChatService } from '../../services/chat.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 
@@ -25,9 +26,9 @@ export class ChatComponent {
   sources: AnswerSource[] = [];
   messages: ChatMessage[] = [];
 
-  constructor(private apiService: ApiService, private sanitizer: DomSanitizer){}
+  constructor(private apiService: ApiService, private chatService: ChatService, private sanitizer: DomSanitizer){}
   
-  // get api call
+  // get api call using chat id
   getChat(chat_id: string) {
     this.apiService.getSelectedQuestion<any>(chat_id).subscribe({
       next: async (data) => {
@@ -48,21 +49,26 @@ export class ChatComponent {
       error: (err) => console.error('Error:', err),
     });
   }
-
-  askQuestion(askedQuestion : string ) {
-    const question = askedQuestion.trim();
-    if (!question) return;
-    this.getChat(question);
-    this.askedQuestion = ''; 
+   // selected question from chat history
+  ngOnInit() {
+    this.chatService.click$.subscribe(() => {
+      this.getChat(this.chatService.getChatId());
+    });
   }
-
-  //post api call
   // askQuestion(askedQuestion : string ) {
   //   const question = askedQuestion.trim();
   //   if (!question) return;
-  //   this.postChat(question);
+  //   this.getChat(question);
   //   this.askedQuestion = ''; 
   // }
+
+  // post api call
+  askQuestion(askedQuestion : string ) {
+    const question = askedQuestion.trim();
+    if (!question) return;
+    this.postChat(question);
+    this.askedQuestion = ''; 
+  }
 
   postChat(askedQuestion: string) {
     const payload = {
