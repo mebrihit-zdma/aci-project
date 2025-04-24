@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
-import { DomSanitizer } from '@angular/platform-browser';
-import { extractAnswerText, convertMarkdown, extractSources } from '../../../utils/chat-utils';
-import { AnswerSource, ChatMessage, ChatHistory } from '../../../models/chat.model';
+import { ChatHistory } from '../../../models/chat.model';
 
 @Component({
   selector: 'app-chat-history',

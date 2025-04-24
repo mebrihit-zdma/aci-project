@@ -15,3 +15,7 @@ export interface ChatHistory {
     question: string;
     chatId: string;
 }
+export interface SavedChats {
+    question: string;
+    chatId: string;
+}
