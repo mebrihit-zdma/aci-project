@@ -29,7 +29,7 @@ export class ChatComponent {
   
   // get api call
   getChat(chat_id: string) {
-    this.apiService.get<any>(chat_id).subscribe({
+    this.apiService.getSelectedQuestion<any>(chat_id).subscribe({
       next: async (data) => {
         const raw = data.chat.answer;
         const extractAnswer = extractAnswerText(raw);
@@ -49,20 +49,20 @@ export class ChatComponent {
     });
   }
 
-  // askQuestion(askedQuestion : string ) {
-  //   const question = askedQuestion.trim();
-  //   if (!question) return;
-  //   this.getChat(question);
-  //   this.askedQuestion = ''; 
-  // }
-
-  //post api call
   askQuestion(askedQuestion : string ) {
     const question = askedQuestion.trim();
     if (!question) return;
-    this.postChat(question);
+    this.getChat(question);
     this.askedQuestion = ''; 
   }
+
+  //post api call
+  // askQuestion(askedQuestion : string ) {
+  //   const question = askedQuestion.trim();
+  //   if (!question) return;
+  //   this.postChat(question);
+  //   this.askedQuestion = ''; 
+  // }
 
   postChat(askedQuestion: string) {
     const payload = {
