@@ -58,22 +58,17 @@
                       }
                     </a>
                     <hr *ngIf="i > 2" class="text-[#DFDFDF80]">
-                    <div *ngIf="item.label === 'Saved Chats'">
-                      <app-saved-chats/>
-                    </div>
-                    <!--/* <div *ngIf="item.label === 'Chat History'">
+                    <div *ngIf="item.label === 'Saved Chats'" class="h-[130px]">
+                      <!--/* <app-saved-chats/> */-->
                       <app-chat-history/>
-                    </div> */-->
+                    </div>
+                    <div *ngIf="item.label === 'Chat History'" class="h-[170px]">
+                      <app-chat-history/>
+                    </div>
                 </li>
             </ul>
           }
-          <div>
-            <app-chat-history/>
-          </div>
         </div>
-        <!--/* <div>
-            <app-chat-history/>
-        </div> */-->
       </div>
 
       <!--user profile section -->
