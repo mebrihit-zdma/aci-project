@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { ChatHistoryComponent } from '../../components/chats/chat-history/chat-history.component';
 import { SavedChatsComponent } from '../../components/chats/saved-chats/saved-chats.component';
+import { ChatService } from '../../services/chat.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { SavedChatsComponent } from '../../components/chats/saved-chats/saved-ch
   styleUrl: './left-sidebar.component.css'
 })
 export class LeftSidebarComponent {
-  constructor(private userService: UserService ) {}
+  constructor(private userService: UserService, private chatService: ChatService ) {}
   userName = "";
   userRole = "";
   ngOnInit() {
@@ -24,7 +25,7 @@ export class LeftSidebarComponent {
 
   isLeftSidebarCollapsed = input.required<boolean>();
   changeIsLeftSidebarCollapsed = output<boolean>();
-  items = [
+  dashboardItems = [
     {
       routeLink: 'dashboard',
       icon: 'home',
@@ -40,23 +41,21 @@ export class LeftSidebarComponent {
       icon: 'chat_bubble',
       label: 'Chat',
     },
+  ];
+  chatItems = [
     {
-      routeLink: 'start-new-chat',
       icon: 'add_circle_outline',
       label: 'Start New Chat',
     },
     {
-      routeLink: 'search-previous-chats',
       icon: 'search',
       label: 'Search Previous Chats',
     },
     {
-      routeLink: 'saved-chats',
       icon: 'bookmark',
       label: 'Saved Chats',
     },
     {
-      routeLink: 'chat-history',
       icon: 'history',
       label: 'Chat History',
     },
@@ -81,4 +80,9 @@ export class LeftSidebarComponent {
   getFirstLetter(name: string): string {
     return name ? name.charAt(0).toUpperCase() : '';
   }
+
+  // start new chat click event listener 
+  startNewChat(){
+    this.chatService.startNewChatEmitClick();
+  };
 }

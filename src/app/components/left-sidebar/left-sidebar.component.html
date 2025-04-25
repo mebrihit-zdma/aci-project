@@ -37,8 +37,8 @@
         </div>
         <!-- sidebar nav section -->
         <div class="flex flex-col gap-2">
-          <!--/* @for (item of items; track $index) { */-->
-          @for (item of items; let i = $index; track item) {
+          <!-- dashboard sidebar list -->
+          @for (item of dashboardItems; let i = $index; track item) {
             <ul class="w-full">
                 <li class="w-full">
                     <a
@@ -54,13 +54,48 @@
                       }
                       <!-- text  tooltip section -->
                       @if (isLeftSidebarCollapsed()) {
-                        <span class="tooltip-text text-[#FFFFFF] bg-[#3D3B3B] rounded-sm py-[4px] px-[8px] font-normal text-sm absolute  left-[112%]">{{ item.label }}</span>
+                        <span 
+                          class="tooltip-text text-[#FFFFFF] bg-[#3D3B3B] rounded-sm py-[4px] px-[8px] font-normal text-sm absolute  left-[112%]">
+                        {{ item.label }}
+                        </span>
                       }
                     </a>
                     <hr *ngIf="i > 2" class="text-[#DFDFDF80]">
                     <div *ngIf="item.label === 'Saved Chats'" class="h-[110px]">
                       <app-saved-chats/>
-                      
+                    </div>
+                    <div *ngIf="item.label === 'Chat History'" class="h-[150px]">
+                      <app-chat-history/>
+                    </div>
+                </li>
+            </ul>
+          }
+          <!-- chat sidebar list -->
+          @for (item of chatItems; let i = $index; track item) {
+            <ul class="w-full">
+                <li class="w-full">
+                    <span
+                    class="flex gap-x-2 items-center rounded-2xl px-3 py-2 relative cursor-pointer"
+                    [ngClass]="isLeftSidebarCollapsed() ? 'tooltip-btn' : ''"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    (click)="item.label === 'Start New Chat' && startNewChat()"
+                    >
+                      <span class="material-icons">{{item.icon}}</span>
+                      @if (!isLeftSidebarCollapsed()) {
+                        <span class="text-[#000000] font-normal text-sm">{{ item.label }}</span>
+                      }
+                      <!-- text  tooltip section -->
+                      @if (isLeftSidebarCollapsed()) {
+                        <span 
+                          class="tooltip-text text-[#FFFFFF] bg-[#3D3B3B] rounded-sm py-[4px] px-[8px] font-normal text-sm absolute  left-[112%]">
+                        {{ item.label }}
+                        </span>
+                      }
+                    </span>
+                    <hr class="text-[#DFDFDF80]">
+                    <div *ngIf="item.label === 'Saved Chats'" class="h-[110px]">
+                      <app-saved-chats/>
                     </div>
                     <div *ngIf="item.label === 'Chat History'" class="h-[150px]">
                       <app-chat-history/>

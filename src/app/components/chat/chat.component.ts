@@ -49,18 +49,17 @@ export class ChatComponent {
       error: (err) => console.error('Error:', err),
     });
   }
-   // selected question from chat history
+  // selected question from chat history
   ngOnInit() {
     this.chatService.click$.subscribe(() => {
       this.getChat(this.chatService.getChatId());
     });
+    // start new chat on clicking the Start New Chat button
+    this.chatService.startNewChatClick$.subscribe(() => {
+      this.sources = [];
+      this.messages = [];
+    });
   }
-  // askQuestion(askedQuestion : string ) {
-  //   const question = askedQuestion.trim();
-  //   if (!question) return;
-  //   this.getChat(question);
-  //   this.askedQuestion = ''; 
-  // }
 
   // post api call
   askQuestion(askedQuestion : string ) {

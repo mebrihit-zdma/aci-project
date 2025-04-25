@@ -24,4 +24,12 @@ export class ChatService {
   emitClick() {
     this.clickSubject.next();
   }
+
+  //start new chat
+  private clickNewChat = new Subject<void>();
+  startNewChatClick$ = this.clickNewChat.asObservable();
+
+  startNewChatEmitClick() {
+    this.clickNewChat.next();
+  }
 }

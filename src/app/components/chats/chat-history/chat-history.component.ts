@@ -3,9 +3,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ApiService } from '../../../services/api.service';
 import { ChatService } from '../../../services/chat.service';
 import { ChatHistory } from '../../../models/chat.model';
-import { extractAnswerText, convertMarkdown, extractSources } from '../../../utils/chat-utils';
-import { AnswerSource, ChatMessage } from '../../../models/chat.model';
-
 
 @Component({
   selector: 'app-chat-history',
