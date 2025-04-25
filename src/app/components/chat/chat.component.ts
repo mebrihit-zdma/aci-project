@@ -28,40 +28,7 @@ export class ChatComponent {
 
   constructor(private apiService: ApiService, private chatService: ChatService, private sanitizer: DomSanitizer){}
   
-  // get api call using chat id
-  getChat(chat_id: string) {
-    this.apiService.getSelectedQuestion<any>(chat_id).subscribe({
-      next: async (data) => {
-        const raw = data.chat.answer;
-        const extractAnswer = extractAnswerText(raw);
-        const safeAnswer = await convertMarkdown(extractAnswer, this.sanitizer);
-        const question = data.chat.question;
-
-        let answerSource: AnswerSource[] = extractSources(raw); 
-        
-        this.messages.push({ sender: 'user', text:question });
-        this.messages.push({ 
-          sender: 'bot', 
-          text: safeAnswer, 
-          sources: answerSource 
-         });
-      },
-      error: (err) => console.error('Error:', err),
-    });
-  }
-  // selected question from chat history
-  ngOnInit() {
-    this.chatService.click$.subscribe(() => {
-      this.getChat(this.chatService.getChatId());
-    });
-    // start new chat on clicking the Start New Chat button
-    this.chatService.startNewChatClick$.subscribe(() => {
-      this.sources = [];
-      this.messages = [];
-    });
-  }
-
-  // post api call
+  // post a question and get answer using api call
   askQuestion(askedQuestion : string ) {
     const question = askedQuestion.trim();
     if (!question) return;
@@ -95,6 +62,40 @@ export class ChatComponent {
          });
       },
       error: (err) => console.error('Error:', err),
+    });
+  }
+
+  // get answer using chat id
+  getChat(chat_id: string) {
+    this.apiService.getSelectedQuestion<any>(chat_id).subscribe({
+      next: async (data) => {
+        const raw = data.chat.answer;
+        const extractAnswer = extractAnswerText(raw);
+        const safeAnswer = await convertMarkdown(extractAnswer, this.sanitizer);
+        const question = data.chat.question;
+
+        let answerSource: AnswerSource[] = extractSources(raw); 
+        
+        this.messages.push({ sender: 'user', text:question });
+        this.messages.push({ 
+          sender: 'bot', 
+          text: safeAnswer, 
+          sources: answerSource 
+         });
+      },
+      error: (err) => console.error('Error:', err),
+    });
+  }
+  
+  ngOnInit() {
+    // selected question from chat history
+    this.chatService.click$.subscribe(() => {
+      this.getChat(this.chatService.getChatId());
+    });
+    // start new chat on clicking the Start New Chat button
+    this.chatService.startNewChatClick$.subscribe(() => {
+      this.sources = [];
+      this.messages = [];
     });
   }
 
