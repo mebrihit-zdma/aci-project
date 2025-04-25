@@ -94,12 +94,14 @@
                       }
                     </span>
                     <hr class="text-[#DFDFDF80]">
-                    <div *ngIf="item.label === 'Saved Chats'" class="h-[110px]">
-                      <app-saved-chats/>
-                    </div>
-                    <div *ngIf="item.label === 'Chat History'" class="h-[150px]">
-                      <app-chat-history/>
-                    </div>
+                    @if (!isLeftSidebarCollapsed()) {
+                      <div *ngIf="item.label === 'Saved Chats'" class="h-[110px]">
+                        <app-saved-chats/>
+                      </div>
+                      <div *ngIf="item.label === 'Chat History'" class="h-[150px]">
+                        <app-chat-history/>
+                      </div>
+                    }
                 </li>
             </ul>
           }
