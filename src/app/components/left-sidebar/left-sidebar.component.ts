@@ -16,7 +16,7 @@ import { ChatService } from '../../services/chat.service';
 })
 export class LeftSidebarComponent {
   constructor(private userService: UserService, private chatService: ChatService ) {}
-  userName = "";
+  userName:string|undefined  = "";
   userRole = "";
   ngOnInit() {
     this.userName = this.userService.getUserName();

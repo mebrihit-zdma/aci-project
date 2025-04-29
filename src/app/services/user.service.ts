@@ -6,17 +6,17 @@ import { Injectable } from '@angular/core';
 export class UserService {
   constructor() { }
   
-  private userName: string = '';
+  private userName: string|undefined = '';
   private userRole: string = '';
 
-  setUserName(userName: string) {
+  setUserName(userName: string|undefined) {
     this.userName = userName;
   }
   setUserRole(role: string) {
     this.userRole = role;
   }
 
-  getUserName(): string {
+  getUserName(): string|undefined {
     return this.userName;
   }
 

@@ -7,6 +7,7 @@ import { UserService } from '../../services/user.service';
 
 import { AuthService } from '@auth0/auth0-angular';
 import { AuthModule } from '@auth0/auth0-angular';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-user-login-page',
@@ -58,7 +59,12 @@ export class UserLoginPageComponent{
       });
     }
   }
-
+  login(): void {
+    this.auth.loginWithRedirect({
+      appState: { target: '/welcome-page' }
+    });
+  }
+  
   userRole = "";
   userName = ""
   onLogin(){

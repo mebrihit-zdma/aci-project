@@ -17,7 +17,7 @@ import { UserService } from '../../services/user.service';
 })
 export class DashboardComponent {
   constructor(private userService: UserService ) {}
-  userName = "";
+  userName:string|undefined  = "";
   userRole = '';
   ngOnInit() {
     this.userName = this.userService.getUserName();
