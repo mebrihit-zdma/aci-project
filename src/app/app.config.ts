@@ -5,9 +5,40 @@ import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
 
+// export const appConfig: ApplicationConfig = {
+//   providers: [
+//     provideHttpClient(),
+//     provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), 
+//     provideClientHydration(withEventReplay()),
+    
+//   ]
+// };
+
+
+import {withEnabledBlockingInitialNavigation } from '@angular/router';
+import {withInterceptorsFromDi } from '@angular/common/http';
+
+import {
+  MSAL_INSTANCE,
+  MSAL_GUARD_CONFIG,
+  MsalService,
+  MsalGuard,
+  MsalBroadcastService
+} from '@azure/msal-angular';
+
+import { msalInstanceFactory, msalGuardConfigFactory } from './msal-config';
+
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(),
-    provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), 
-    provideClientHydration(withEventReplay())]
+    provideRouter(routes, withEnabledBlockingInitialNavigation()),
+    provideHttpClient(withInterceptorsFromDi()),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideClientHydration(withEventReplay()),
+
+    { provide: MSAL_INSTANCE, useFactory: msalInstanceFactory },
+    { provide: MSAL_GUARD_CONFIG, useFactory: msalGuardConfigFactory },
+    MsalService,
+    MsalGuard,
+    MsalBroadcastService,
+  ],
 };
