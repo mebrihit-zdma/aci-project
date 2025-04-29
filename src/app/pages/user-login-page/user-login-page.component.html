@@ -1,9 +1,9 @@
 
-<div class="login-page">
-    <div class="login-main">    
+<!--/* <div class="login-page"> */-->
+    <!--/* <div class="login-main">    
         <input type="checkbox" id="chk" aria-hidden="true">
 
-        <!--/* Sign up form */-->
+         Sign up form 
         <div class="signup">
             <form>
                 <label class="login-label" for="chk" aria-hidden="true">Sign up</label>
@@ -15,7 +15,7 @@
             </form>
         </div>
 
-        <!--/* Login form */-->
+         Login form
         <div class="login">
             <form>
                 <label class="login-label" for="chk" aria-hidden="true">Login</label>
@@ -24,6 +24,27 @@
                 <button class="login-button" (click)="onLogin()">Login</button>
             </form>
         </div>
+    </div> */-->
+<div class="w-[500px] ml-auto mr-auto mt-[200px]">
+    <div *ngIf="isBrowser && auth" class="flex flex-col items-center justify-center  bg-gray-100 p-6">
+        <h1 class="text-3xl font-bold mb-6">Welcome to the Login Page</h1>
+        <ng-container *ngIf="(auth.isAuthenticated$ | async); else showLogin">
+            <p class="text-green-600 text-lg mb-4">You are logged in!</p>
+            <button
+            (click)="auth.logout({ logoutParams: { returnTo: returnToUrl! } })"
+            class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded shadow-md"
+            >
+            Logout
+            </button>
+        </ng-container>
+        <ng-template #showLogin>
+            <button
+            (click)="auth.loginWithRedirect()"
+            class="bg-primary hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow-md"
+            >
+            Login
+            </button>
+        </ng-template>
     </div>
 </div>
 

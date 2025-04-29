@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  inject, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
 import { UserService } from '../../services/user.service';
 
+import { AuthService } from '@auth0/auth0-angular';
+import { AuthModule } from '@auth0/auth0-angular';
+
 @Component({
   selector: 'app-user-login-page',
   standalone:true,
-  imports: [RouterModule, CommonModule, FormsModule ],
+  imports: [RouterModule, CommonModule, FormsModule, AuthModule ],
   templateUrl: './user-login-page.component.html',
   styleUrl: './user-login-page.component.css'
 })
@@ -39,7 +42,23 @@ export class UserLoginPageComponent{
     };
   }
   
-  constructor(private userService: UserService, private router: Router) {}
+  auth = inject(AuthService);
+  isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  returnToUrl = this.isBrowser ? window.location.origin : '';
+
+  constructor(private userService: UserService, private router: Router) {
+    if (this.isBrowser) {
+      this.auth.handleRedirectCallback().subscribe({
+        next: (result) => {
+          console.log('Auth0 callback handled:', result);
+        },
+        error: (error) => {
+          console.error('Error handling callback:', error);
+        }
+      });
+    }
+  }
+
   userRole = "";
   userName = ""
   onLogin(){

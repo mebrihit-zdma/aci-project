@@ -1,0 +1,11 @@
+{
+  "domain": "dev-0pgwp7ysi2jdr2a8.us.auth0.com",
+  "clientId": "5sOHHX3MGukqdH8ZTy5Tln2Cx9Fj660E",
+  "authorizationParams": {
+    "audience": "{yourApiIdentifier}"
+  },
+  "apiUri": "http://localhost:3001",
+  "appUri": "http://localhost:4200",
+  "errorPath": "/error"
+}
+
