@@ -17,6 +17,7 @@ import { UserService } from './services/user.service';
 import { LoginService } from './services/login.service';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationResult, AccountInfo } from '@azure/msal-browser';
+import { Router } from '@angular/router';  // Import router
 
 @Component({
   selector: 'app-root',
@@ -37,7 +38,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private loginService: LoginService,
     private http: HttpClient,
-    private msalService: MsalService
+    private msalService: MsalService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -63,6 +65,8 @@ export class AppComponent implements OnInit, OnDestroy {
                 // this.userService.setUserRole(profile.jobTitle);
                 this.userService.setUserRole("Product Owner");
               });
+              // Redirect to welcome page after login
+              this.router.navigate(['/welcome-page']);
             },
             error: (err) => console.error('Token error after redirect', err)
           });
