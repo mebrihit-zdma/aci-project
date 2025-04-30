@@ -11,8 +11,6 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 
 // app.routes.ts
 import { MsalGuard } from '@azure/msal-angular';
-import { HomeComponent } from './components/home/home.component';
-
 
 export const routes: Routes = [
     { path: 'welcome-page',component: WelcomePageComponent, canActivate: [MsalGuard]},
