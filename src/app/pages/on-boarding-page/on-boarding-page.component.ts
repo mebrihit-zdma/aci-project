@@ -14,10 +14,12 @@ import { UserService } from '../../services/user.service';
 export class OnBoardingPageComponent {
   
   constructor(private userService: UserService, private router: Router ) {}
-  userRole = "";
-  ngOnInit() {
-    // this.userRole = this.userService.getUserRole();
-    console.log('User Role:', this.userRole);
+
+  userRole: string | null = null;
+  ngOnInit(): void {
+    this.userService.userRole$.subscribe(role => {
+      this.userRole = role;
+    });
   }
 
   givenRoleList = false;

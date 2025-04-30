@@ -16,11 +16,16 @@ import { ChatService } from '../../services/chat.service';
 })
 export class LeftSidebarComponent {
   constructor(private userService: UserService, private chatService: ChatService ) {}
-  userName = "";
-  userRole = "";
+  
+  userName: string | null = null;
+  userRole: string | null = null;
   ngOnInit() {
-    // this.userName = this.userService.getUserName();
-    // this.userRole = this.userService.getUserRole();
+    this.userService.userName$.subscribe(name => {
+      this.userName = name;
+    });
+    this.userService.userRole$.subscribe(role => {
+      this.userRole = role;
+    });
   }
 
   isLeftSidebarCollapsed = input.required<boolean>();
@@ -77,7 +82,7 @@ export class LeftSidebarComponent {
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }
-  getFirstLetter(name: string): string {
+  getFirstLetter(name: string | null): string {
     return name ? name.charAt(0).toUpperCase() : '';
   }
 

@@ -17,11 +17,16 @@ import { UserService } from '../../services/user.service';
 })
 export class DashboardComponent {
   constructor(private userService: UserService ) {}
-  userName = "";
-  userRole = '';
+ 
+  userName: string | null = null;
+  userRole: string | null = null;
   ngOnInit() {
-    // this.userName = this.userService.getUserName();
-    // this.userRole = this.userService.getUserRole();
+    this.userService.userName$.subscribe(name => {
+      this.userName = name;
+    });
+    this.userService.userRole$.subscribe(role => {
+      this.userRole = role;
+    });
   }
   // cards data
   productLatestUpdates = [

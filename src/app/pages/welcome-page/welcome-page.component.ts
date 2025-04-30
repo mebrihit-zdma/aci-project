@@ -11,6 +11,7 @@ import { UserService } from '../../services/user.service';
   styleUrl: './welcome-page.component.css'
 })
 export class WelcomePageComponent implements OnInit {
+  
   constructor(private router: Router, private userService: UserService) {}
 
   userName: string | null = null;

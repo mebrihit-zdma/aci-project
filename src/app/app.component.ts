@@ -53,7 +53,13 @@ export class AppComponent implements OnInit, OnDestroy {
             next: (authResult) => {
               const headers = { Authorization: `Bearer ${authResult.accessToken}` };
               this.http.get<any>('https://graph.microsoft.com/v1.0/me', { headers }).subscribe(profile => {
+                console.log("profile: ", profile)
+                console.log("displayName: ", profile.displayName)
+                console.log("givenName: ", profile.givenName)
                 this.userService.setUserName(profile.givenName);
+                // console.log("jobTitle: ", profile.jobTitle)
+                // this.userService.setUserRole(profile.jobTitle);
+                this.userService.setUserRole("Product Owner");
               });
             },
             error: (err) => console.error('Token error after redirect', err)

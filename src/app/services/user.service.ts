@@ -30,8 +30,12 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
+
   private userNameSubject = new BehaviorSubject<string | null>(null);
   userName$ = this.userNameSubject.asObservable();
+
+  private userRoleSubject = new BehaviorSubject<string | null>(null);
+  userRole$ = this.userRoleSubject.asObservable();
 
   setUserName(name: string) {
     this.userNameSubject.next(name);
@@ -40,4 +44,13 @@ export class UserService {
   getUserName(): string | null {
     return this.userNameSubject.value;
   }
+
+  setUserRole(role: string) {
+    this.userRoleSubject.next(role);
+  }
+
+  getUserRole(): string | null {
+    return this.userRoleSubject.value;
+  }
+
 }
