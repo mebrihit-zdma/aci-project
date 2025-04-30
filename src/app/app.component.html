@@ -6,8 +6,6 @@
 </main> */-->
 
 <nav class="navbar navbar-dark bg-primary px-3">
-  <span class="navbar-brand mb-0 h1">Microsoft Identity Platform</span>
-
   <div class="d-flex align-items-center">
     <button *ngIf="!loginDisplay" class="btn btn-secondary me-2" (click)="login()">Sign In</button>
     <button *ngIf="loginDisplay" class="btn btn-secondary me-2" (click)="logout()">Sign Out</button>
