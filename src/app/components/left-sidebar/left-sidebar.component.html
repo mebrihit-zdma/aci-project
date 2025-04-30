@@ -60,13 +60,6 @@
                         </span>
                       }
                     </a>
-                    <hr *ngIf="i > 2" class="text-[#DFDFDF80]">
-                    <div *ngIf="item.label === 'Saved Chats'" class="h-[110px]">
-                      <app-saved-chats/>
-                    </div>
-                    <div *ngIf="item.label === 'Chat History'" class="h-[150px]">
-                      <app-chat-history/>
-                    </div>
                 </li>
             </ul>
           }
@@ -95,10 +88,7 @@
                     </span>
                     <hr class="text-[#DFDFDF80]">
                     @if (!isLeftSidebarCollapsed()) {
-                      <div *ngIf="item.label === 'Saved Chats'" class="h-[80px]">
-                        <app-saved-chats/>
-                      </div>
-                      <div *ngIf="item.label === 'Chat History'" class="h-[150px]">
+                      <div *ngIf="item.label === 'Chat History'" class="h-[180px]">
                         <app-chat-history/>
                       </div>
                     }

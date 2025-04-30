@@ -4,15 +4,14 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { LoginService } from '../../services/login.service';
 import { ChatHistoryComponent } from '../../components/chats/chat-history/chat-history.component';
-import { SavedChatsComponent } from '../../components/chats/saved-chats/saved-chats.component';
 import { ChatService } from '../../services/chat.service';
-import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
+import { MsalService } from '@azure/msal-angular';
 
 
 @Component({
   selector: 'app-left-sidebar',
   standalone: true,
-  imports: [RouterModule, CommonModule, SavedChatsComponent, ChatHistoryComponent ],
+  imports: [RouterModule, CommonModule, ChatHistoryComponent ],
   templateUrl: './left-sidebar.component.html',
   styleUrl: './left-sidebar.component.css'
 })
@@ -60,10 +59,6 @@ export class LeftSidebarComponent {
     {
       icon: 'search',
       label: 'Search Previous Chats',
-    },
-    {
-      icon: 'bookmark',
-      label: 'Saved Chats',
     },
     {
       icon: 'history',
