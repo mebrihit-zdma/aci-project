@@ -16,7 +16,7 @@ export class OnBoardingPageComponent {
   constructor(private userService: UserService, private router: Router ) {}
   userRole = "";
   ngOnInit() {
-    this.userRole = this.userService.getUserRole();
+    // this.userRole = this.userService.getUserRole();
     console.log('User Role:', this.userRole);
   }
 

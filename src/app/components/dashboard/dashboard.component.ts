@@ -20,8 +20,8 @@ export class DashboardComponent {
   userName = "";
   userRole = '';
   ngOnInit() {
-    this.userName = this.userService.getUserName();
-    this.userRole = this.userService.getUserRole();
+    // this.userName = this.userService.getUserName();
+    // this.userRole = this.userService.getUserRole();
   }
   // cards data
   productLatestUpdates = [

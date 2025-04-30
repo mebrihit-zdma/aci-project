@@ -1,26 +1,43 @@
-import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class UserService {
-  constructor() { }
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class UserService {
+//   constructor() { }
   
-  private userName: string = '';
-  private userRole: string = '';
+//   private userName: string = '';
+//   private userRole: string = '';
 
-  setUserName(userName: string) {
-    this.userName = userName;
-  }
-  setUserRole(role: string) {
-    this.userRole = role;
+//   setUserName(userName: string) {
+//     this.userName = userName;
+//   }
+//   setUserRole(role: string) {
+//     this.userRole = role;
+//   }
+
+//   getUserName(): string {
+//     return this.userName;
+//   }
+
+//   getUserRole(): string {
+//     return this.userRole;
+//   }
+// }
+// src/app/services/user.service.ts
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+@Injectable({ providedIn: 'root' })
+export class UserService {
+  private userNameSubject = new BehaviorSubject<string | null>(null);
+  userName$ = this.userNameSubject.asObservable();
+
+  setUserName(name: string) {
+    this.userNameSubject.next(name);
   }
 
-  getUserName(): string {
-    return this.userName;
-  }
-
-  getUserRole(): string {
-    return this.userRole;
+  getUserName(): string | null {
+    return this.userNameSubject.value;
   }
 }

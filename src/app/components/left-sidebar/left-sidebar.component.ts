@@ -19,8 +19,8 @@ export class LeftSidebarComponent {
   userName = "";
   userRole = "";
   ngOnInit() {
-    this.userName = this.userService.getUserName();
-    this.userRole = this.userService.getUserRole();
+    // this.userName = this.userService.getUserName();
+    // this.userRole = this.userService.getUserRole();
   }
 
   isLeftSidebarCollapsed = input.required<boolean>();

@@ -13,11 +13,12 @@ import { UserService } from '../../services/user.service';
 export class WelcomePageComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) {}
 
-  userName = "";
-  ngOnInit() {
-    this.userName = this.userService.getUserName();
+  userName: string | null = null;
+  ngOnInit(): void {
+    this.userService.userName$.subscribe(name => {
+      this.userName = name;
+    });
   }
-  
   goToOnboarding() {
     this.router.navigate(['/on-boarding-page']);
   }

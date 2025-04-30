@@ -51,8 +51,8 @@ export class UserLoginPageComponent{
       if(isUserExist != undefined){
         this.userRole = isUserExist.role;
         this.userName = isUserExist.userName
-        this.userService.setUserRole(this.userRole);
-        this.userService.setUserName(this.userName);
+        // this.userService.setUserRole(this.userRole);
+        // this.userService.setUserName(this.userName);
         this.router.navigate(['/welcome-page']);
         alert('User Login Successfully' )
       }else{

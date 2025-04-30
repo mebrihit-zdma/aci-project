@@ -1,16 +1,6 @@
 // import { Component, HostListener, OnInit, signal  } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-// @Component({
-//   selector: 'app-root',
-//   standalone: true,
-//   imports: [RouterOutlet],
-//   templateUrl: './app.component.html',
-//   styleUrl: './app.component.css'
-// })
-// export class AppComponent{
-//   title = 'aci';
-// }
 // Required for Angular
 import { Component, OnInit, Inject, OnDestroy, HostListener, signal } from '@angular/core';
 
@@ -23,6 +13,9 @@ import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { UserService } from './services/user.service';
+import { HttpClient } from '@angular/common/http';
+import { AuthenticationResult, AccountInfo } from '@azure/msal-browser';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +25,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'Angular - MSAL Example';
   loginDisplay = false;
   tokenExpiration: string = '';
   private readonly _destroying$ = new Subject<void>();
@@ -40,27 +32,36 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     @Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration,
     private authService: MsalService,
-    private msalBroadcastService: MsalBroadcastService
+    private msalBroadcastService: MsalBroadcastService,
+    private userService: UserService,
+    private http: HttpClient,
+    private msalService: MsalService
   ) { }
 
-  // On initialization of the page, display the page elements based on the user state
-  // ngOnInit(): void {
-  //   this.msalBroadcastService.inProgress$
-  //       .pipe(
-  //       filter((status: InteractionStatus) => status === InteractionStatus.None),
-  //       takeUntil(this._destroying$)
-  //     )
-  //     .subscribe(() => {
-  //       this.setLoginDisplay();
-  //     });
-
-  //     this.msalBroadcastService.msalSubject$.pipe(filter((msg: EventMessage) => msg.eventType === EventType.ACQUIRE_TOKEN_SUCCESS)).subscribe(msg => {
-  //     this.tokenExpiration=  (msg.payload as any).expiresOn;
-  //     localStorage.setItem('tokenExpiration', this.tokenExpiration);
-  //   });
-  // }
   ngOnInit(): void {
-    this.authService.handleRedirectObservable().subscribe(); // <-- This is critical
+    this.authService.handleRedirectObservable().subscribe({
+      next: (result) => {
+        const account = this.authService.instance.getAllAccounts()[0];
+        if (account) {
+          this.authService.instance.setActiveAccount(account);
+          const tokenRequest = {
+            scopes: ['User.Read'],
+            account: account
+          };
+  
+          this.authService.acquireTokenSilent(tokenRequest).subscribe({
+            next: (authResult) => {
+              const headers = { Authorization: `Bearer ${authResult.accessToken}` };
+              this.http.get<any>('https://graph.microsoft.com/v1.0/me', { headers }).subscribe(profile => {
+                this.userService.setUserName(profile.givenName);
+              });
+            },
+            error: (err) => console.error('Token error after redirect', err)
+          });
+        }
+      },
+      error: (err) => console.error('Redirect error:', err)
+    });
   
     this.msalBroadcastService.inProgress$
       .pipe(
@@ -70,6 +71,7 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe(() => this.setLoginDisplay());
   }
   
+  
 
   // If the user is logged in, present the user with a "logged in" experience
   setLoginDisplay() {
@@ -77,6 +79,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   // Log the user in and redirect them if MSAL provides a redirect URI otherwise go to the default URI
+ 
   login() {
     if (this.msalGuardConfig.authRequest) {
       this.authService.loginRedirect({ ...this.msalGuardConfig.authRequest } as RedirectRequest);
