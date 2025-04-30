@@ -2,6 +2,7 @@ import { Component, input, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
+import { LoginService } from '../../services/login.service';
 import { ChatHistoryComponent } from '../../components/chats/chat-history/chat-history.component';
 import { SavedChatsComponent } from '../../components/chats/saved-chats/saved-chats.component';
 import { ChatService } from '../../services/chat.service';
@@ -16,7 +17,10 @@ import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfigur
   styleUrl: './left-sidebar.component.css'
 })
 export class LeftSidebarComponent {
-  constructor(private userService: UserService, private chatService: ChatService, private authService: MsalService, ) {}
+  loginDisplay: boolean = false;
+  constructor(private userService: UserService, private loginService: LoginService, private chatService: ChatService, private authService: MsalService, ) {
+    this.loginDisplay= this.loginService.getLoginDisplay();
+  }
   
   userName: string | null = null;
   userRole: string | null = null;
@@ -94,6 +98,8 @@ export class LeftSidebarComponent {
 
   // Log the user out
   logout() {
-    this.authService.logoutRedirect();
+    if(this.loginDisplay){
+      this.authService.logoutRedirect();
+    }
   }
 }

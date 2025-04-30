@@ -14,6 +14,7 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserService } from './services/user.service';
+import { LoginService } from './services/login.service';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationResult, AccountInfo } from '@azure/msal-browser';
 
@@ -34,6 +35,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private authService: MsalService,
     private msalBroadcastService: MsalBroadcastService,
     private userService: UserService,
+    private loginService: LoginService,
     private http: HttpClient,
     private msalService: MsalService
   ) { }
@@ -81,6 +83,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   // If the user is logged in, present the user with a "logged in" experience
   setLoginDisplay() {
+    this.loginService.setLoginDisplay(this.authService.instance.getAllAccounts().length > 0)
     this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
   }
 

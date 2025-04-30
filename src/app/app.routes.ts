@@ -7,7 +7,7 @@ import {UserLoginPageComponent } from './pages/user-login-page/user-login-page.c
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { OnBoardingPageComponent } from './pages/on-boarding-page/on-boarding-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
-import { ProfileComponent } from './components/profile/profile.component';
+
 
 // app.routes.ts
 import { MsalGuard } from '@azure/msal-angular';
@@ -15,19 +15,19 @@ import { HomeComponent } from './components/home/home.component';
 
 
 export const routes: Routes = [
-    { path: 'profile',component: ProfileComponent, canActivate: [MsalGuard]},
+    { path: 'welcome-page',component: WelcomePageComponent, canActivate: [MsalGuard]},
     // { path: '', redirectTo: 'user-login-page', pathMatch: 'full' },
-    { path: 'user-login-page', component: UserLoginPageComponent},
-    { path: 'welcome-page', component: WelcomePageComponent },
+    // { path: 'user-login-page', component: UserLoginPageComponent},
+    // { path: 'welcome-page', component: WelcomePageComponent },
     { path: 'on-boarding-page', component: OnBoardingPageComponent },
     { path: 'dashboard-page', 
-    component: DashboardPageComponent,
-    children: [
-        { path: '', component: DashboardComponent },
-        { path: 'dashboard', component: DashboardComponent },
-        { path: 'documentation', component: DocumentationComponent },
-        { path: 'chat', component: ChatComponent },
-      ] 
+      component: DashboardPageComponent,
+      children: [
+          { path: '', component: DashboardComponent },
+          { path: 'dashboard', component: DashboardComponent },
+          { path: 'documentation', component: DocumentationComponent },
+          { path: 'chat', component: ChatComponent },
+        ] 
     },
     { path: '**', component: HomeComponent},
 ];
