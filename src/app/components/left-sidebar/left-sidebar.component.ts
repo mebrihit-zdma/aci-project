@@ -5,6 +5,7 @@ import { UserService } from '../../services/user.service';
 import { ChatHistoryComponent } from '../../components/chats/chat-history/chat-history.component';
 import { SavedChatsComponent } from '../../components/chats/saved-chats/saved-chats.component';
 import { ChatService } from '../../services/chat.service';
+import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { ChatService } from '../../services/chat.service';
   styleUrl: './left-sidebar.component.css'
 })
 export class LeftSidebarComponent {
-  constructor(private userService: UserService, private chatService: ChatService ) {}
+  constructor(private userService: UserService, private chatService: ChatService, private authService: MsalService, ) {}
   
   userName: string | null = null;
   userRole: string | null = null;
@@ -90,4 +91,9 @@ export class LeftSidebarComponent {
   startNewChat(){
     this.chatService.startNewChatEmitClick();
   };
+
+  // Log the user out
+  logout() {
+    this.authService.logoutRedirect();
+  }
 }
