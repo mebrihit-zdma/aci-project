@@ -27,8 +27,7 @@ import { Router } from '@angular/router';  // Import router
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
-  loginDisplay = false;
-  tokenExpiration: string = '';
+
   private readonly _destroying$ = new Subject<void>();
 
   constructor(
@@ -83,7 +82,7 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.setLoginDisplay();
   
-        // 🚀 Auto-login if no user is signed in
+        // Auto-login if no user is signed in
         const accounts = this.authService.instance.getAllAccounts();
         if (accounts.length === 0) {
           if (this.msalGuardConfig.authRequest) {
@@ -95,28 +94,10 @@ export class AppComponent implements OnInit, OnDestroy {
       });
   }
   
-  
-
   // If the user is logged in, present the user with a "logged in" experience
   setLoginDisplay() {
     this.loginService.setLoginDisplay(this.authService.instance.getAllAccounts().length > 0)
-    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
   }
-
-  // Log the user in and redirect them if MSAL provides a redirect URI otherwise go to the default URI
- 
-  login() {
-    if (this.msalGuardConfig.authRequest) {
-      this.authService.loginRedirect({ ...this.msalGuardConfig.authRequest } as RedirectRequest);
-    } else {
-      this.authService.loginRedirect();
-    }
-  }
-
-  // Log the user out
-  // logout() {
-  //   this.authService.logoutRedirect();
-  // }
 
   ngOnDestroy(): void {
     this._destroying$.next(undefined);
