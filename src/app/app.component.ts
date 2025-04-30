@@ -60,7 +60,7 @@ export class AppComponent implements OnInit, OnDestroy {
                 console.log("profile: ", profile)
                 console.log("displayName: ", profile.displayName)
                 console.log("givenName: ", profile.givenName)
-                this.userService.setUserName(profile.givenName);
+                this.userService.setUserName(profile.displayName);
                 // console.log("jobTitle: ", profile.jobTitle)
                 // this.userService.setUserRole(profile.jobTitle);
                 this.userService.setUserRole("Product Owner");
@@ -80,7 +80,19 @@ export class AppComponent implements OnInit, OnDestroy {
         filter((status: InteractionStatus) => status === InteractionStatus.None),
         takeUntil(this._destroying$)
       )
-      .subscribe(() => this.setLoginDisplay());
+      .subscribe(() => {
+        this.setLoginDisplay();
+  
+        // 🚀 Auto-login if no user is signed in
+        const accounts = this.authService.instance.getAllAccounts();
+        if (accounts.length === 0) {
+          if (this.msalGuardConfig.authRequest) {
+            this.authService.loginRedirect({ ...this.msalGuardConfig.authRequest } as RedirectRequest);
+          } else {
+            this.authService.loginRedirect();
+          }
+        }
+      });
   }
   
   
@@ -102,9 +114,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   // Log the user out
-  logout() {
-    this.authService.logoutRedirect();
-  }
+  // logout() {
+  //   this.authService.logoutRedirect();
+  // }
 
   ngOnDestroy(): void {
     this._destroying$.next(undefined);

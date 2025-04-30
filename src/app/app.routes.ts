@@ -16,9 +16,6 @@ import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
     { path: 'welcome-page',component: WelcomePageComponent, canActivate: [MsalGuard]},
-    // { path: '', redirectTo: 'user-login-page', pathMatch: 'full' },
-    // { path: 'user-login-page', component: UserLoginPageComponent},
-    // { path: 'welcome-page', component: WelcomePageComponent },
     { path: 'on-boarding-page', component: OnBoardingPageComponent },
     { path: 'dashboard-page', 
       component: DashboardPageComponent,
@@ -29,7 +26,7 @@ export const routes: Routes = [
           { path: 'chat', component: ChatComponent },
         ] 
     },
-    { path: '**', component: HomeComponent},
+    
 ];
 
 
