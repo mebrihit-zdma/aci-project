@@ -1,23 +1,11 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
-
-// export const appConfig: ApplicationConfig = {
-//   providers: [
-//     provideHttpClient(),
-//     provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), 
-//     provideClientHydration(withEventReplay()),
-    
-//   ]
-// };
-
-
 import {withEnabledBlockingInitialNavigation } from '@angular/router';
 import {withInterceptorsFromDi } from '@angular/common/http';
-
+import { msalInstanceFactory, msalGuardConfigFactory } from './msal-config';
 import {
   MSAL_INSTANCE,
   MSAL_GUARD_CONFIG,
@@ -26,7 +14,6 @@ import {
   MsalBroadcastService
 } from '@azure/msal-angular';
 
-import { msalInstanceFactory, msalGuardConfigFactory } from './msal-config';
 
 export const appConfig: ApplicationConfig = {
   providers: [

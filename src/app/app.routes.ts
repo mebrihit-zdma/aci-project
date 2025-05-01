@@ -3,13 +3,9 @@ import { Routes} from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DocumentationComponent } from './components/documentation/documentation.component';
 import { ChatComponent } from './components/chat/chat.component';
-import {UserLoginPageComponent } from './pages/user-login-page/user-login-page.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { OnBoardingPageComponent } from './pages/on-boarding-page/on-boarding-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
-
-
-// app.routes.ts
 import { MsalGuard } from '@azure/msal-angular';
 
 export const routes: Routes = [
@@ -24,7 +20,6 @@ export const routes: Routes = [
           { path: 'chat', component: ChatComponent },
         ] 
     },
-    
 ];
 
 

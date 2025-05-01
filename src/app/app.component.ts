@@ -1,14 +1,6 @@
-// import { Component, HostListener, OnInit, signal  } from '@angular/core';
+
 import { RouterOutlet } from '@angular/router';
-
-// Required for Angular
-import { Component, OnInit, Inject, OnDestroy, HostListener, signal } from '@angular/core';
-
-// Required for MSAL
-import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
-import { EventMessage, EventType, InteractionStatus, RedirectRequest } from '@azure/msal-browser';
-
-// Required for RJXS
+import { Component, OnInit, Inject, OnDestroy,} from '@angular/core';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { RouterModule } from '@angular/router';
@@ -16,8 +8,10 @@ import { CommonModule } from '@angular/common';
 import { UserService } from './services/user.service';
 import { LoginService } from './services/login.service';
 import { HttpClient } from '@angular/common/http';
-import { AuthenticationResult, AccountInfo } from '@azure/msal-browser';
-import { Router } from '@angular/router';  // Import router
+import { Router } from '@angular/router';
+// Required for MSAL
+import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
+import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
 
 @Component({
   selector: 'app-root',
@@ -37,7 +31,6 @@ export class AppComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private loginService: LoginService,
     private http: HttpClient,
-    private msalService: MsalService,
     private router: Router,
   ) { }
 
