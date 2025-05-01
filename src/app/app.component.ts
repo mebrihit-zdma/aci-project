@@ -22,6 +22,7 @@ import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
+  defaultUserRole: string = "Product Owner";
   private readonly _destroying$ = new Subject<void>();
 
   constructor(
@@ -50,12 +51,12 @@ export class AppComponent implements OnInit, OnDestroy {
               const headers = { Authorization: `Bearer ${authResult.accessToken}` };
               this.http.get<any>('https://graph.microsoft.com/v1.0/me', { headers }).subscribe(profile => {
                 console.log("profile: ", profile)
-                console.log("displayName: ", profile.displayName)
-                console.log("givenName: ", profile.givenName)
                 this.userService.setUserName(profile.displayName);
-                // console.log("jobTitle: ", profile.jobTitle)
-                // this.userService.setUserRole(profile.jobTitle);
-                this.userService.setUserRole("Product Owner");
+                if(profile.jobTitle != null){
+                  this.userService.setUserRole(profile.jobTitle);
+                }else{
+                  this.userService.setUserRole(this.defaultUserRole);
+                }
               });
               // Redirect to welcome page after login
               this.router.navigate(['/welcome-page']);
