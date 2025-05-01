@@ -1,12 +1,12 @@
-<div class="h-full w-full flex gap-4">
+<div class="h-full w-full flex flex-col lg:flex-row gap-4">
     <!-- document generate section -->
     <div class="flex flex-col gap-[16px] flex-1">
         <div class="flex justify-between">
             <!-- Select Template and Add Sources dropdown section -->
-            <div class="flex gap-[16px]">
+            <div class="flex flex-col lg:flex-row gap-[16px]">
                 <div class="flex flex-col relative">
                     <div [ngClass]="(!sourcesTemplateTooltipDone)? 'md:bg-[#F7F8FA] md:p-[16px] md:rounded-[8px] md:z-10010 md:shadow-[0px_4px_10px_rgba(0,0,0,0.2)]' : ''" >
-                        <div class="flex gap-[16px]">
+                        <div class="flex flex-col lg:flex-row gap-[16px]">
                             <!-- Select Template dropdown section -->
                             <div class="relative w-45">
                                 <!-- Dropdown Button -->
@@ -108,7 +108,7 @@
             <div class="flex flex-col relative">
                 <div [ngClass]="(!exportPublishTooltipDone)? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" 
                     [ngClass]="exportPublishTooltip? 'bg-[#F7F8FA] p-[16px] rounded-[8px] tooltip' : ''" >
-                    <div class="flex gap-[16px] h-[100%]">
+                    <div class="flex flex-col lg:flex-row gap-[16px] h-[100%]">
                         <button class="my-auto bg-white border border-[#D5D7DA] rounded-[8px] px-[16px] py-[8px] flex items-center gap-[8px] shadow-[0px_1px_2px_rgba(10,13,18,0.05)] text-[#666F8D] text-sm font-medium h-[100%]" (click)="exportAsText()">
                             <span class="w-[21.83px] h-[21.83px] bg-[url('./app/resources/icons/download-icon.svg')]">
                             </span>
@@ -236,8 +236,8 @@
 <!--/* add sources modal section */-->
 <div class="" *ngIf="isModalOpen">
     <div class="overlay"></div>
-    <div>
-        <div class="flex flex-col bg-white p-[24px] gap-[12px] w-[480px] min-h-[490px] rounded-[12px] absolute dashboard-model tooltip justify-between">
+    <div class="">
+        <div class="flex flex-col bg-white p-[24px] gap-[12px] w-[100%] md:w-[480px] min-h-[490px] rounded-[12px] absolute document-model tooltip justify-between">
             <div class="flex flex-col gap-[8px]">
                 <div class="flex items-center justify-between mb-[16px]">
                     <p class="font-medium font-[20px] text-[#2c2d2e]">Upload Sources</p>
