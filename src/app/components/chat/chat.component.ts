@@ -36,7 +36,7 @@ export class ChatComponent {
     this.postChat(question);
     this.askedQuestion = ''; 
   }
-
+  // Chat Stream
   postChat(askedQuestion: string) {
     console.log("this.userService.getUserId(): ", this.userService.getUserId())
     const payload = {
@@ -67,7 +67,7 @@ export class ChatComponent {
     });
   }
 
-  // get answer using chat id
+  // get chat using chat id
   getChat(chat_id: string) {
     this.apiService.getSelectedQuestion<any>(chat_id).subscribe({
       next: async (data) => {
