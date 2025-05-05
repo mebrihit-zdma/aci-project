@@ -51,6 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
               const headers = { Authorization: `Bearer ${authResult.accessToken}` };
               this.http.get<any>('https://graph.microsoft.com/v1.0/me', { headers }).subscribe(profile => {
                 console.log("profile: ", profile)
+                this.userService.setUserID(profile.id);
                 this.userService.setUserName(profile.displayName);
                 if(profile.jobTitle != null){
                   this.userService.setUserRole(profile.jobTitle);

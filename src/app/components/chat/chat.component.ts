@@ -10,6 +10,7 @@ import { marked } from 'marked';
 import { SourceCardComponent } from '../../components/cards/source-card/source-card.component';
 import { AnswerSource, ChatMessage } from '../../models/chat.model';
 import { extractAnswerText, convertMarkdown, extractSources } from '../../utils/chat-utils';
+import { UserService } from '../../services/user.service';
 
 
 
@@ -26,7 +27,7 @@ export class ChatComponent {
   sources: AnswerSource[] = [];
   messages: ChatMessage[] = [];
 
-  constructor(private apiService: ApiService, private chatService: ChatService, private sanitizer: DomSanitizer){}
+  constructor(private userService: UserService, private apiService: ApiService, private chatService: ChatService, private sanitizer: DomSanitizer){}
   
   // post a question and get answer using api call
   askQuestion(askedQuestion : string ) {
@@ -37,10 +38,11 @@ export class ChatComponent {
   }
 
   postChat(askedQuestion: string) {
+    console.log("this.userService.getUserId(): ", this.userService.getUserId())
     const payload = {
       app_id: '67daf330d62c5ade928150d1',
       session_id: 'b956506-2a95-43a2-8737-c0deb90d0b75',
-      user_id: '90487389-fd4d-4951-a72c-069d7b20test',
+      user_id: this.userService.getUserId(),
       question: askedQuestion, 
       model_name: 'openai/gpt-4o',
       top_k: 3,

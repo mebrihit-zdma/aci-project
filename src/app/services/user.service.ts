@@ -37,6 +37,10 @@ export class UserService {
   private userRoleSubject = new BehaviorSubject<string | null>(null);
   userRole$ = this.userRoleSubject.asObservable();
 
+  private userIdSubject = new BehaviorSubject<string | null>(null);
+  userId$ = this.userIdSubject.asObservable();
+
+  // UserName
   setUserName(name: string) {
     this.userNameSubject.next(name);
   }
@@ -44,13 +48,21 @@ export class UserService {
   getUserName(): string | null {
     return this.userNameSubject.value;
   }
-
+  // UserRole
   setUserRole(role: string) {
     this.userRoleSubject.next(role);
   }
 
   getUserRole(): string | null {
     return this.userRoleSubject.value;
+  }
+  // UserId
+  setUserID(id: string) {
+    this.userIdSubject.next(id);
+  }
+
+  getUserId(): string | null {
+    return this.userIdSubject.value;
   }
 
 }
