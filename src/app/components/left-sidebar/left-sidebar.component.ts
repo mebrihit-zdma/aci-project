@@ -98,9 +98,9 @@ export class LeftSidebarComponent {
   };
 
   // Log the user out
-  logout() {
-    if(this.loginDisplay){
-      this.authService.logoutRedirect();
-    }
-  }
+  // logout() {
+  //   if(this.loginDisplay){
+  //     this.authService.logoutRedirect();
+  //   }
+  // }
 }
