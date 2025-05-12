@@ -9,9 +9,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import { MsalGuard } from '@azure/msal-angular';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'welcome-page', pathMatch: 'full' },
-    { path: 'welcome-page', component: WelcomePageComponent},
-    // { path: 'welcome-page',component: WelcomePageComponent, canActivate: [MsalGuard]},
+    { path: 'welcome-page',component: WelcomePageComponent, canActivate: [MsalGuard]},
     { path: 'on-boarding-page', component: OnBoardingPageComponent },
     { path: 'dashboard-page', 
       component: DashboardPageComponent,
