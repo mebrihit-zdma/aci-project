@@ -40,6 +40,9 @@ export class UserService {
   private userIdSubject = new BehaviorSubject<string | null>(null);
   userId$ = this.userIdSubject.asObservable();
 
+  private userImageUrlSubject = new BehaviorSubject<string | null>(null);
+  userImageUrl$ = this.userImageUrlSubject.asObservable();
+
   // UserName
   setUserName(name: string) {
     this.userNameSubject.next(name);
@@ -64,5 +67,12 @@ export class UserService {
   getUserId(): string | null {
     return this.userIdSubject.value;
   }
+  // userImageUrl
+  setUserImageUrl(id: string) {
+    this.userImageUrlSubject.next(id);
+  }
 
+  getUserImageUrl(): string | null {
+    return this.userImageUrlSubject.value;
+  }
 }

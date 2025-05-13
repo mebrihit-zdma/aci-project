@@ -16,6 +16,7 @@ import { MsalService } from '@azure/msal-angular';
   styleUrl: './left-sidebar.component.css'
 })
 export class LeftSidebarComponent {
+  
   loginDisplay: boolean = false;
   constructor(private userService: UserService, private loginService: LoginService, private chatService: ChatService, private authService: MsalService, ) {
     this.loginDisplay= this.loginService.getLoginDisplay();
@@ -23,12 +24,17 @@ export class LeftSidebarComponent {
   
   userName: string | null = null;
   userRole: string | null = null;
+  profileImageUrl: string | null = null;
   ngOnInit() {
     this.userService.userName$.subscribe(name => {
       this.userName = name;
     });
     this.userService.userRole$.subscribe(role => {
       this.userRole = role;
+    });
+
+    this.userService.userImageUrl$.subscribe(imageUrl => {
+      this.profileImageUrl = imageUrl;
     });
   }
 
