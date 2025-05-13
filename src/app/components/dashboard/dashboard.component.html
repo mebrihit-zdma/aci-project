@@ -176,6 +176,365 @@
 
 
 
+<!-- Customize Widget modal -->
+<div id="crypto-modal" tabindex="-1" class=" overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 max-h-full">
+    <div class="relative w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200 modalHeader">
+                <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.666667 7.16667H4.66667C5.03333 7.16667 5.33333 6.86667 5.33333 6.5V1.16667C5.33333 0.8 5.03333 0.5 4.66667 0.5H0.666667C0.3 0.5 0 0.8 0 1.16667V6.5C0 6.86667 0.3 7.16667 0.666667 7.16667ZM0.666667 12.5H4.66667C5.03333 12.5 5.33333 12.2 5.33333 11.8333V9.16667C5.33333 8.8 5.03333 8.5 4.66667 8.5H0.666667C0.3 8.5 0 8.8 0 9.16667V11.8333C0 12.2 0.3 12.5 0.666667 12.5ZM7.33333 12.5H11.3333C11.7 12.5 12 12.2 12 11.8333V6.5C12 6.13333 11.7 5.83333 11.3333 5.83333H7.33333C6.96667 5.83333 6.66667 6.13333 6.66667 6.5V11.8333C6.66667 12.2 6.96667 12.5 7.33333 12.5ZM6.66667 1.16667V3.83333C6.66667 4.2 6.96667 4.5 7.33333 4.5H11.3333C11.7 4.5 12 4.2 12 3.83333V1.16667C12 0.8 11.7 0.5 11.3333 0.5H7.33333C6.96667 0.5 6.66667 0.8 6.66667 1.16667Z" fill="black"/>
+                    </svg>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    Customize Widgets
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crypto-modal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5  modalContent">
+                <ul class="my-4 space-y-3">
+                    <li>
+                        <div  class="flex justify-center items-center">
+                            <div class="listIcon"></div>
+                            <div class="flex flex-col p-3 text-base text-gray-900 rounded-lg  hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white border border-[#282BDD] ">
+                           <div class="flex justify-between" >
+                            <p class="text-[12.8px] font-bold text-gray-500 dark:text-gray-400">What’s New (Latest Updates in the Product)</p>
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer">
+                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+                              </label>
+                            </div>
+                            
+                              <p class="text-[9.61px] font-normal text-gray-500 dark:text-gray-400">See highlights of new features and improvements..</p>
+                            
+                            
+                              <!-- <div class="flex">
+
+                                <div class="flex flex-col gap-[4px]">
+                                     <span class="flex-1 ms-3 whitespace-nowrap">Release Summary</span>
+                            </div>
+                            <div class="flex">
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer">
+                                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+                              </label>
+                            </div>
+                            <div class="flex justify-between">
+                                <p>This monthly progress agenda is following this items</p></div>
+                            </div>  -->
+                            <div class="flex justify-between">
+                            <!---->
+                            <div class="bg-white border border-[#D5D7DA] rounded-lg h-[100%] flex flex-col gap-[16px] px-[24px] py-[16px]">
+                                <div class="h-[100%] flex flex-col gap-[16px]">
+                                    <div class="flex"><p class="text-[7.12px] font-medium py-[4px] px-[8px] text-[#666F8D]">7th March, 2025</p><p class="text-xs font-medium py-[4px] px-[8px] bg-latest-label rounded-[3.5px]" ng-reflect-ng-class="">New</p></div>
+                                    <p class="mb-[-8px] text-[9.17px] font-bold">Release Summary</p>
+                                    <p class="text-[#666F8D] text-[6.88px] mb-[-8px]">This monthly progress agenda is following this items:.</p>
+                                    <ul class="list-disc text-[#666F8D] text-sm flex flex-col gap-[8px] ml-[24px]">
+                                        <li>Enhanced transaction security to prevent unauthorized access.</li>
+                                    <li>Improved API response times by 30% for better performance.</li>
+                                    <li>Introduced a new fraud detection feature to minimize risk.</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col gap-[16px]"><hr class="border-none h-[1px] bg-[#e2e8f0]"><a class="flex gap-[4px]"><div class="w-[23px] h-[23px] scale-[0.7] bg-[url('./app/resources/icons/blue-stars.svg')]"></div><p class="text-sm brand-color font-bold flex items-center">Learn More</p></a></div></div>
+                            <!---->
+
+                            </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div  class="flex justify-center items-center">
+                            <div class="listIcon"></div>
+                            <div class="flex flex-col p-3 text-base text-gray-900 rounded-lg  hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white border border-[#282BDD] ">
+                        <div class="flex justify-between" >
+                        <p class="text-[12.8px] font-bold text-gray-500 dark:text-gray-400">What’s New (Latest Updates in the Product)</p>
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="checkbox" value="" class="sr-only peer">
+                            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+                            </label>
+                        </div>
+                        
+                            <p class="text-[9.61px] font-normal text-gray-500 dark:text-gray-400">See highlights of new features and improvements..</p>
+                        
+                        
+                            <!-- <div class="flex">
+
+                            <div class="flex flex-col gap-[4px]">
+                                    <span class="flex-1 ms-3 whitespace-nowrap">Release Summary</span>
+                        </div>
+                        <div class="flex">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="checkbox" value="" class="sr-only peer">
+                            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+                            </label>
+                        </div>
+                        <div class="flex justify-between">
+                            <p>This monthly progress agenda is following this items</p></div>
+                        </div>  -->
+                        <div class="flex justify-between">
+                        <!---->
+                        <div class="bg-white border border-[#D5D7DA] rounded-lg h-[100%] flex flex-col gap-[16px] px-[24px] py-[16px]">
+                            <div class="h-[100%] flex flex-col gap-[16px]">
+                                <div class="flex">
+                                    <p class="text-[7.12px] font-medium py-[4px] px-[8px] text-[#666F8D]">Total Bug Raised </p>
+                                    <p class="mb-[-8px] text-[9.17px] font-bold">12</p>
+                                <p class="text-[#666F8D] text-[6.88px] mb-[-8px]">This month.</p>
+                            </div>
+                            <div class="flex flex-col gap-[16px]"><hr class="border-none h-[1px] bg-[#e2e8f0]"><a class="flex gap-[4px]"><p class="text-sm brand-color font-bold flex items-center">Learn More</p></a></div></div>
+                        <!---->
+
+                        </div>
+                        </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div  class="flex justify-center items-center">
+                            <div class="listIcon"></div>
+                        <div class="flex flex-col p-3 text-base text-gray-900 rounded-lg  hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white border border-[#282BDD] ">
+                            <div class="flex justify-between" >
+                             <p class="text-[12.8px] font-bold text-gray-500 dark:text-gray-400">What’s New (Latest Updates in the Product)</p>
+                             <label class="inline-flex items-center cursor-pointer">
+                                 <input type="checkbox" value="" class="sr-only peer">
+                                 <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+                               </label>
+                              </div>
+
+                             <div class="flex justify-between">
+                                <!---->
+                                <div class="bg-white border border-[#D5D7DA] rounded-lg h-[100%] flex flex-col gap-[16px] px-[24px] py-[16px]">
+                                   
+                             
+                               <p class="text-[9.61px] font-normal text-gray-500 dark:text-gray-400">See highlights of new features and improvements..</p>
+<!--                              
+                                                
+<table id="default-table">
+    <thead>
+        <tr>
+            <th>
+                <span class="flex items-center">
+                    Name
+                    <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                    </svg>
+                </span>
+            </th>
+            <th data-type="date" data-format="YYYY/DD/MM">
+                <span class="flex items-center">
+                    Release Date
+                    <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                    </svg>
+                </span>
+            </th>
+            <th>
+                <span class="flex items-center">
+                    NPM Downloads
+                    <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                    </svg>
+                </span>
+            </th>
+            <th>
+                <span class="flex items-center">
+                    Growth
+                    <svg class="w-4 h-4 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 15 4 4 4-4m0-6-4-4-4 4"/>
+                    </svg>
+                </span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Flowbite</td>
+            <td>2021/25/09</td>
+            <td>269000</td>
+            <td>49%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">React</td>
+            <td>2013/24/05</td>
+            <td>4500000</td>
+            <td>24%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Angular</td>
+            <td>2010/20/09</td>
+            <td>2800000</td>
+            <td>17%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Vue</td>
+            <td>2014/12/02</td>
+            <td>3600000</td>
+            <td>30%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Svelte</td>
+            <td>2016/26/11</td>
+            <td>1200000</td>
+            <td>57%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Ember</td>
+            <td>2011/08/12</td>
+            <td>500000</td>
+            <td>44%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Backbone</td>
+            <td>2010/13/10</td>
+            <td>300000</td>
+            <td>9%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">jQuery</td>
+            <td>2006/28/01</td>
+            <td>6000000</td>
+            <td>5%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Bootstrap</td>
+            <td>2011/19/08</td>
+            <td>1800000</td>
+            <td>12%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Foundation</td>
+            <td>2011/23/09</td>
+            <td>700000</td>
+            <td>8%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Bulma</td>
+            <td>2016/24/10</td>
+            <td>500000</td>
+            <td>7%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Next.js</td>
+            <td>2016/25/10</td>
+            <td>2300000</td>
+            <td>45%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Nuxt.js</td>
+            <td>2016/16/10</td>
+            <td>900000</td>
+            <td>50%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Meteor</td>
+            <td>2012/17/01</td>
+            <td>1000000</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Aurelia</td>
+            <td>2015/08/07</td>
+            <td>200000</td>
+            <td>20%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Inferno</td>
+            <td>2016/27/09</td>
+            <td>100000</td>
+            <td>35%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Preact</td>
+            <td>2015/16/08</td>
+            <td>600000</td>
+            <td>28%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Lit</td>
+            <td>2018/28/05</td>
+            <td>400000</td>
+            <td>60%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Alpine.js</td>
+            <td>2019/02/11</td>
+            <td>300000</td>
+            <td>70%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Stimulus</td>
+            <td>2018/06/03</td>
+            <td>150000</td>
+            <td>25%</td>
+        </tr>
+        <tr>
+            <td class="font-medium text-gray-900 whitespace-nowrap dark:text-white">Solid</td>
+            <td>2021/05/07</td>
+            <td>250000</td>
+            <td>80%</td>
+        </tr>
+    </tbody>
+</table> -->
+<!-- <div id="modaltable">
+    <app-release-history-table [data]="releaseHistory" />
+</div> -->
+<!-- *ngIf="userRole === 'Product Owner'"-->
+</div>
+
+
+
+</div>
+                        </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div  class="flex justify-center items-center">
+                            <div class="listIcon"></div>
+                            <div class="flex flex-col p-3 text-base text-gray-900 rounded-lg  hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white border border-[#282BDD] ">
+                                <div class="flex justify-between" >
+                                <p class="text-[12.8px] font-bold text-gray-500 dark:text-gray-400">What’s New (Latest Updates in the Product)</p>
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" value="" class="sr-only peer">
+                                    <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"></div>
+                                    </label>
+                                </div>
+                                
+                                    <p class="text-[9.61px] font-normal text-gray-500 dark:text-gray-400">See highlights of new features and improvements..</p>
+                                    <div class="flex justify-between" >
+                                        <app-release-history-table class="releaseHistoryListData" [data]="releaseHistory" />
+                                    </div>
+                            </div>
+                        </div>
+                    </li>
+                   
+                </ul>
+                <div>
+                    <a href="#" class="inline-flex items-center text-xs font-normal text-gray-500 hover:underline dark:text-gray-400">
+                        <svg class="w-3 h-3 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.529 7.988a2.502 2.502 0 0 1 5 .191A2.441 2.441 0 0 1 10 10.582V12m-.01 3.008H10M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                        Why do I need to connect with my wallet?</a>
+                        <div class="flex justify-between w-full mt-[10px] gap-[12px]">
+                            <button class="bg-white flex justify-center items-center py-[8px] px-[24px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="skipAciPaymentHubTooltip()">
+                                Restore to default
+                            </button>
+                            <button class="activeButton flex justify-center items-center py-[8px] px-[32px]  border border-[#D5D7DA] rounded-[8px] text-sm w-[168px] h-[44px]" (click)="goToCreateDocTooltip()" >
+                                Save
+                            </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 
