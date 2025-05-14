@@ -335,5 +335,8 @@ input[type='checkbox']:checked:after {
   padding: 2px !important;
   border-radius: 100px !important;
 }
-
+.releaseHistoryListData > div > ul > li {
+  padding-inline-start: 5px !important;
+  gap: 2px !important;
+  }
 
