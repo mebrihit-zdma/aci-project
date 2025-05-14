@@ -10,7 +10,7 @@
     margin-bottom: 0 !important;
 }
 .modalContent {
-    height: 500px;
+    height: 650px;
     overflow-y: scroll;
 }
 .listIcon {
@@ -23,16 +23,6 @@
   .releaseHistoryListData {
     width: 100%;
   }
-
-
-  /* .releaseHistoryListData > div > ul > li > div{
-    font-size: 9px !important;
-    width: 95%;
-  }
-  .releaseHistoryListData > div > ul > li > div > div:nth-of-type(1) {
-    width: 90%;
-
-  } */
 
   .releaseHistoryListData > div > span {
     font-size: 9px !important;
